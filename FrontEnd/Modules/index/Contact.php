@@ -27,7 +27,7 @@
               <h3>Email</h3>
               <p><a href="mailto:djbpuerta349@gmail.com">djbpuerta349@gmail.com</a></p>
             </div>
-          </div>
+          </div>          
           <form action="forms/contact.php" method="post" role="form" class="php-email-form">
             <div class="form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />

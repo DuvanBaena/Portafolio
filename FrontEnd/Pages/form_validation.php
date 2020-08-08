@@ -13,7 +13,7 @@
 
   <title>Form Abouth me</title>
 
-  <!-- Bootstrap CSS -->
+  <!-- All CSS -->
   <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../Resources/vendor/bootstrap/css/bootstrap-themev3.0.0.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/elegant-icons-style.css" rel="stylesheet" />
@@ -26,72 +26,10 @@
   <!-- container section start -->
   <section id="container" class="">
     <!--header start-->
-    <header class="header dark-bg">
-      <div class="toggle-nav">
-        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i
-            class="icon_menu"></i></div>
-      </div>   
-      <a href="index.html" class="logo">Nice <span class="lite">Admin</span></a>
-      <div class="top-nav notification-row">       
-        <ul class="nav pull-right top-menu">
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-              <span class="profile-ava">
-               <img alt="" src="../Resources/img/avatar1_small.jpg">
-              </span>
-              <span class="username">Jenifer Smith</span>
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu extended logout">
-              <div class="log-arrow-up"></div>
-              <li class="eborder-top">
-                <a href="login.php"><i class="icon_key_alt"></i> Log Out</a>
-              </li> 
-              <li>
-                <a href="#"><i class="icon_key_alt"></i> Documentation</a>
-              </li>
-            </ul>
-          </li>          
-        </ul>       
-      </div>
-    </header>
-    <!--header end-->
 
-    <!--sidebar start-->
-    <aside>
-      <div id="sidebar" class="nav-collapse ">        
-        <ul class="sidebar-menu">
-          <li class="active">
-            <a class="" href="Dashboard.php">
-              <i class="icon_house_alt"></i>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
-              <i class="icon_document_alt"></i>
-              <span>Blog</span>
-              <span class="menu-arrow arrow_carrot-right"></span>
-            </a>
-            <ul class="sub">
-              <li><a href="#">Menu Blog</a></li>
-              <li><a href="#">Blog Individual</a></li>                    
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
-              <i class="icon_document_alt"></i>
-              <span>Book's</span>
-              <span class="menu-arrow arrow_carrot-right"></span>
-            </a>
-            <ul class="sub">
-              <li><a href="#">Menu Book</a></li>                             
-            </ul>
-          </li>
-        </ul>       
-      </div>
-    </aside>
-    <!--sidebar end-->
+    <?php include __DIR__ . '../../Modules/Dashboard/MasterPages.php'; ?>
+
+    <!-- sidebar menu end-->
 
     <!--main content start-->
     <section id="main-content">
@@ -146,6 +84,12 @@
                         <textarea class="form-control " id="ccomment" name="comment" required></textarea>
                       </div>
                     </div>
+                    <div class="form-group ">
+                      <label for="ccomment" class="control-label col-lg-2">Feedback</label>
+                      <div class="col-lg-10">
+                        <textarea class="form-control " id="ccomment" name="comment" required></textarea>
+                      </div>
+                    </div>
                     <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">
                         <button class="btn btn-primary" type="submit">Save</button>
@@ -154,27 +98,14 @@
                     </div>
                   </form>
                 </div>
-              </div>
-            </section>
+              </div>              
+            </section>           
           </div>
-        </div>
+        </div>       
+      </section>       
+    </section>       
+  </section>  
 
-      </section>
-    </section>
-    <!--main content end-->
-    <div class="text-right">
-      <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-    </div>
-  </section>
-  <!-- container section end -->
 
   <!-- javascripts -->
   <script src="../Resources/vendor/jquery/jquery.js"></script>
