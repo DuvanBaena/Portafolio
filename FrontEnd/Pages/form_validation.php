@@ -7,13 +7,15 @@
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  <link rel="shortcut icon" href="img/favicon.png">
+   
+   <!-- Favicons -->
+   <link href="../Resources/img/favicon.ico" rel="icon">
 
-  <title>Form Validation | Creative - Bootstrap 3 Responsive Admin Template</title>
+  <title>Form Abouth me</title>
 
   <!-- Bootstrap CSS -->
   <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../Resources/dashboard/bootstrap-theme.css" rel="stylesheet">
+  <link href="../Resources/vendor/bootstrap/css/bootstrap-themev3.0.0.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/elegant-icons-style.css" rel="stylesheet" />
   <link href="../Resources/css/dashboard.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/style-responsive.css" rel="stylesheet" />
