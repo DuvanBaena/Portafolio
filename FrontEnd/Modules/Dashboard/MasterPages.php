@@ -1,9 +1,13 @@
+<?php
+include __DIR__ . '../../../Pages/Session.php';
+sleep(5);
+?>
 <header class="header dark-bg">
       <div class="toggle-nav">
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i
             class="icon_menu"></i></div>
       </div>      
-      <a href="index.html" class="logo">Nice <span class="lite">Admin</span></a>  
+     <a href="#" class="logo">Hello<span class="lite"></span>
       <div class="top-nav notification-row">
         <ul class="nav pull-right top-menu">
           <li class="dropdown">
@@ -11,13 +15,13 @@
               <span class="profile-ava">
                 <img alt="" src="../Resources/img/avatar1_small.jpg">
               </span>
-              <span class="username">Jenifer Smith</span>
+              <span class="username"><?php echo $_SESSION['i_nombre'];?></span>
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
               <div class="log-arrow-up"></div>
               <li class="eborder-top">
-                <a href="login.php"><i class="icofont-key"></i>Log Out</a>
+                <a href="Logout.php"><i class="icofont-key"></i>Log Out</a>
               </li>
               <li>
                 <a href="#"><i class="icofont-law-document"></i> Documentationt</a>

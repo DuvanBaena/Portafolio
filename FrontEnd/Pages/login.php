@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,24 +23,29 @@
 
 <body class="login-img3-body">
   <div class="container">
-    <form class="login-form" action="index.html">
-      <div class="login-wrap">
-        <p class="login-img"><i class="icofont-ui-lock"></i></p>
+    <form class="login-form" >
+      <div class="login-wrap">        
+        <div class="text-center">                       
+            <span class="pull-right" style="display: none" id="capa"></span>  
+            <p class="login-img"><i class="icofont-ui-lock"></i></p>         
+        </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="icofont-headphone-alt-1"></i></span>
-          <input type="text" class="form-control" placeholder="Username" autofocus>
+          <input type="text" class="form-control" id="Username" placeholder="Username@exaple.com" autofocus>
+          <span class="help-block"></span>   
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="icofont-monkey-face"></i></span>
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" id="Password" placeholder="Password">
         </div>
-        <!-- <a href="dashboard.html"><i class='bx bx-book-heart'></i> Test</a></li>   -->
-        <!-- <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button> -->
         <button type="button" class="btn btn-primary btn-lg btn-block" id="btnGuardar">Guardar</button>
+        <div id="capa2" style="display: none"></div> 
         <div class="text-right">                       
             <span class="pull-right">Version - 0.1.0.070820</span>           
         </div>
       </div>
+     
+    </div>       
     </form>
   </div>
 
