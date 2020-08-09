@@ -11,9 +11,9 @@ $ingreso=$data->validaringreso();
 if (count($ingreso[0])==1) {
 
 	// cargar las variables de session
-	$_SESSION['i_id']=$ingreso["idCli"];
-	$_SESSION['i_nombre']=$ingreso["NomCli"];
-	$_SESSION['i_lastname']=$ingreso["ApeCli"];
+	$_SESSION['i_id']=$ingreso["UserID"];
+	$_SESSION['i_nombre']=$ingreso["UserName"];
+	$_SESSION['i_rol']=$ingreso["UserRole"];
 			//$_SESSION['i_cargo']=$ingreso["cargo"];
 
     	

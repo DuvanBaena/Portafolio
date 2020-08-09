@@ -34,7 +34,7 @@ function login(){
                  //$("#capa").html("Un momento por favor");
               },            
             success : function (response) {
-                //$("#capa").show(); 
+               //("#capa").show(); 
                // $("#capa").html(response); 
     
             if (response==1)  

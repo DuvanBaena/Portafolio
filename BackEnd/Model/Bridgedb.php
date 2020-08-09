@@ -25,13 +25,12 @@ class BaseDatos extends Conexion{
     public function validaringreso(){
 
         $sql="SELECT * FROM tbluser ";
-        $sql.=" WHERE UsuCli='".$this->UsuLogin."' ";
-        $sql.=" AND ClavCli=MD5('".$this->ClaLogin."') ";
+        $sql.=" WHERE UserEmail='".$this->UsuLogin."' ";
+        $sql.=" AND UserPassword=MD5('".$this->ClaLogin."') ";
          
          if($this->conector->query($sql)){
-              $resultado=$this->conector->query($sql);
-             // si tiene los resultados pasan todos los campos y sus respectivos datos
-             $vector=$resultado->fetch_array();
+            $resultado=$this->conector->query($sql);            
+            $vector=$resultado->fetch_array();
          }
          else {
  

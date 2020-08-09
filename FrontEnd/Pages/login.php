@@ -26,8 +26,10 @@
     <form class="login-form" >
       <div class="login-wrap">        
         <div class="text-center">                       
-            <span class="pull-right" style="display: none" id="capa"></span>  
-            <p class="login-img"><i class="icofont-ui-lock"></i></p>         
+            <span class="pull-right" style="display: none" id="capa"></span> 
+             <p class="login-img">
+                <a href="../index.php" class="login-img"><i class="icofont-funky-man"></i></a>
+             </p>         
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="icofont-headphone-alt-1"></i></span>

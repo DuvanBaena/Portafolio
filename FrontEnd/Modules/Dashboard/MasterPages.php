@@ -7,7 +7,7 @@ sleep(5);
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i
             class="icon_menu"></i></div>
       </div>      
-     <a href="#" class="logo">Hello<span class="lite"></span>
+     <a href="#" class="logo">Hello<span class="lite"> <?php echo $_SESSION['i_rol'];?></span>
       <div class="top-nav notification-row">
         <ul class="nav pull-right top-menu">
           <li class="dropdown">
@@ -48,7 +48,7 @@ sleep(5);
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a href="#">Menu Blog</a></li>
+              <li><a href="blank.php">Menu Blog</a></li>
               <li><a href="#">Blog Individual</a></li>                    
             </ul>
           </li>
