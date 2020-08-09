@@ -69,7 +69,7 @@ sleep(5);
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a href="blank.php">Menu Book</a></li>                             
+              <li><a href="Version.php">Version Detail</a></li>                             
             </ul>
           </li>
         </ul>       

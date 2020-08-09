@@ -16,11 +16,18 @@ class BaseDatos extends Conexion{
          $this->UsuLogin=$_REQUEST['Username'];
          $this->ClaLogin=$_REQUEST['Password'];
 
-       }   
+       } 
+       
+       
+     if (isset($_REQUEST['versionCode']) && $_REQUEST['VersionDate']<>"") {
 
-    }
+     $this->versionCode=$_REQUEST['versionCode'];
+     $this->versionDate=$_REQUEST['VersionDate'];
+     $this->versionComment=$_REQUEST['VersionComment'];
 
- 
+    } 
+
+    } 
    
     public function validaringreso(){
 
@@ -40,6 +47,30 @@ class BaseDatos extends Conexion{
  
      }
 
+    /* En este parte ira toda la logica de la base de datos para el tema de la Version (CRUD) */
+    
+     public function AddVersion(){
+
+        $sql="INSERT INTO `tblversion`(`VersionCode`, `VersionDate`, `VersionComment`) VALUES 
+        (       
+        '".$this->versionCode."',
+        '".$this->versionDate."',  
+        '". $this->versionComment."'
+        )";
+
+        if($this->conector->query($sql)){
+
+            $mensaje="<strong>Attention</strong> the data was inserted correctly.";
+
+
+        }else{
+
+            $mensaje="Datos con problemas";
+        }
+       
+
+        return $mensaje;
+     } 
 
 
 
