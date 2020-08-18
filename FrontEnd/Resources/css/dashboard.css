@@ -1045,3 +1045,43 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     color: #eaebf0; 
     
   }
+
+    /*Modal Content*/
+
+
+/* .modal-dialog {  
+   position: absolute;       
+   top:50% !important;
+   transform: translate(0, -50%) !important;
+   margin:auto 5%;
+
+} */
+
+.modal-dialog {  
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%) !important;
+    left: 0;
+    right: 0;
+    margin:auto;
+ }
+
+.modal-content{
+    border-radius:10px;   
+}
+
+.modal-header .close{   
+    font-weight: 300;
+    font-size: 30px;
+}
+
+.modal .modal-footer {
+    background: #ecf0f1;
+    border-radius: 0 0 3px 3px;
+}
+
+
+.form-control-label abbr {
+    text-decoration: none;
+    font-weight: normal;
+  }

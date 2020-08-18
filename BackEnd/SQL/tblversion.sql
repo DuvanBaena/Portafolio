@@ -32,7 +32,7 @@ CREATE TABLE `tblversion` (
   `VersionId` int(11) NOT NULL,
   `VersionCode` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `VersionComment` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `VersionDate` datetime NOT NULL
+  `VersionDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --

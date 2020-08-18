@@ -1,6 +1,10 @@
+<?php
+include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
+$data=new BaseDatos;
+$records=$data->ListVersion();
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +15,7 @@
   <!-- Favicons -->
   <link href="../Resources/img/favicon.ico" rel="icon">
 
-  <title>Blank</title>
+  <title>Version</title>
 
   <!-- All CSS -->
   <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -45,35 +49,50 @@
          
           <div class="row">
             <div class="col-lg-12">            
-              <a class="btn btn-success" href="AddVersion.php"><i class="icofont-save"></i></a>                 
+              <a class="btn btn-success" href="AddVersion.php"><i class="icofont-save"></i></a>   
+              <!-- <a href="#" class="btn btn-success" data-toggle="modal" data-target="#ModalAddVersion">
+              <i class="icofont-save"></i><span> Agregar nuevo producto</span></a>      -->
             </div>
-          </div>
-          </br>  
+          </div>    
+			   </br>  
+
+
+
 
           <div class="row">
            <div class="col-lg-12">
             <section class="panel">
               <table class="table table-striped table-advance table-hover">
-                <tbody>
-                  <tr>
-                    <th><i class="icofont-listing-number"></i>#</th>
-                    <th><i class="icofont-id"></i>Version Code</th>
-                    <th><i class="icofont-file-document"></i>Comment</th>
-                    <th><i class="icofont-calendar"></i>Date</th>    
-                    <th><i class="icofont-options"></i>Option</th>  
-                  </tr>
-                  <tr>
-                  <td>1</td>
-                    <td>0.1.0.20200809</td>
-                    <td>Fix the bug loggin </td>
-                    <td>2020/08/09</td>
-                    <td>
+                 <thead>     
+                    <tr>
+                      <th><i class="icofont-listing-number"></i> #</th>
+                      <th><i class="icofont-id"></i> Version Code</th>
+                      <th><i class="icofont-file-document"></i> Comment</th>
+                      <th><i class="icofont-calendar"></i> Date</th>    
+                      <th><i class="icofont-options"></i> Option</th>  
+                    </tr>
+                  </thead>
+                  <tbody>
+                <?php
+                if(count($records)>0){
+                 for($i=0;$i<count($records);$i++){ ?>
+                  <tr>                                    
+                    <td><?php echo $i+1;?></td>            
+                    <td><?php echo $records[$i]["VersionCode"];?></td>
+                    <td><?php echo $records[$i]["VersionComment"];?></td> 
+                    <td><?php echo $records[$i]["VersionDate"];?></td>                  
+                     <td>
                       <div class="btn-group">                         
-                        <a class="btn btn-warning" href="#" title="Edit"><i class="icofont-ui-edit"></i></a>
-                        <a class="btn btn-danger" href="#" title="Delete"><i class="icofont-garbage"></i></a>
+                        <a class="btn btn-warning" href="EditVersion.php?id=<?php echo $records[$i]["VersionId"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
+                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#ModalDeleteVersion" title="Delete">
+                        <i class="icofont-garbage"></i><span></span></a>                      
                      </div>
                     </td>
-                  </tr>         
+                  </tr> 
+                  <?php 
+                    }
+                  }
+                ?>
                 </tbody>
               </table>
             </section>
@@ -86,15 +105,57 @@
     <!--main content end-->
   </section>
 
+   <?php include __DIR__ . '/Modal/modal_addVersion.php'; ?>
+
   <!-- javascripts -->
   <script src="../Resources/vendor/jquery/jquery.js"></script>
   <script src="../Resources/vendor/bootstrap/js/bootstrapv3.0.0.min.js"></script>
   <script src="../Resources/vendor/bootstrap/js/jquery.scrollTo.min.js"></script>
   <script src="../Resources/vendor/bootstrap/js/jquery.nicescroll.js" type="text/javascript"></script>
   <script src="../Resources/js/scriptsDashboard.js"></script>
+  <script src="../Resources/js/script.js"></script>
 
-
+  <!-- <script type="text/javascript"> 
+    function btnEliminar(id){
+      if(confirm("¿Seguro desea Eliminar el Registro?")){
+          Eliminar(id);
+       }
+    }  
+</script> -->
+<script type="text/javascript"> 
+    function btnEliminar(id){
+      {
+          Eliminar(id);
+       }
+    }  
+</script>
 
 </body>
-
 </html>
+
+
+<div class="modal fade" id="ModalDeleteVersion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Eliminar Producto</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <form name="delete_product" id="delete_product">
+        <div class="modal-body">					
+          <p>¿Seguro que quieres eliminar este registro?</p>
+          <p class="text-warning"><small>Esta acción no se puede deshacer.</small></p>          
+        </div>
+        <div class="modal-footer">           
+          <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"> 
+          <button type="button" class="btn btn-danger" onclick="btnEliminar(<?php echo $records[0]['VersionId'];?>)"> <i class="icofont-garbage" aria-hidden="true"></i> Eliminar</button>         
+        </div>
+      </form>
+    </div> 
+  </div>
+</div>
+<div>	  
+ 

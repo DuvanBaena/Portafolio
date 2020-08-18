@@ -1,5 +1,8 @@
-
-
+<?php
+include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
+ $data=new BaseDatos;
+ $registro=$data->SlotVersion();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,11 +45,17 @@
         </div>
         <button type="button" class="btn btn-primary btn-lg btn-block" id="btnGuardar">Guardar</button>
         <div id="capa2" style="display: none"></div> 
-        <div class="text-right">                       
-            <span class="pull-right">Version - 0.1.0.070820</span>           
+        <div class="text-right">  
+        <?php 
+          if(count($registro)>0){
+            for($i=0;$i<count($registro);$i++){?>
+            <span class="pull-right">Version - <?php echo $registro[$i]["VersionCode"];?></span>   
+            <?php 
+             }
+            }
+           ?>
         </div>
-      </div>
-     
+      </div>     
     </div>       
     </form>
   </div>

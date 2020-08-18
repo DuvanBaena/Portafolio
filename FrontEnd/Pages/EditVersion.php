@@ -1,3 +1,11 @@
+<?php
+if (isset($_REQUEST['id'])){
+   include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
+   $data=new BaseDatos;
+   $records=$data->GetById($_REQUEST['id']); 
+ }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +19,7 @@
    <!-- Favicons -->
    <link href="../Resources/img/favicon.ico" rel="icon">
 
-  <title>Form Abouth me</title>
+  <title>Administrator</title>
 
   <!-- All CSS -->
   <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +49,7 @@
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
               <li><i class="icon_document_alt"></i>Version</li>
-              <li><i class="fa fa-files-o"></i>Add Version</li>
+              <li><i class="fa fa-files-o"></i>Edit Version</li>
             </ol>
           </div>
         </div>
@@ -55,37 +63,42 @@
               <div class="panel-body">
                 <div class="form">
                   <form class="form-horizontal">
-                    <div class="form-group ">
-                      <label for="versionCode" class="control-label col-lg-2">Version Code</label>
+                  <div class="form-group ">
+                      <label  class="control-label col-lg-2">Version id</label>
                       <div class="col-lg-10">
-                        <input class="form-control " id="versionCode" type="text" name="versionCode" />
-                       </div>
-                    </div>                    
-
-                    <div class="form-group ">
-                      <label for="cname" class="control-label col-lg-2">Version Date</label>
-                      <div class="col-lg-10">
-                        <input class="form-control"  data-date-format="yyyy/mm/dd" id="VersionDate" name="VersionDate"/>
-                        <span class="add-on">
-                        <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-                        </i>
-                      </span>
+                        <input class="form-control " id="VersionId" type="text" name="VersionId"
+                         value="<?php echo $records[0]['VersionId'];?>" disabled>
                       </div>
-                    </div>              
+                    </div>  
+                    <div class="form-group ">
+                      <label  class="control-label col-lg-2">Version Code</label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="versionCode" type="text" name="versionCode" 
+                         value="<?php echo $records[0]['VersionCode'];?>">
+                      </div>
+                    </div>        
+                    <div class="form-group ">
+                      <label class="control-label col-lg-2">Version Date</label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="VersionDate" name="VersionDate"  
+                        value="<?php echo $records[0]['VersionDate'];?>">
+                      </div>
+                    </div>               
                     
                     <div class="form-group ">
-                      <label for="VersionComment" class="control-label col-lg-2">Version Comment</label>
-                      <div class="col-lg-10">
-                        <textarea class="form-control" id="VersionComment" name="VersionComment" placeholder="Description">
+                      <label  class="control-label col-lg-2">Version Comment</label>
+                      <div class="col-lg-10">                 
+                        <textarea class="form-control" id="VersionComment" name="VersionComment" 
+                        placeholder="descripcion">
                         </textarea>
                       </div>
                     </div>
                     <div class="form-group">
-                      <div class="col-lg-offset-2 col-lg-10">                     
-                        <button type="button" class="btn btn-primary" id="BtnAddVersion">Save</button> 
-                        <button class="btn btn-default" type="button" onclick="ReturnIndexVersion()">Cancel</button>                       
-                       </div>
-                    </div>                   
+                      <div class="col-lg-offset-2 col-lg-10">                                            
+                      <button type="button" class="btn btn-primary" id="BtnAUpdateVersion">Save</button>                       
+                        <button class="btn btn-default" type="button" onclick="ReturnIndexVersion()">Cancel</button>
+                      </div>
+                    </div>
                   </form>
                 </div>
               </div>              
@@ -107,12 +120,11 @@
   <script src="../Resources/js/scriptsDashboard.js"></script>
   <script src="../Resources/js/script.js"></script>
 
-
-  <script type="text/javascript">
-    document.getElementById("BtnAddVersion").onclick = AddVersion; 
+  <script>
+  document.getElementById("VersionComment").innerHTML="<?php echo $records[0]['VersionComment'];?>";
+  document.getElementById("BtnAUpdateVersion").onclick = UpdateVersion;
   </script>
-
-<script>
+  <script>
     $('#VersionDate').datepicker({
         format: 'yyyy/mm/dd',
         startDate: '-3d',
