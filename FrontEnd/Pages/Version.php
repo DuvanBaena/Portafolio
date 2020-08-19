@@ -18,23 +18,29 @@ $records=$data->ListVersion();
   <title>Version</title>
 
   <!-- All CSS -->
+  <!-- <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../Resources/vendor/bootstrap/css/bootstrap-themev3.0.0.css" rel="stylesheet">
+  <link href="../Resources/vendor/elegant/css/elegant-icons-style.css" rel="stylesheet" />
+  <link href="../Resources/css/dashboard.css" rel="stylesheet">
+  <link href="../Resources/vendor/elegant/css/style-responsive.css" rel="stylesheet" />
+  <link href="../Resources/vendor/icofont/icofont.min.css" rel="stylesheet"> -->
+
   <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../Resources/vendor/bootstrap/css/bootstrap-themev3.0.0.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/elegant-icons-style.css" rel="stylesheet" />
   <link href="../Resources/css/dashboard.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/style-responsive.css" rel="stylesheet" />
   <link href="../Resources/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../Resources/vendor/toastr/toastr.css" rel="stylesheet">
+  <link href="../Resources/vendor/datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 
 <body>
   <!-- container section start -->
   <section id="container" class="">
     <!--header start-->
-
     <?php include __DIR__ . '../../Modules/Dashboard/MasterPages.php'; ?>
-
     <!-- sidebar menu end-->
-
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
@@ -49,16 +55,10 @@ $records=$data->ListVersion();
          
           <div class="row">
             <div class="col-lg-12">            
-              <a class="btn btn-success" href="AddVersion.php"><i class="icofont-save"></i></a>   
-              <!-- <a href="#" class="btn btn-success" data-toggle="modal" data-target="#ModalAddVersion">
-              <i class="icofont-save"></i><span> Agregar nuevo producto</span></a>      -->
+              <a class="btn btn-success" href="AddVersion.php"><i class="icofont-save"></i></a>  
             </div>
           </div>    
 			   </br>  
-
-
-
-
           <div class="row">
            <div class="col-lg-12">
             <section class="panel">
@@ -102,18 +102,29 @@ $records=$data->ListVersion();
        </div>
       </div>
     </section>
-    <!--main content end-->
+
   </section>
 
    <?php include __DIR__ . '/Modal/modal_addVersion.php'; ?>
 
   <!-- javascripts -->
-  <script src="../Resources/vendor/jquery/jquery.js"></script>
+  <!-- <script src="../Resources/vendor/jquery/jquery.js"></script>
   <script src="../Resources/vendor/bootstrap/js/bootstrapv3.0.0.min.js"></script>
   <script src="../Resources/vendor/bootstrap/js/jquery.scrollTo.min.js"></script>
   <script src="../Resources/vendor/bootstrap/js/jquery.nicescroll.js" type="text/javascript"></script>
   <script src="../Resources/js/scriptsDashboard.js"></script>
+  <script src="../Resources/js/script.js"></script> -->
+
+
+  <script src="../Resources/vendor/jquery/jquery.js"></script>
+  <script src="../Resources/vendor/bootstrap/js/bootstrapv3.0.0.min.js"></script>
+  <script src="../Resources/vendor/bootstrap/js/jquery.scrollTo.min.js"></script>
+  <script src="../Resources/vendor/bootstrap/js/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="../Resources/vendor/datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script src="../Resources/vendor/toastr/toastr.js"></script>
+  <script src="../Resources/js/scriptsDashboard.js"></script>
   <script src="../Resources/js/script.js"></script>
+  
 
   <!-- <script type="text/javascript"> 
     function btnEliminar(id){

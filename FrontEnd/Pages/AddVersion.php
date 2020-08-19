@@ -17,11 +17,11 @@
   <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../Resources/vendor/bootstrap/css/bootstrap-themev3.0.0.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="../Resources/vendor/toastr/toastr.css" rel="stylesheet">
-  <link href="../Resources/vendor/datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+  <link href="../Resources/css/dashboard.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/style-responsive.css" rel="stylesheet" />
   <link href="../Resources/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="../Resources/css/dashboard.css" rel="stylesheet">
+  <link href="../Resources/vendor/toastr/toastr.css" rel="stylesheet">
+  <link href="../Resources/vendor/datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -44,8 +44,7 @@
               <li><i class="fa fa-files-o"></i>Add Version</li>
             </ol>
           </div>
-        </div>
-        <!-- Form validations -->
+        </div>        
         <div class="row">
           <div class="col-lg-12">
             <section class="panel">
@@ -102,11 +101,10 @@
   <script src="../Resources/vendor/bootstrap/js/bootstrapv3.0.0.min.js"></script>
   <script src="../Resources/vendor/bootstrap/js/jquery.scrollTo.min.js"></script>
   <script src="../Resources/vendor/bootstrap/js/jquery.nicescroll.js" type="text/javascript"></script>
-  <script src="../Resources/vendor/toastr/toastr.js"></script>
   <script src="../Resources/vendor/datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script src="../Resources/vendor/toastr/toastr.js"></script>
   <script src="../Resources/js/scriptsDashboard.js"></script>
   <script src="../Resources/js/script.js"></script>
-
 
   <script type="text/javascript">
     document.getElementById("BtnAddVersion").onclick = AddVersion; 

@@ -1,3 +1,6 @@
+  
+
+
 <header id="header">
     <div class="d-flex flex-column">
 
@@ -24,10 +27,11 @@
         <ul>
           <li class="active"><a href="#about"><i class='bx bxs-user-pin'></i> <span>About</span></a></li>
           <li><a href="#resume"><i class="bx bx-line-chart-down"></i> <span>Resumen</span></a></li>
-          <li><a href="#portfolio"><i class='bx bx-book-heart'></i> Books</a></li>         
-          <li><a href="./Pages/BlogMenu.php"><i class='bx bxl-blogger'></i> Blog</a></li>
+          <li><a href="#portfolio"><i class='bx bx-book-heart'></i> Books</a></li>  
+
+          <li><a href="<?php echo UrlServer?>/FrontEnd/Pages/BlogMenu.php"><i class='bx bxl-blogger'></i> Blog</a></li>
           <li><a href="#contact"><i class="icofont-ui-contact-list"></i> Contact</a></li>
-          <li><a href="./Pages/login.php"><i class="icofont-code"></i> Administrator</a></li>
+          <li><a href="<?php echo UrlServer?>/FrontEnd/Pages/login.php"><i class="icofont-code"></i> Administrator</a></li>
           <!-- <li><a href="#services"><i class='bx bx-line-chart-down'></i> Experience</a></li> -->
         </ul>
 
