@@ -171,8 +171,28 @@ class BaseDatos extends Conexion{
         }
 
 
+    /* En este parte ira toda la logica de la base de datos para el tema de la informacion personal del usuario */
 
 
+
+        public function ListPersonalInformation(){
+
+
+            
+        $sql="SELECT * FROM `tbluser` ";        
+        $vector=array();        
+        if($this->conector->query($sql)){              
+            $resultado=$this->conector->query($sql);           
+            while($fila=$resultado->fetch_array()){
+                $vector[]=$fila;
+            }
+        }else{
+
+        }
+        return $vector;
+
+
+        }
      
 
 

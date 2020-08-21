@@ -1,3 +1,8 @@
+<?php
+include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
+$data=new BaseDatos;
+$records=$data->ListPersonalInformation();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,21 +56,25 @@
           <div class="col-lg-12">
             <section class="panel">
               <table class="table table-striped table-advance table-hover">
-                <tbody>
-                  <tr>
+              <thead>     
+                 <tr>
+                   <th><i class="icon_profile"></i> Id</th>
                     <th><i class="icon_profile"></i> Full Name</th>
-                    <th><i class="icon_calendar"></i> Date</th>
-                    <th><i class="icon_mail_alt"></i> Email</th>
+                    <th><i class="icon_mail_alt"></i> Email</th>                                       
                     <th><i class="icon_pin_alt"></i> City</th>
-                    <th><i class="icon_mobile"></i> Mobile</th>
                     <th><i class="icon_cogs"></i> Action</th>
                   </tr>
+              </thead>            
+                <tbody>
+                <?php
+                if(count($records)>0){
+                 for($i=0;$i<count($records);$i++){ ?>
                   <tr>
-                    <td>Angeline Mcclain</td>
-                    <td>2004-07-06</td>
-                    <td>dale@chief.info</td>
-                    <td>Rosser</td>
-                    <td>176-026-5992</td>
+                  <?php $FullName = $records[$i]["UserName"] ." ". $records[$i]["UserLastName"];?>
+                  <td><?php echo $records[$i]["UserID"];?></td>
+                    <td><?php echo $FullName;?></td>
+                    <td><?php echo $records[$i]["UserEmail"];?></td>
+                    <td><?php echo $records[$i]["UserCity"];?></td>                    
                     <td>
                       <div class="btn-group">
                         <a class="btn btn-primary" href="form_validation.php"><i class="icon_plus_alt2"></i></a>
@@ -74,6 +83,10 @@
                     </td>
                   </tr>
                   <tr>
+                  <?php 
+                    }
+                  }
+                ?>
                 </tbody>
               </table>
             </section>

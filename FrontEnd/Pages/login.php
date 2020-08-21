@@ -31,7 +31,7 @@ include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
         <div class="text-center">                       
             <span class="pull-right" style="display: none" id="capa"></span> 
              <p class="login-img">
-                <a href="../Home.php" class="login-img"><i class="icofont-funky-man"></i></a>
+                <a href="../index.php" class="login-img"><i class="icofont-funky-man"></i></a>
              </p>         
         </div>
         <div class="input-group">
