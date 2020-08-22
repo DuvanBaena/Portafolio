@@ -77,8 +77,9 @@ $records=$data->ListPersonalInformation();
                     <td><?php echo $records[$i]["UserCity"];?></td>                    
                     <td>
                       <div class="btn-group">
-                        <a class="btn btn-primary" href="form_validation.php"><i class="icon_plus_alt2"></i></a>
-                        <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                        <a class="btn btn-warning" href="AddInfoUser.php?id=<?php echo $records[$i]["UserID"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
+                        <!-- <a class="btn btn-primary" href="form_validation.php"><i class="icon_plus_alt2"></i></a>
+                        <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a> -->
                       </div>
                     </td>
                   </tr>

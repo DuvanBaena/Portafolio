@@ -36,11 +36,11 @@
                     <button type="button" class="btn btn-primary" id="BtnAddVersion32">Send message</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                
              	 </div>
-				</form>
+				      </form>
               </div> 
             </div>
           </div>
-		</div>	  
+		    </div>	  
  
 
   <script src="../Resources/js/script.js"></script>

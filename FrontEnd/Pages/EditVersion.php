@@ -5,7 +5,6 @@ if (isset($_REQUEST['id'])){
    $records=$data->GetById($_REQUEST['id']); 
  }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,36 +14,37 @@ if (isset($_REQUEST['id'])){
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-   
-   <!-- Favicons -->
-   <link href="../Resources/img/favicon.ico" rel="icon">
+
+  <!-- Favicons -->
+ <link href="../Resources/img/favicon.ico" rel="icon">
 
   <title>Administrator</title>
 
-  <!-- All CSS -->
+  <!-- Bootstrap CSS -->
   <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../Resources/vendor/bootstrap/css/bootstrap-themev3.0.0.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="../Resources/vendor/toastr/toastr.css" rel="stylesheet">
-  <link href="../Resources/vendor/datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+  <link href="../Resources/css/dashboard.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/style-responsive.css" rel="stylesheet" />
   <link href="../Resources/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="../Resources/css/dashboard.css" rel="stylesheet">
+
 </head>
 
 <body>
+
   <!-- container section start -->
+
   <section id="container" class="">
+
     <!--header start-->
 
     <?php include __DIR__ . '../../Modules/Dashboard/MasterPages.php'; ?>
 
     <!-- sidebar menu end-->
 
-    <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <div class="row">
+      <div class="row">
           <div class="col-lg-12">          
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
@@ -53,7 +53,6 @@ if (isset($_REQUEST['id'])){
             </ol>
           </div>
         </div>
-        <!-- Form validations -->
         <div class="row">
           <div class="col-lg-12">
             <section class="panel">
@@ -104,10 +103,11 @@ if (isset($_REQUEST['id'])){
               </div>              
             </section>           
           </div>
-        </div>       
-      </section>       
-    </section>       
-  </section>  
+        </div> 
+      </section>
+    </section>   
+  </section>
+  <!-- container section start -->
 
 
   <!-- javascripts -->
@@ -123,14 +123,13 @@ if (isset($_REQUEST['id'])){
   <script>
   document.getElementById("VersionComment").innerHTML="<?php echo $records[0]['VersionComment'];?>";
   document.getElementById("BtnAUpdateVersion").onclick = UpdateVersion;
-  </script>
-  <script>
-    $('#VersionDate').datepicker({
+ 
+  $('#VersionDate').datepicker({
         format: 'yyyy/mm/dd',
         startDate: '-3d',
         orientation: 'bottom'
     });
   </script>
-
 </body>
+
 </html>

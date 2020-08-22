@@ -264,8 +264,98 @@ function Eliminar(id){
 
 }
 
+
+
+
+function UpdateUserInfo(){
+   Toastr();
+  
+    vector=["UserName","userLastName","userLastName","userLastName","UserEmail","userLastName"
+    ,"UserPhone","UserCity","UserAge","UserDegree","UserHour","UserTopDescription","UserBodyDescription"
+    ,"UserFooterDescription"];
+    total=vector.length;
+    for (i=0;i<total;i++) {
+        if (document.getElementById(vector[i]).value=="") {
+           toastr["error"]("Debes ingresar " +vector[i]+ " no contienen ningún Información", "Error")         
+            document.getElementById(vector[i]).focus();         
+            return;
+        }
+    }
+
+    let UserID = document.getElementById("UserID").value; 
+    let UserName = document.getElementById("UserName").value; 
+    let UserlastName = document.getElementById("userLastName").value;
+    let UserEmail = document.getElementById("UserEmail").value;
+    let UserPhone = document.getElementById("UserPhone").value;
+    let UserCity = document.getElementById("UserCity").value;
+    let UserAge = document.getElementById("UserAge").value;
+    let UserDegree = document.getElementById("UserDegree").value;
+    let UserHour = document.getElementById("UserHour").value;
+    let UserTopDescription = document.getElementById("UserTopDescription").value;
+    let UserBodyDescription = document.getElementById("UserBodyDescription").value;
+    let UserFooterDescription = document.getElementById("UserFooterDescription").value;
+
+      //let parametros = $("#UpdateUserInfo").serialize();
+
+      UserID = $("#UserID").val();
+      UserName = $("#UserName").val();
+      UserlastName = $("#userLastName").val();
+      UserEmail = $("#UserEmail").val();
+      UserPhone = $("#UserPhone").val();
+      UserCity = $("#UserCity").val();
+      UserAge = $("#UserAge").val();
+      UserDegree = $("#UserDegree").val();
+      UserURL = $("#UserURL").val();
+      UserHour = $("#UserHour").val();
+      UserTopDescription = $("#UserTopDescription").val();
+      UserBodyDescription = $("#UserBodyDescription").val();
+      UserFooterDescription = $("#UserFooterDescription").val();
+
+      var parametros = {
+         "UserID": UserID,
+         "UserName": UserName,
+         "userLastName": UserlastName,
+         "UserEmail": UserEmail,
+         "UserURL": UserURL,
+         "UserPhone": UserPhone,
+         "UserCity": UserCity,
+         "UserAge": UserAge,
+         "UserDegree": UserDegree,         
+         "UserHour": UserHour,
+         "UserTopDescription": UserTopDescription,
+         "UserBodyDescription": UserBodyDescription,
+         "UserFooterDescription": UserFooterDescription,
+      };
+
+      $.ajax({         
+         data: parametros,        
+         url: "../../BackEnd/Model/Validate.UpdateInfoUser.php",         
+         type: "post",          
+         beforeSend: function(){			           
+         },         
+             success: function(response){
+
+               toastr["success"](response);  
+               location.href = "Dashboard.php";     
+             },         
+         error: function(jqXHR, textStatus, errorThrown){
+            toastr["error"]("Se presento un problema al carga la peticion: "+textStatus+" - "+errorThrown); 
+              //$("#capaMsj").html("Se presento un problema al carga la peticion: "+textStatus+" - "+errorThrown);
+         }
+  });
+
+
+
+}
+
 function ReturnIndexVersion(){
 
    location.href="Version.php";
+
+}
+
+function ReturnIndex(){
+
+   location.href="Dashboard.php";
 
 }
