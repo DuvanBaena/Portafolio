@@ -1,12 +1,16 @@
-  
 
 
 <header id="header">
     <div class="d-flex flex-column">
+      <div class="profile" style="text-transform: capitalize">
 
-      <div class="profile">
-        <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/profile-img.png" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Duvan Baena </a></h1>
+      <?php
+      if(count($records)>0){
+      for($i=0;$i<count($records);$i++){?>
+      <?php $FullName = $records[$i]["UserName"] ." ". $records[$i]["UserLastName"];?>
+
+        <img src="<?php echo UrlServer ?>/FrontEnd/Resources/img/profile-img.png" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"> <a href="index.html"><?php echo $FullName;?></a></h1>
 
         <div class="social-links mt-3 text-center">
           <a href="https://twitter.com/djb349" class="twitter" target="_blank"><i class="bx bxl-twitter"
@@ -20,6 +24,11 @@
           <a href="https://www.linkedin.com/in/djbp349" class="linkedin" target="_blank"><i class="bx bxl-linkedin"
               title="linkedin"></i></a>
         </div>
+
+          <?php 
+        }
+      }
+    ?>
 
       </div>
 
@@ -39,3 +48,4 @@
       <!-- .nav-menu -->
     </div>
   </header>
+

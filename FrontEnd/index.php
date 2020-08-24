@@ -1,3 +1,10 @@
+<?php
+include __DIR__ . '../../BackEnd/Model/Bridgedb.php';
+$data=new BaseDatos;
+//$records2=$data->ListVersion();
+$records=$data->ListPersonalInformation();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +17,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../FrontEnd/Resources/img/favicon.ico" rel="icon">  
+  <link href="./Resources/img/favicon.ico" rel="icon"> 
 
   <!-- Google Fonts -->
   <link
