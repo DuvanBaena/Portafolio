@@ -44,12 +44,11 @@ sleep(5);
             <li class="sub-menu">
               <a href="javascript:;" class="">
                 <i class="icon_document_alt"></i>
-                <span>Blog</span>
+                <span>Summary</span>
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
               <ul class="sub">
-                <li><a href="table.php">Menu Blog</a></li>
-                <li><a href="#">Blog Individual</a></li>                    
+                <li><a href="Summary.php">Sumary Detail</a></li>                    
               </ul>
             </li>
             <li class="sub-menu">

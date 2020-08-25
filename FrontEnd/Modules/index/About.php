@@ -21,11 +21,11 @@
             </p>
             <div class="row">
               <div class="col-lg-6">
-                <ul>
-                  <li><i class="icofont-headphone-alt-1"></i></i></i> <strong>Birthday:</strong> 15 Dec 1986</li>
-                  <li><i class="icofont-keyboard-alt"></i> <strong>Website:</strong> <?php echo $records[$i]["UserURL"];?></li>
+                <ul>        
+                  <li><i class="icofont-headphone-alt-1"></i><strong>Birthday:</strong> 15 Dec 1986</li>
+                  <li><i class="icofont-keyboard-alt"></i><strong>Website:</strong> <?php echo $records[$i]["UserURL"];?></li>
                   <li><i class="icofont-iphone"></i> <strong>Phone:</strong> <?php echo $records[$i]["UserPhone"];?></li>
-                  <li><i class="icofont-wifi-router"></i></i> <strong>City:</strong> <?php echo $records[$i]["UserCity"];?>, COL</li>
+                  <li><i class="icofont-wifi-router"></i><strong>City:</strong> <?php echo $records[$i]["UserCity"];?>, COL</li>
                 </ul>
               </div>
               <div class="col-lg-6">

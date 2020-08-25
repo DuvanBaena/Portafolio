@@ -1,7 +1,7 @@
 <?php
 include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
 $data=new BaseDatos;
-$records=$data->ListVersion();
+//$records=$data->ListVersion();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +26,7 @@ $records=$data->ListVersion();
   <link href="../Resources/css/dashboard.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/style-responsive.css" rel="stylesheet" />
   <link href="../Resources/vendor/icofont/icofont.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -66,33 +67,82 @@ $records=$data->ListVersion();
               <thead>     
                     <tr>
                       <th><i class="icofont-listing-number"></i> #</th>
-                      <th><i class="icofont-id"></i> Version Code</th>
-                      <th><i class="icofont-file-document"></i> Comment</th>
-                      <th><i class="icofont-calendar"></i> Date</th>    
+                      <th><i class="icofont-id"></i> Title</th>
+                      <th><i class="icofont-file-document"></i> Start Year</th>
+                      <th><i class="icofont-calendar"></i> Final Year</th> 
+                      <th><i class="icofont-calendar"></i> School</th>   
                       <th><i class="icofont-options"></i> Option</th>  
                     </tr>
                   </thead>           
               <tbody>
-                <?php
-                if(count($records)>0){
-                 for($i=0;$i<count($records);$i++){ ?>
                   <tr>                                    
-                    <td><?php echo $i+1;?></td>            
-                    <td><?php echo $records[$i]["VersionCode"];?></td>
-                    <td><?php echo $records[$i]["VersionComment"];?></td> 
-                    <td><?php echo $records[$i]["VersionDate"];?></td>                  
+                    <td>2</td>            
+                    <td>ENGINEERING SPECIALIST</td>
+                    <td>2019</td> 
+                    <td>2020</td>
+                    <td>University of Medellin, Col</td>                  
                      <td>
                       <div class="btn-group">                         
-                        <a class="btn btn-warning" href="EditVersion.php?id=<?php echo $records[$i]["VersionId"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
+                        <a class="btn btn-warning" href="EditVersion.php?id=" title="Edit"><i class="icofont-ui-edit"></i></a>
                         <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#ModalDeleteVersion" title="Delete">
                         <i class="icofont-garbage"></i><span></span></a>                      
                      </div>
-                    </td>
+                    </td>                    
                   </tr> 
-                  <?php 
-                    }
-                  }
-                ?>
+                  <tr>                                    
+                    <td>2</td>            
+                    <td>ENGINEERING SPECIALIST</td>
+                    <td>2019</td> 
+                    <td>2020</td>
+                    <td>University of Medellin, Col</td>                  
+                     <td>
+                      <div class="btn-group">                         
+                        <a class="btn btn-warning" href="EditVersion.php?id=" title="Edit"><i class="icofont-ui-edit"></i></a>
+                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#ModalDeleteVersion" title="Delete">
+                        <i class="icofont-garbage"></i><span></span></a>                      
+                     </div>
+                    </td>                    
+                  </tr> 
+                  <td>2</td>            
+                    <td>ENGINEERING SPECIALIST</td>
+                    <td>2019</td> 
+                    <td>2020</td>
+                    <td>University of Medellin, Col</td>                  
+                     <td>
+                      <div class="btn-group">                         
+                        <a class="btn btn-warning" href="EditVersion.php?id=" title="Edit"><i class="icofont-ui-edit"></i></a>
+                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#ModalDeleteVersion" title="Delete">
+                        <i class="icofont-garbage"></i><span></span></a>                      
+                     </div>
+                    </td>                    
+                  </tr> 
+                  <td>2</td>            
+                    <td>ENGINEERING SPECIALIST</td>
+                    <td>2019</td> 
+                    <td>2020</td>
+                    <td>University of Medellin, Col</td>                  
+                     <td>
+                      <div class="btn-group">                         
+                        <a class="btn btn-warning" href="EditVersion.php?id=" title="Edit"><i class="icofont-ui-edit"></i></a>
+                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#ModalDeleteVersion" title="Delete">
+                        <i class="icofont-garbage"></i><span></span></a>                      
+                     </div>
+                    </td>                    
+                  </tr> 
+                  <td>2</td>            
+                    <td>ENGINEERING SPECIALIST</td>
+                    <td>2019</td> 
+                    <td>2020</td>
+                    <td>University of Medellin, Col</td>                  
+                     <td>
+                      <div class="btn-group">                         
+                        <a class="btn btn-warning" href="EditVersion.php?id=" title="Edit"><i class="icofont-ui-edit"></i></a>
+                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#ModalDeleteVersion" title="Delete">
+                        <i class="icofont-garbage"></i><span></span></a>                      
+                     </div>
+                    </td>                    
+                  </tr> 
+
                 </tbody>
               </table>
             </section>
@@ -106,15 +156,18 @@ $records=$data->ListVersion();
 
 
   <!-- javascripts -->
-  <script src="../Resources/vendor/jquery/jquery.js"></script>
-  <script src="../Resources/vendor/bootstrap/js/bootstrapv3.0.0.min.js"></script>
-  <script src="../Resources/vendor/bootstrap/js/jquery.scrollTo.min.js"></script>
+
+  <script src="../Resources/vendor/jquery/jquery.js" type="text/javascript"></script>
+  <script src="../Resources/vendor/bootstrap/js/bootstrapv3.0.0.min.js" type="text/javascript"></script>
+  <script src="../Resources/vendor/bootstrap/js/jquery.scrollTo.min.js" type="text/javascript"></script>
   <script src="../Resources/vendor/bootstrap/js/jquery.nicescroll.js" type="text/javascript"></script>
-  <script src="../Resources/vendor/datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script src="../Resources/vendor/datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+  <script src="../Resources/vendor/toastr/toastr.js" type="text/javascript"></script>
   <script src="../Resources/vendor/DataTable/js/datatables.min.js" type="text/javascript"></script>
-  <script src="../Resources/vendor/toastr/toastr.js"></script> 
-  <script src="../Resources/js/scriptsDashboard.js"></script>
-  <script src="../Resources/js/script.js"></script>
+  <script src="../Resources/js/scriptsDashboard.js" type="text/javascript"></script>
+  <script src="../Resources/js/script.js" type="text/javascript"></script>
+
+  
 
   <!-- <script type="text/javascript"> 
     function btnEliminar(id){
@@ -123,6 +176,13 @@ $records=$data->ListVersion();
        }
     }  
 </script> -->
+<script type="text/javascript"> 
+    function btnEliminar(id){
+      {
+          Eliminar(id);
+       }
+    } 
+</script>
 
 <script type="text/javascript"> 
     $(document).ready(function() {
@@ -134,17 +194,6 @@ $records=$data->ListVersion();
        } ); 
     });  
 </script>
-
-<script type="text/javascript"> 
-    function btnEliminar(id){
-      {
-          Eliminar(id);
-       }
-    }   
- 
-</script>
-
-
 
 </body>
 

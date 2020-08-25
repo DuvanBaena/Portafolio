@@ -22,10 +22,11 @@ $records=$data->ListPersonalInformation();
   <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../Resources/vendor/bootstrap/css/bootstrap-themev3.0.0.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="../Resources/css/dashboard.css" rel="stylesheet">
+  <!-- <link href="../Resources/vendor/DataTable/css/datatables.css" rel="stylesheet" /> -->
   <link href="../Resources/vendor/elegant/css/style-responsive.css" rel="stylesheet" />
   <link href="../Resources/vendor/icofont/icofont.min.css" rel="stylesheet">
-
+  <link href="../Resources/css/dashboard.css" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -55,16 +56,16 @@ $records=$data->ListPersonalInformation();
         <div class="row">
           <div class="col-lg-12">
             <section class="panel">
-              <table class="table table-striped table-advance table-hover">
-              <thead>     
+              <table class="table table-striped table-advance table-hover" id="tableDetail">
+              <thead>
                  <tr>
                    <th><i class="icon_profile"></i> Id</th>
                     <th><i class="icon_profile"></i> Full Name</th>
-                    <th><i class="icon_mail_alt"></i> Email</th>                                       
+                    <th><i class="icon_mail_alt"></i> Email</th>
                     <th><i class="icon_pin_alt"></i> City</th>
                     <th><i class="icon_cogs"></i> Action</th>
                   </tr>
-              </thead>            
+              </thead>
                 <tbody>
                 <?php
                 if(count($records)>0){
@@ -74,7 +75,7 @@ $records=$data->ListPersonalInformation();
                   <td><?php echo $records[$i]["UserID"];?></td>
                     <td><?php echo $FullName;?></td>
                     <td><?php echo $records[$i]["UserEmail"];?></td>
-                    <td><?php echo $records[$i]["UserCity"];?></td>                    
+                    <td><?php echo $records[$i]["UserCity"];?></td>
                     <td>
                       <div class="btn-group">
                         <a class="btn btn-warning" href="AddInfoUser.php?id=<?php echo $records[$i]["UserID"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
@@ -84,7 +85,7 @@ $records=$data->ListPersonalInformation();
                     </td>
                   </tr>
                   <tr>
-                  <?php 
+                  <?php
                     }
                   }
                 ?>
@@ -94,18 +95,37 @@ $records=$data->ListPersonalInformation();
           </div>
         </div>
       </section>
-    </section>   
+    </section>
   </section>
   <!-- container section start -->
 
 
   <!-- javascripts -->
-  <script src="../Resources/vendor/jquery/jquery.js"></script>
-  <script src="../Resources/vendor/bootstrap/js/bootstrapv3.0.0.min.js"></script>
-  <script src="../Resources/vendor/bootstrap/js/jquery.scrollTo.min.js"></script>
+  <script src="../Resources/vendor/jquery/jquery.js" type="text/javascript"></script>
+  <script src="../Resources/vendor/bootstrap/js/bootstrapv3.0.0.min.js" type="text/javascript"></script>
+  <script src="../Resources/vendor/bootstrap/js/jquery.scrollTo.min.js" type="text/javascript"></script>
   <script src="../Resources/vendor/bootstrap/js/jquery.nicescroll.js" type="text/javascript"></script>
-  <script src="../Resources/js/scriptsDashboard.js"></script>
+  <script src="../Resources/vendor/datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+  <!-- <script src="../Resources/vendor/DataTable/js/datatables.min.js" type="text/javascript"></script> -->
+  <script src="../Resources/vendor/toastr/toastr.js" type="text/javascript"></script>
+  <script src="../Resources/js/scriptsDashboard.js" type="text/javascript"></script>
+  <script src="../Resources/js/script.js" type="text/javascript"></script>
+
+
+  <!-- <script type="text/javascript">
+    $(document).ready(function() {
+      $('#tableDetail').DataTable( {
+        "paging":   false,
+        "ordering": false,
+        "info":     false,
+        "searching": false
+       } );
+    });
+</script> -->
+
+
 
 </body>
 
 </html>
+
