@@ -19,12 +19,6 @@ function Toastr(){
 }
 
 
-
-
-
-
-
-
 function login() {
 
    let UserName = document.getElementById("Username").value;
@@ -78,7 +72,7 @@ function login() {
          },
          // 3.6 cuando se presente el error
          error: function (jqXHR, textStatus, errorThrown) {
-            $("#capas2").html("Se presento un problema al carga la peticion: " + textStatus + " - " + errorThrown);
+            $("#capas2").html("There was a problem loading the request: " + textStatus + " - " + errorThrown);
          }
 
       });
@@ -170,7 +164,7 @@ function AddVersion() {
          },
 
          error: function (jqXHR, textStatus, errorThrown) {
-            $("#capas2").html("Se presento un problema al carga la peticion: " + textStatus + " - " + errorThrown);
+            $("#capas2").html("There was a problem loading the request: " + textStatus + " - " + errorThrown);
          }
 
       });
@@ -229,7 +223,7 @@ function UpdateVersion(){
          },
 
          error: function (jqXHR, textStatus, errorThrown) {
-            $("#capas").html("Se presento un problema al carga la peticion: " + textStatus + " - " + errorThrown);
+            $("#capas").html("There was a problem loading the request: " + textStatus + " - " + errorThrown);
          }
       });
    }
@@ -237,7 +231,8 @@ function UpdateVersion(){
 
 function Eliminar(id){
 
-	var parametros = {"id": id};
+  var parametros = {"id": id}; 
+
      $.ajax({         
           data: parametros,        
           url: "../../BackEnd/Model/Validate.Delete.php",         
@@ -257,7 +252,7 @@ function Eliminar(id){
 
           
           error: function(jqXHR, textStatus, errorThrown){
-               $("#capaMsj").html("Se presento un problema al carga la peticion: "+textStatus+" - "+errorThrown);
+               $("#capaMsj").html("There was a problem loading the request: "+textStatus+" - "+errorThrown);
           }
 
    });
@@ -339,12 +334,133 @@ function UpdateUserInfo(){
                location.href = "Dashboard.php";     
              },         
          error: function(jqXHR, textStatus, errorThrown){
-            toastr["error"]("Se presento un problema al carga la peticion: "+textStatus+" - "+errorThrown); 
-              //$("#capaMsj").html("Se presento un problema al carga la peticion: "+textStatus+" - "+errorThrown);
+            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
+              //$("#capaMsj").html("There was a problem loading the request: "+textStatus+" - "+errorThrown);
          }
   });
 
+}
 
+
+function AddSummanry(){
+   Toastr();
+  
+    vector=["Title","StartYear","School","Remark","FinalYear"];
+    total=vector.length;
+    for (i=0;i<total;i++) {
+        if (document.getElementById(vector[i]).value=="") {
+           toastr["error"]("You must enter value " +vector[i])         
+            document.getElementById(vector[i]).focus();         
+            return;
+        }
+    }
+
+
+    let parameters = $("#FrmAddSummary").serialize();
+
+    $.ajax({         
+      data: parameters,        
+      url: "../../BackEnd/Model/Validate.AddSummary.php",         
+      type: "post",          
+      beforeSend: function(){			           
+      },         
+          success: function(response){
+
+            toastr["success"](response);  
+            location.href = "AddSummary.php";     
+          },         
+          error: function(jqXHR, textStatus, errorThrown){
+          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+         }
+      });
+
+
+}
+
+function UpdateSummanry(){
+
+   Toastr();
+  
+    vector=["Title","StartYear","FinalYear","School","Remark"];
+    total=vector.length;
+    for (i=0;i<total;i++) {
+        if (document.getElementById(vector[i]).value=="") {
+           toastr["error"]("You must enter value " +vector[i])         
+            document.getElementById(vector[i]).focus();         
+            return;
+        }
+    }
+
+    let summaryid = document.getElementById("idSummary").value;   
+    let summaryTitle = document.getElementById("Title").value; 
+    let summaryStartYear = document.getElementById("StartYear").value;
+    let summaryFinalYear = document.getElementById("FinalYear").value;
+    let summarySchool = document.getElementById("School").value;
+    let summaryRemark = document.getElementById("Remark").value;
+    
+
+    summaryid = $("#idSummary").val();
+    summaryTitle = $("#Title").val();
+    summaryStartYear = $("#StartYear").val();
+    summaryFinalYear = $("#FinalYear").val();
+    summarySchool = $("#School").val();
+    summaryRemark = $("#Remark").val();
+
+    var parameters = {
+      "idSummary": summaryid,
+      "Title": summaryTitle,
+      "StartYear": summaryStartYear,
+      "FinalYear": summaryFinalYear,
+      "School": summarySchool,
+      "Remark": summaryRemark,
+   };    
+
+
+    $.ajax({         
+      data: parameters,        
+      url: "../../BackEnd/Model/Validate.UpdateInfoSummary.php",         
+      type: "post",          
+      beforeSend: function(){			           
+      },         
+          success: function(response){
+
+            toastr["success"](response);  
+            location.href = "Summary.php";     
+          },         
+          error: function(jqXHR, textStatus, errorThrown){
+          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+         }
+      });
+
+}
+
+
+function DeleteSummary(id){
+
+	var parametros = {"id": id};
+     $.ajax({         
+          data: parametros,        
+          url: "../../BackEnd/Model/Validate.DeleteSummary.php",         
+          type: "post",          
+          beforeSend: function(){			           
+          },         
+              success: function(reponse){
+
+               if (reponse==1){
+                  
+                   //alert("Registro eliminado.");
+                   location.href = "Summary.php";
+
+               }else{              
+                    toastr["success"]("Se produjo un error?")
+                  }         
+              },
+          
+          error: function(jqXHR, textStatus, errorThrown){
+               $("#capaMsj").html("There was a problem loading the request: "+textStatus+" - "+errorThrown);
+          }
+
+   });
 
 }
 
@@ -357,5 +473,11 @@ function ReturnIndexVersion(){
 function ReturnIndex(){
 
    location.href="Dashboard.php";
+
+}
+
+function ReturnIndexSummary(){
+
+   location.href="Summary.php";
 
 }

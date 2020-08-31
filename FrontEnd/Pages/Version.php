@@ -23,6 +23,7 @@ $records=$data->ListVersion();
   <link href="../Resources/vendor/bootstrap/css/bootstrap-themev3.0.0.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/elegant-icons-style.css" rel="stylesheet" />
   <link href="../Resources/vendor/DataTable/css/datatables.min.css" rel="stylesheet" />
+  <link href="../Resources/vendor/datepicker/css/bootstrap-datepicker.css" rel="stylesheet" /> 
   <link href="../Resources/css/dashboard.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/style-responsive.css" rel="stylesheet" />
   <link href="../Resources/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -84,8 +85,7 @@ $records=$data->ListVersion();
                      <td>
                       <div class="btn-group">                         
                         <a class="btn btn-warning" href="EditVersion.php?id=<?php echo $records[$i]["VersionId"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
-                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#ModalDeleteVersion" title="Delete">
-                        <i class="icofont-garbage"></i><span></span></a>                      
+                        <button type="button" class="btn btn-danger" title="Delete" onclick="btnEliminar(<?php echo $records[$i]["VersionId"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                      
                      </div>
                     </td>
                   </tr> 
@@ -116,13 +116,13 @@ $records=$data->ListVersion();
   <script src="../Resources/js/scriptsDashboard.js"></script>
   <script src="../Resources/js/script.js"></script>
 
-  <!-- <script type="text/javascript"> 
+  <script type="text/javascript"> 
     function btnEliminar(id){
       if(confirm("¿Seguro desea Eliminar el Registro?")){
           Eliminar(id);
        }
     }  
-</script> -->
+</script>
 
 <script type="text/javascript"> 
     $(document).ready(function() {
@@ -135,14 +135,14 @@ $records=$data->ListVersion();
     });  
 </script>
 
-<script type="text/javascript"> 
+<!-- <script type="text/javascript"> 
     function btnEliminar(id){
       {
           Eliminar(id);
        }
     }   
  
-</script>
+</script> -->
 
 
 
@@ -151,30 +151,5 @@ $records=$data->ListVersion();
 </html>
 
 
-
-<div class="modal fade" id="ModalDeleteVersion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-         <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Eliminar Producto</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-            <form name="delete_product" id="delete_product">
-        <div class="modal-body">					
-          <p>¿Seguro que quieres eliminar este registro?</p>
-          <p class="text-warning"><small>Esta acción no se puede deshacer.</small></p>          
-        </div>
-        <div class="modal-footer">           
-          <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"> 
-          <button type="button" class="btn btn-danger" onclick="btnEliminar(<?php echo $records[0]['VersionId'];?>)"> <i class="icofont-garbage" aria-hidden="true"></i> Eliminar</button>         
-        </div>
-      </form>
-    </div> 
-  </div>
- </div>
-<div>
 
 

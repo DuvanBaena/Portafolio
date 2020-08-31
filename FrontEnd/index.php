@@ -14,10 +14,7 @@ $records=$data->ListPersonalInformation();
 
   <title>Home</title>
   <meta content="" name="descriptison">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="./Resources/img/favicon.ico" rel="icon"> 
+  <meta content="" name="keywords"> 
 
   <!-- Google Fonts -->
   <link

@@ -3,6 +3,9 @@
     include __DIR__ . '../../../BackEnd/Config/General.php';
   ?> 
 
+    <!-- Favicons -->
+    <link href="<?php echo UrlServer ?>/FrontEnd/Resources/img/favicon.ico" rel="icon"> 
+
     <link href="<?php echo UrlServer ?>/FrontEnd/Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo UrlServer ?>/FrontEnd/Resources/vendor/icofont/icofont.min.css" rel="stylesheet">
     <link href="<?php echo UrlServer ?>/FrontEnd/Resources/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">

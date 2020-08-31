@@ -24,8 +24,17 @@ class BaseDatos extends Conexion{
     var $userFooterDescription;
 
 
+    var $summaryId;
+    var $summaryTitle;
+    var $summaryStartYear;
+    var $summaryFinalYear;
+    var $summarySchool;
+    var $summaryRemark;
+
+
     var $UsuLogin;
     var $ClaLogin;
+    
 
 
 
@@ -69,6 +78,23 @@ class BaseDatos extends Conexion{
             $this->userFooterDescription=$_REQUEST['UserFooterDescription'];     
            }
 
+
+           if (isset($_REQUEST['Title']) && $_REQUEST['Title']<>"") {
+
+            $this->summaryTitle=$_REQUEST['Title'];
+            $this->summaryStartYear=$_REQUEST['StartYear'];  
+            $this->summaryFinalYear=$_REQUEST['FinalYear']; 
+            $this->summarySchool=$_REQUEST['School'];
+            $this->summaryRemark=$_REQUEST['Remark'];
+               
+           }
+
+           if (isset($_REQUEST['idSummary']) && $_REQUEST['idSummary']<>"") {
+
+            $this->summaryId=$_REQUEST['idSummary'];
+
+        }
+
     }
 
 
@@ -108,7 +134,7 @@ class BaseDatos extends Conexion{
 
         }else{
 
-            $mensaje="Datos con problemas";
+            $mensaje="Failed data";
         }
 
 
@@ -162,7 +188,7 @@ class BaseDatos extends Conexion{
        if ($this->conector->query($sql)) {
            $mensaje="<strong>Attention</strong> the data was update correctly.";
       } else {
-           $mensaje="Datos con problemas";
+           $mensaje="Failed data";
       }
       return $mensaje;
 
@@ -261,15 +287,103 @@ class BaseDatos extends Conexion{
            if ($this->conector->query($sql)) {
                $mensaje="<strong>Attention</strong> the data was update correctly.";
           } else {
-               $mensaje="Datos con problemas";
+               $mensaje="Failed data";
           }
           return $mensaje;
     
          }
 
+    /* En este parte ira toda la logica de la base de datos para el tema del summary */
 
-         
 
-   }
+          public function ListSumaryInformation(){
+            $sql="SELECT * FROM `tblsummary` ";
+            $vector=array();
+            if($this->conector->query($sql)){
+                $resultado=$this->conector->query($sql);
+                while($fila=$resultado->fetch_array()){
+                    $vector[]=$fila;
+                }
+            }else{
+    
+            }
+            return $vector;   
+        }
+   
+   
+        public function GetInfoSumaryById($id){
+
+            $sql="SELECT * FROM `tblsummary` WHERE idSummary ='".$id."'";
+
+            $vector=array();
+            $resultado= $this->conector->query($sql);
+            if (!empty($resultado)){
+                while ($fila = $resultado->fetch_array()) {
+                    $vector[]=$fila;
+
+                }
+            }else{
+
+            }
+             return $vector;
+
+
+        }  
+
+
+        public function UpdateInfoSummary(){
+
+            $sql="UPDATE `tblsummary` SET `Title`='".$this->summaryTitle."',       
+            `StartYear`='".$this->summaryStartYear."',
+            `FinalYear`='".$this->summaryFinalYear."',
+            `School`='".$this->summarySchool."',            
+            `Remark`='".$this->summaryRemark."'           
+            WHERE idSummary = '".$this->summaryId."'";
+    
+           if ($this->conector->query($sql)) {
+               $mensaje="<strong>Attention</strong> the data was update correctly.";
+          } else {
+               $mensaje="Failed data";
+          }
+          return $mensaje;
+
+        }
+
+
+        public function DeleteSummary(){
+
+            $sql=" DELETE FROM tblsummary where idSummary='".$_REQUEST['id']."'";
+    
+             if ($this->conector->query($sql)){
+                 $mensaje=1;
+               }else{
+                  $mensaje=0;
+                }
+              return $mensaje;
+             }
+
+
+        public function AddSummary(){
+
+            $sql="INSERT INTO `tblsummary`(`Title`, `StartYear`, `School`, `Remark`, `FinalYear`) VALUES
+            (
+            '".$this->summaryTitle."',
+            '".$this->summaryStartYear."',
+            '".$this->summarySchool."',
+            '". $this->summaryRemark."',
+            '". $this->summaryFinalYear."'
+            )";
+    
+            if($this->conector->query($sql)){    
+                $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
+            }else{    
+                $mensaje="Failed data";
+            }    
+            return $mensaje;
+        }
+            
+
+   
+    }
 
 ?>

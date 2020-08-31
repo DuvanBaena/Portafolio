@@ -1,10 +1,3 @@
-<?php
-if (isset($_REQUEST['id'])){
-   include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
-   $data=new BaseDatos;
-   $records=$data->GetById($_REQUEST['id']); 
- }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +17,7 @@ if (isset($_REQUEST['id'])){
   <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../Resources/vendor/bootstrap/css/bootstrap-themev3.0.0.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="../Resources/vendor/datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+  <link href="../Resources/vendor/datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />  
   <link href="../Resources/vendor/toastr/toastr.css" rel="stylesheet">
   <link href="../Resources/css/dashboard.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/style-responsive.css" rel="stylesheet" />
@@ -50,8 +43,8 @@ if (isset($_REQUEST['id'])){
           <div class="col-lg-12">          
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="icon_document_alt"></i>Version</li>
-              <li><i class="fa fa-files-o"></i>Edit Version</li>
+              <li><i class="icon_document_alt"></i>Sumary</li>
+              <li><i class="fa fa-files-o"></i>Edit Sumary</li>
             </ol>
           </div>
         </div>
@@ -63,41 +56,43 @@ if (isset($_REQUEST['id'])){
               </header>
               <div class="panel-body">
                 <div class="form">
-                  <form class="form-horizontal">
-                  <div class="form-group ">
-                      <label  class="control-label col-lg-2">Version id</label>
-                      <div class="col-lg-10">
-                        <input class="form-control " id="VersionId" type="text" name="VersionId"
-                         value="<?php echo $records[0]['VersionId'];?>" disabled>
-                      </div>
-                    </div>  
+                  <form class="form-horizontal" id="FrmAddSummary" autocomplete="off">  
                     <div class="form-group ">
-                      <label  class="control-label col-lg-2">Version Code</label>
+                      <label  class="control-label col-lg-2">Title</label>
                       <div class="col-lg-10">
-                        <input class="form-control " id="versionCode" type="text" name="versionCode" 
-                         value="<?php echo $records[0]['VersionCode'];?>">
+                        <input class="form-control " id="Title" type="text" name="Title">                        
                       </div>
-                    </div>        
-                    <div class="form-group ">
-                      <label class="control-label col-lg-2">Version Date</label>
+                    </div>            
+                    <div class="form-group">
+                      <label class="control-label col-lg-2">Start Year</label>
                       <div class="col-lg-10">
-                        <input class="form-control" id="VersionDate" name="VersionDate"  
-                        value="<?php echo $records[0]['VersionDate'];?>">
+                        <input class="form-control date"  type= "text" id="StartYear" name="StartYear">                       
                       </div>
-                    </div>               
-                    
+                    </div> 
+                    <div class="form-group">
+                      <label class="control-label col-lg-2">Final Year</label>
+                      <div class="col-lg-10">
+                        <input class="form-control date"  id="FinalYear" name="FinalYear">                      
+                       </div>
+                    </div> 
                     <div class="form-group ">
-                      <label  class="control-label col-lg-2">Version Comment</label>
+                      <label  class="control-label col-lg-2">School</label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="School" type="text"  name="School">                        
+                      </div>
+                    </div>          
+                    <div class="form-group ">
+                      <label  class="control-label col-lg-2">Remark</label>
                       <div class="col-lg-10">                 
-                        <textarea class="form-control" id="VersionComment" name="VersionComment" 
+                        <textarea class="form-control" id="Remark" name="Remark" 
                         placeholder="descripcion">
                         </textarea>
                       </div>
                     </div>
                     <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">                                            
-                      <button type="button" class="btn btn-primary" id="BtnAUpdateVersion">Save</button>                       
-                        <button class="btn btn-default" type="button" onclick="ReturnIndexVersion()">Cancel</button>
+                      <button type="button" class="btn btn-primary" id="BtnAddSummary">Save</button>                       
+                        <button class="btn btn-default" type="button" onclick="ReturnIndexSummary()">Cancel</button>
                       </div>
                     </div>
                   </form>
@@ -116,22 +111,28 @@ if (isset($_REQUEST['id'])){
   <script src="../Resources/vendor/jquery/jquery.js"></script>
   <script src="../Resources/vendor/bootstrap/js/bootstrapv3.0.0.min.js"></script>
   <script src="../Resources/vendor/bootstrap/js/jquery.scrollTo.min.js"></script>
-  <script src="../Resources/vendor/bootstrap/js/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="../Resources/vendor/bootstrap/js/jquery.nicescroll.js" type="text/javascript"></script>  
+  <script src="../Resources/vendor/datepicker/js/bootstrap-datepicker.js"></script>
   <script src="../Resources/vendor/toastr/toastr.js"></script>
-  <script src="../Resources/vendor/datepicker/js/bootstrap-datepicker.min.js"></script>
   <script src="../Resources/js/scriptsDashboard.js"></script>
   <script src="../Resources/js/script.js"></script>
 
-  <script>
-  document.getElementById("VersionComment").innerHTML="<?php echo $records[0]['VersionComment'];?>";
-  document.getElementById("BtnAUpdateVersion").onclick = UpdateVersion;
+  <script>  
+  document.getElementById("BtnAddSummary").onclick = AddSummanry;
  
-  $('#VersionDate').datepicker({
-        format: 'yyyy/mm/dd',
-        startDate: '-3d',
-        orientation: 'bottom'
+    $('.date').datepicker({
+      format: 'yyyy',
+      viewMode: "years", 
+      minViewMode: "years",
+			container: container,
+			todayHighlight: true,
+			autoclose: true,
+      orientation: 'bottom'
     });
+    
   </script>
+
+
 </body>
 
 </html>

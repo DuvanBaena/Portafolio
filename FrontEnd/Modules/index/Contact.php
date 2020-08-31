@@ -10,22 +10,19 @@
           <div class="col-md-4">
             <div class="contact-address">
               <i class="icofont-google-map"></i>
-              <h3>Address</h3>
-              <address>Medellín, Colombia</address>
+              <h3>Medellín, Colombia</h3>              
             </div>
           </div>
           <div class="col-md-4">
-            <div class="contact-phone">
-              <i class="icofont-phone"></i>
-              <h3>Phone Number</h3>
-              <p><a href="tel:+0573122988419">+57 3122988419</a></p>
-            </div>
+            <div class="contact-phone">  
+            <a href="tel:+0573122988419"><i class="icofont-phone"></i></a>
+              <h3>Contact with me</h3>         
+              </div>
           </div>
           <div class="col-md-4">
-            <div class="contact-email">
-              <i class="icofont-envelope"></i>
-              <h3>Email</h3>
-              <p><a href="mailto:djbpuerta349@gmail.com">djbpuerta349@gmail.com</a></p>
+            <div class="contact-email">              
+              <a href="mailto:djbpuerta349@gmail.com"><i class="icofont-envelope" ></i></a> 
+              <h3>Send me emalil</h3>            
             </div>
           </div>          
           <form action="forms/contact.php" method="post" role="form" class="php-email-form">
