@@ -1,4 +1,8 @@
-<section id="resume" class="resume ">
+<?php
+$records=$data->ListSumaryInformation();
+?>  
+
+   <section id="resume" class="resume ">
       <div class="container">
         <div class="section-title">
           <span>resumen</span>
@@ -6,7 +10,7 @@
           <p>I still have a long way to go, academically and professionally, I already did the most difficult thing, was
             to start.<strong> 🖥️Lifelong learning💻</strong></p>
         </div>
-
+ 
         <div class="row">
           <div class="col-lg-6" data-aos="fade-up">
             <h3 class="resume-title">Sumary</h3>
@@ -14,34 +18,25 @@
               <h4>Actually</h4>
               <p><em>American Colombo of Medellín, Col</em></p>
               <ul>
-                <li>I'm a student of English language and literature, General</li>
-                <li>I'm a student of online educational platforms to increase my skills</li>
-              </ul>
+                <li>I'm a student of English language and literature, General</li>                
+              </ul> 
             </div>
-
             <h3 class="resume-title">Education</h3>
+            <?php
+            if(count($records)>0){
+            for($i=0;$i<count($records);$i++){?>
             <div class="resume-item">
-              <h4>Engineering Specialist</h4>
-              <h5>2019 - 2020</h5>
-              <p><em>University of Medellin, Col</em></p>
-              <p>Based on two key elements of the software engineering process, which are: requirements engineering and
-                architectural design.</p>
+              <h4><?php echo $records[$i]["Title"];?></h4>
+              <h5><?php echo $records[$i]["StartYear"];?> - <?php echo $records[$i]["FinalYear"];?></h5>
+              <p><em><?php echo $records[$i]["School"];?>, Col</em></p>
+              <p><?php echo $records[$i]["Remark"];?>.</p>
             </div>
-            <div class="resume-item">
-              <h4>Computer Software Technology/Technician</h4>
-              <h5>2015 - 2018</h5>
-              <p><em>Technical institute CESDE, Medellín, Col</em></p>
-              <p>Ability to develop software, analysis, design and implementation of applications and maintenance of web
-                and mobile environment.</p>
-            </div>
-            <div class="resume-item">
-              <h4>Systems Engineering degree</h4>
-              <h5>2011 - 2017</h5>
-              <p><em>University Luis Amigó, Medellín, Col</em></p>
-              <p>Ability to develop software, analysis, design and implementation of applications and maintenance of web
-                and mobile environment.</p>
-            </div>
+            <?php 
+              }
+            }
+          ?>
           </div>
+          
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <h3 class="resume-title">Professional Experience</h3>
             <div class="resume-item">
@@ -57,7 +52,7 @@
                   management of source code repositories.</li>
                 <li>Research, propose and implement good practices to maintain the infrastructure.</li>
               </ul>
-            </div>
+            </div>            
             <div class="resume-item">
               <h4>IT Infrastructure Engineer</h4>
               <h5>2008 - 2018</h5>

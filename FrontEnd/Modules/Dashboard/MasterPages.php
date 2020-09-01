@@ -48,7 +48,8 @@ sleep(5);
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
               <ul class="sub">
-                <li><a href="Summary.php">Sumary Detail</a></li>                    
+                <li><a href="Summary.php">Sumary Detail</a></li>
+                <li><a href="CurrentSummary.php">Current Summary</a></li>                     
               </ul>
             </li>
             <li class="sub-menu">

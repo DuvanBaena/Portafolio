@@ -53,7 +53,7 @@
               </header>
               <div class="panel-body">
                 <div class="form">
-                  <form class="form-horizontal">
+                  <form class="form-horizontal" autocomplete="off">
                     <div class="form-group ">
                       <label for="versionCode" class="control-label col-lg-2">Version Code</label>
                       <div class="col-lg-10">

@@ -116,7 +116,7 @@ class BaseDatos extends Conexion{
 
      }
 
-    /* En este parte ira toda la logica de la base de datos para el tema de la Version (CRUD) */
+    /* In this part will go all the logic of the database for the version issue. */
 
      public function AddVersion(){
 
@@ -227,7 +227,7 @@ class BaseDatos extends Conexion{
         }
 
 
-    /* En este parte ira toda la logica de la base de datos para el tema de la informacion personal del usuario */
+    /* In this part will go all the logic of the database for the subject of the user's personal information */
 
 
 
@@ -293,7 +293,7 @@ class BaseDatos extends Conexion{
     
          }
 
-    /* En este parte ira toda la logica de la base de datos para el tema del summary */
+    /* In this part you will go all the logic of the database for the summary topic. */
 
 
           public function ListSumaryInformation(){
@@ -381,7 +381,25 @@ class BaseDatos extends Conexion{
             }    
             return $mensaje;
         }
-            
+          
+        
+        /* In this part you will go all the logic of the database for the Actually topic. */
+
+
+        public function ListCurrentSumary(){
+            $sql="SELECT * FROM `tblactually` ";
+            $vector=array();
+            if($this->conector->query($sql)){
+                $resultado=$this->conector->query($sql);
+                while($fila=$resultado->fetch_array()){
+                    $vector[]=$fila;
+                }
+            }else{
+    
+            }
+            return $vector;  
+
+        }
 
    
     }
