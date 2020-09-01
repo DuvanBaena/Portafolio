@@ -75,14 +75,14 @@ if (isset($_REQUEST['id'])){
                       <label  class="control-label col-lg-2">Version Code</label>
                       <div class="col-lg-10">
                         <input class="form-control " id="versionCode" type="text" name="versionCode" 
-                         value="<?php echo $records[0]['VersionCode'];?>">
+                        placeholder="1.2.15.10922" value="<?php echo $records[0]['VersionCode'];?>">
                       </div>
                     </div>        
                     <div class="form-group ">
                       <label class="control-label col-lg-2">Version Date</label>
                       <div class="col-lg-10">
                         <input class="form-control" id="VersionDate" name="VersionDate"  
-                        value="<?php echo $records[0]['VersionDate'];?>">
+                        placeholder="2020-08-30" value="<?php echo $records[0]['VersionDate'];?>">
                       </div>
                     </div>               
                     
@@ -90,7 +90,7 @@ if (isset($_REQUEST['id'])){
                       <label  class="control-label col-lg-2">Version Comment</label>
                       <div class="col-lg-10">                 
                         <textarea class="form-control" id="VersionComment" name="VersionComment" 
-                        placeholder="descripcion">
+                        placeholder="Descripcion">
                         </textarea>
                       </div>
                     </div>

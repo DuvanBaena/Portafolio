@@ -44,7 +44,7 @@
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
               <li><i class="icon_document_alt"></i>Sumary</li>
-              <li><i class="fa fa-files-o"></i>Edit Sumary</li>
+              <li><i class="fa fa-files-o"></i>Add Current Summary</li>
             </ol>
           </div>
         </div>
@@ -52,40 +52,19 @@
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-               Add Detail Version
+               Current Summary
               </header>
               <div class="panel-body">
                 <div class="form">
-                  <form class="form-horizontal" id="FrmAddSummary" autocomplete="off">  
+                  <form class="form-horizontal" id="FrmAddCurrentSummary" autocomplete="off">  
                     <div class="form-group ">
-                      <label  class="control-label col-lg-2">Title</label>
+                      <label  class="control-label col-lg-2">Place Study</label>
                       <div class="col-lg-10">
-                        <input class="form-control " id="Title" type="text" name="Title"
-                        placeholder="Engineering Specialist">                        
+                        <input class="form-control " id="PlaceStudy" type="text" name="PlaceStudy"
+                        placeholder="Example UdeM">                        
                       </div>
-                    </div>            
-                    <div class="form-group">
-                      <label class="control-label col-lg-2">Start Year</label>
-                      <div class="col-lg-10">
-                        <input class="form-control date"  type= "text" id="StartYear" name="StartYear"
-                        placeholder="2019">                       
-                      </div>
-                    </div> 
-                    <div class="form-group">
-                      <label class="control-label col-lg-2">Final Year</label>
-                      <div class="col-lg-10">
-                        <input class="form-control date"  id="FinalYear" name="FinalYear"
-                        placeholder="2020">                      
-                       </div>
-                    </div> 
-                    <div class="form-group ">
-                      <label  class="control-label col-lg-2">School</label>
-                      <div class="col-lg-10">
-                        <input class="form-control " id="School" type="text"  name="School"
-                        placeholder="UdeM">                        
-                      </div>
-                    </div>          
-                    <div class="form-group ">
+                    </div>        
+                     <div class="form-group ">
                       <label  class="control-label col-lg-2">Remark</label>
                       <div class="col-lg-10">                 
                         <textarea class="form-control" id="Remark" name="Remark" 
@@ -95,7 +74,7 @@
                     </div>
                     <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">                                            
-                      <button type="button" class="btn btn-primary" id="BtnAddSummary">Save</button>                       
+                      <button type="button" class="btn btn-primary" id="BtnAddCurrentSummary">Save</button>                       
                         <button class="btn btn-default" type="button" onclick="ReturnIndexSummary()">Cancel</button>
                       </div>
                     </div>
@@ -122,7 +101,7 @@
   <script src="../Resources/js/script.js"></script>
 
   <script>  
-  document.getElementById("BtnAddSummary").onclick = AddSummanry;
+  document.getElementById("BtnAddCurrentSummary").onclick = AddCurrentSummanry;
  
     $('.date').datepicker({
       format: 'yyyy',
@@ -133,6 +112,7 @@
 			autoclose: true,
       orientation: 'bottom'
     });
+    
 
     $('document').ready(function()
     {
@@ -140,7 +120,7 @@
             $(this).val($(this).val().trim());
           }
         );
-    });    
+    });
   </script>
 
 

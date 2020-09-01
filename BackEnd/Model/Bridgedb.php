@@ -32,6 +32,11 @@ class BaseDatos extends Conexion{
     var $summaryRemark;
 
 
+    var $currentId;
+    var $placeStudy;
+    var $remark;
+
+
     var $UsuLogin;
     var $ClaLogin;
     
@@ -92,6 +97,18 @@ class BaseDatos extends Conexion{
            if (isset($_REQUEST['idSummary']) && $_REQUEST['idSummary']<>"") {
 
             $this->summaryId=$_REQUEST['idSummary'];
+
+        }
+
+        if (isset($_REQUEST['PlaceStudy']) && $_REQUEST['PlaceStudy']<>"") {
+
+            $this->placeStudy=$_REQUEST['PlaceStudy'];
+            $this->remark=$_REQUEST['Remark'];                
+           }
+
+           if (isset($_REQUEST['IdActually']) && $_REQUEST['IdActually']<>"") {
+
+            $this->currentId=$_REQUEST['IdActually'];
 
         }
 
@@ -400,6 +417,24 @@ class BaseDatos extends Conexion{
             return $vector;  
 
         }
+
+        public function AddCurrentSummary(){
+
+            $sql="INSERT INTO `tblactually`(`PlaceStudy`, `Remark`) VALUES
+            (
+            '".$this->placeStudy."',
+            '". $this->remark."'
+            )";
+    
+            if($this->conector->query($sql)){    
+                $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
+            }else{    
+                $mensaje="Failed data";
+            }    
+            return $mensaje;
+        }   
+
+
 
    
     }

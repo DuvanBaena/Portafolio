@@ -56,7 +56,7 @@ $records=$data->ListCurrentSumary();
         </div>
         <div class="row">
             <div class="col-lg-12">            
-              <a class="btn btn-success" href="AddSummary.php"><i class="icofont-save"></i></a>  
+              <a class="btn btn-success" href="AddCurrentSummary.php"><i class="icofont-save"></i></a>  
             </div>
           </div>    
 			   </br> 

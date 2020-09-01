@@ -75,7 +75,7 @@ if (isset($_REQUEST['id'])){
                       <label  class="control-label col-lg-2">Title</label>
                       <div class="col-lg-10">
                         <input class="form-control " id="Title" type="text" name="Title" 
-                         value="<?php echo $records[0]['Title'];?>">
+                        placeholder="Engineering Specialist" value="<?php echo $records[0]['Title'];?>">
                       </div>
                     </div>                    
                 
@@ -83,7 +83,7 @@ if (isset($_REQUEST['id'])){
                       <label class="control-label col-lg-2">Start Year</label>
                       <div class="col-lg-10">
                         <input class="form-control date"  type= "text" id="StartYear" name="StartYear" 
-                        value="<?php echo $records[0]['StartYear'];?>">
+                        placeholder="2019" value="<?php echo $records[0]['StartYear'];?>">
                       </div>
                     </div> 
 
@@ -91,7 +91,7 @@ if (isset($_REQUEST['id'])){
                       <label class="control-label col-lg-2">Final Year</label>
                       <div class="col-lg-10">
                         <input class="form-control date"  id="FinalYear" name="FinalYear" 
-                        value="<?php echo $records[0]['FinalYear'];?>">
+                        placeholder="2020" value="<?php echo $records[0]['FinalYear'];?>">
                       </div>
                     </div> 
 
@@ -99,7 +99,7 @@ if (isset($_REQUEST['id'])){
                       <label  class="control-label col-lg-2">School</label>
                       <div class="col-lg-10">
                         <input class="form-control " id="School" type="text"  name="School" 
-                         value="<?php echo $records[0]['School'];?>">
+                        placeholder="UdeM" value="<?php echo $records[0]['School'];?>">
                       </div>
                     </div>             
                     
@@ -107,7 +107,7 @@ if (isset($_REQUEST['id'])){
                       <label  class="control-label col-lg-2">Remark</label>
                       <div class="col-lg-10">                 
                         <textarea class="form-control" id="Remark" name="Remark" 
-                        placeholder="descripcion">
+                        placeholder="Descripcion">
                         </textarea>
                       </div>
                     </div>
@@ -151,6 +151,14 @@ if (isset($_REQUEST['id'])){
 			todayHighlight: true,
 			autoclose: true,
       orientation: 'bottom'
+    });
+
+    $('document').ready(function()
+    {
+    $('textarea').each(function(){
+            $(this).val($(this).val().trim());
+          }
+        );
     });
     
   </script>

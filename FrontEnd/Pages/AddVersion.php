@@ -57,25 +57,24 @@
                     <div class="form-group ">
                       <label for="versionCode" class="control-label col-lg-2">Version Code</label>
                       <div class="col-lg-10">
-                        <input class="form-control " id="versionCode" type="text" name="versionCode" />
+                        <input class="form-control " id="versionCode" type="text" name="versionCode" 
+                        placeholder="1.2.15.10922">
                        </div>
-                    </div>                    
+                    </div>                 
 
-                    <div class="form-group ">
-                      <label for="cname" class="control-label col-lg-2">Version Date</label>
+                    <div class="form-group">
+                      <label class="control-label col-lg-2">Version Date</label>
                       <div class="col-lg-10">
-                        <input class="form-control"  data-date-format="yyyy/mm/dd" id="VersionDate" name="VersionDate"/>
-                        <span class="add-on">
-                        <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-                        </i>
-                      </span>
-                      </div>
-                    </div>              
+                        <input class="form-control date"  id="VersionDate" name="VersionDate"
+                        placeholder="2020-08-30">                     
+                       </div>
+                    </div>          
                     
                     <div class="form-group ">
                       <label for="VersionComment" class="control-label col-lg-2">Version Comment</label>
                       <div class="col-lg-10">
-                        <textarea class="form-control" id="VersionComment" name="VersionComment" placeholder="Description">
+                        <textarea class="form-control" id="VersionComment" name="VersionComment" 
+                        placeholder="Description">
                         </textarea>
                       </div>
                     </div>
@@ -110,11 +109,19 @@
     document.getElementById("BtnAddVersion").onclick = AddVersion; 
   </script>
 
-<script>
+  <script>
     $('#VersionDate').datepicker({
         format: 'yyyy/mm/dd',
         startDate: '-3d',
         orientation: 'bottom'
+    });
+    
+    $('document').ready(function()
+    {
+    $('textarea').each(function(){
+            $(this).val($(this).val().trim());
+          }
+        );
     });
   </script>
 

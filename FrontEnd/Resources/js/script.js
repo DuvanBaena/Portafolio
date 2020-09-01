@@ -464,6 +464,44 @@ function DeleteSummary(id){
 
 }
 
+function AddCurrentSummanry(){
+   Toastr();
+     
+    vector=["PlaceStudy","Remark"];
+    total=vector.length;
+    for (i=0;i<total;i++) {
+        if (document.getElementById(vector[i]).value=="") {          
+            toastr["error"]("You must enter value " +vector[i])         
+            document.getElementById(vector[i]).focus();         
+            return;
+        }
+    }
+
+    let parameters = $("#FrmAddCurrentSummary").serialize(); 
+
+
+    $.ajax({         
+      data: parameters,        
+      url: "../../BackEnd/Model/Validate.AddCurrentSummary.php",         
+      type: "post",          
+      beforeSend: function(){			           
+      },         
+          success: function(response){
+
+            toastr["success"](response);  
+            //location.href = "AddSummary.php";     
+          },         
+          error: function(jqXHR, textStatus, errorThrown){
+          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+         }
+      });
+
+
+}
+
+
+
+
 function ReturnIndexVersion(){
 
    location.href="Version.php";
