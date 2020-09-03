@@ -1,7 +1,7 @@
 <?php
 include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
 $data=new BaseDatos;
-$records=$data->ListSumaryInformation();
+$records=$data->ListWorkSumary();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,34 +46,34 @@ $records=$data->ListSumaryInformation();
     <section id="main-content">
       <section class="wrapper">
         <div class="row">
-        <div id="loader-wrapper" style="display: none">
+          <div id="loader-wrapper" style="display: none">
             <div id="loader"></div>   
-          </div> 
+          </div>        
           <div class="col-lg-12">
           <h3 class="page-header"><i class="fa fa fa-bars"></i> Version</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="fa fa-bars"></i>Sumary</li>
-              <li><i class="fa fa-square-o"></i>Sumary Detail</li>
+              <li><i class="fa fa-bars"></i>Work</li>
+              <li><i class="fa fa-square-o"></i>Work Detail</li>
             </ol>
           </div>          
         </div>
         <div class="row">
             <div class="col-lg-12">            
-              <a class="btn btn-success" href="AddSummary.php"><i class="icofont-save"></i></a>  
+              <a class="btn btn-success" href="AddWorkSummary.php"><i class="icofont-save"></i></a>  
             </div>
           </div>    
 			   </br> 
         <div class="row">
           <div class="col-lg-12">
-            <section class="panel">
+            <section class="panel">                     
               <table class="table table-striped table-advance table-hover" id="tableDetail">
               <thead>
                 <tr>
-                  <th><i class="icofont-listing-number"></i> #</th>
-                  <th><i class="icofont-id"></i> Title</th>
-                  <th><i class="icofont-file-document"></i> Time</th>
-                  <th><i class="icofont-calendar"></i> School</th>   
+                  <th><i class="icofont-listing-number"></i></th>
+                  <th><i class="icofont-ui-text-chat"></i> Position</th>
+                  <th><i class="icofont-ui-text-chat"></i> Company</th>
+                  <th><i class="icofont-calendar"></i> Time</th>                 
                   <th><i class="icofont-options"></i> Option</th>  
                 </tr>
               </thead>       
@@ -82,17 +82,17 @@ $records=$data->ListSumaryInformation();
                 if(count($records)>0){
                  for($i=0;$i<count($records);$i++){ ?>
                   <tr>
-                     <?php $PeriodTime = $records[$i]["StartYear"] ." - ". $records[$i]["FinalYear"];?>
+                    <?php $PeriodTime = $records[$i]["StartYear"] ." - ". $records[$i]["FinalYear"];?>
                     <td><?php echo $i+1;?></td>
-                    <td><?php echo $records[$i]["Title"];?></td>
-                    <td><?php echo $PeriodTime;?></td>
-                    <td><?php echo $records[$i]["School"];?></td>                                   
+                    <td><?php echo $records[$i]["TitleWork"];?></td>
+                    <td><?php echo $records[$i]["Company"];?></td>
+                    <td><?php echo $PeriodTime;?></td>                    
                      <td>
                       <div class="btn-group"> 
-                        <a class="btn btn-warning" href="EditSummary.php?id=<?php echo $records[$i]["idSummary"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>                        
+                        <a class="btn btn-warning" href="EditWorkSummary.php?id=<?php echo $records[$i]["IdWork"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>                        
                         <!-- <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#ModalDeleteVersion" title="Delete">
                         <i class="icofont-garbage"></i><span></span></a>    -->
-                        <button type="button" class="btn btn-danger" title="Delete" onclick="btnEliminarSummary(<?php echo $records[$i]["idSummary"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                                         
+                        <button type="button" class="btn btn-danger" title="Delete" onclick="btnDeleteSummary(<?php echo $records[$i]["IdWork"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                                         
                      </div>
                     </td>                    
                   </tr> 
@@ -101,8 +101,9 @@ $records=$data->ListSumaryInformation();
                   }
                 ?>
                 </tbody>
-              </table>
+              </table>              
             </section>
+          
           </div>
         </div>
       </section>
@@ -126,9 +127,9 @@ $records=$data->ListSumaryInformation();
 
   
   <script type="text/javascript"> 
-    function btnEliminarSummary(id){
+    function btnDeleteSummary(id){
       if(confirm("You sure want to Delete the Registry?")){
-          DeleteSummary(id);
+          DeleteWorkSummary(id);
        }
     }  
 </script>

@@ -1,6 +1,9 @@
 <?php
 $records=$data->ListSumaryInformation();
-?>  
+$records2=$data->ListCurrentSumary();
+$recordsB=$data->ListWorkSumary();
+
+?>
 
    <section id="resume" class="resume ">
       <div class="container">
@@ -10,16 +13,23 @@ $records=$data->ListSumaryInformation();
           <p>I still have a long way to go, academically and professionally, I already did the most difficult thing, was
             to start.<strong> 🖥️Lifelong learning💻</strong></p>
         </div>
- 
+
         <div class="row">
           <div class="col-lg-6" data-aos="fade-up">
             <h3 class="resume-title">Sumary</h3>
             <div class="resume-item pb-0">
               <h4>Actually</h4>
-              <p><em>American Colombo of Medellín, Col</em></p>
+              <?php
+            if(count($records2)>0){
+            for($i=0;$i<count($records2);$i++){?>
+              <p><em><?php echo $records2[$i]["PlaceStudy"];?>, Col</em></p>
               <ul>
-                <li>I'm a student of English language and literature, General</li>                
-              </ul> 
+                <li><?php echo $records2[$i]["Remark"];?></li>
+              </ul>
+              <?php
+              }
+            }
+          ?>
             </div>
             <h3 class="resume-title">Education</h3>
             <?php
@@ -31,42 +41,34 @@ $records=$data->ListSumaryInformation();
               <p><em><?php echo $records[$i]["School"];?>, Col</em></p>
               <p><?php echo $records[$i]["Remark"];?>.</p>
             </div>
-            <?php 
+            <?php
               }
             }
           ?>
           </div>
-          
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <h3 class="resume-title">Professional Experience</h3>
+            <?php
+            if(count($recordsB)>0){
+            for($i=0;$i<count($recordsB);$i++){?>
+            <?php $Time = $recordsB[$i]["StartYear"] ." - ". $recordsB[$i]["FinalYear"];?>
             <div class="resume-item">
-              <h4>DevOps &amp; Cloud Engineer</h4>
-              <h5>2018 - Present</h5>
-              <p><em>Globo Studio of Colombia S.A.S, Medellín, Col </em></p>
+              <h4><?php echo $recordsB[$i]["TitleWork"];?></h4>
+              <h5><?php echo $Time;?></h5>
+              <p><em><?php echo $recordsB[$i]["Company"];?>, Medellín, Col </em></p>
               <ul>
-                <li>Create automated deployments by using configuration management technology. Deploy new modules and
-                  updates and fix bug within the production environment.</li>
-                <li>Monitoring the availability Cloud PaaS/SaaS solutions, performance and health of production systems
-                  in support of meeting service level objectives.</li>
-                <li>Administration within the Azure ecosystem complemented by the use of CI / CD technologies and
-                  management of source code repositories.</li>
-                <li>Research, propose and implement good practices to maintain the infrastructure.</li>
-              </ul>
-            </div>            
-            <div class="resume-item">
-              <h4>IT Infrastructure Engineer</h4>
-              <h5>2008 - 2018</h5>
-              <p><em>Colombia National Police, Medellín, Col
-                  <Col>
-                  </Col></em></p>
-              <ul>
-                <li>Maximizing network efficiency by monitoring performance, troubleshooting network problems and
-                  outages, scheduling upgrades, supporting PC / computers (HW, OS, drivers, interfaces, software, etc.)
-                </li>
-                <li>Secure network systems by establishing and applying policies, defining and monitoring access and
-                  computer systems that are available during production hours.</li>
+                <li><?php echo $recordsB[$i]["Remark1"];?>.</li>
+                <li><?php echo $recordsB[$i]["Remark2"];?>.</li>
+                <li><?php echo $recordsB[$i]["Remark3"];?>.</li>               
               </ul>
             </div>
+            <?php
+              }
+            }
+          ?>
+
+
+
           </div>
         </div>
       </div>

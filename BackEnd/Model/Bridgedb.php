@@ -36,7 +36,16 @@ class BaseDatos extends Conexion{
     var $placeStudy;
     var $remark;
 
-
+    var $workId;
+    var $workStartYear;
+    var $workFinalYear;
+    var $workTitle;
+    var $workCompany;
+    var $workRemarkA;
+    var $workRemarkB;
+    var $workRemarkC; 
+    
+    
     var $UsuLogin;
     var $ClaLogin;
     
@@ -111,6 +120,24 @@ class BaseDatos extends Conexion{
             $this->currentId=$_REQUEST['IdActually'];
 
         }
+
+
+        if (isset($_REQUEST['TitleWork']) && $_REQUEST['TitleWork']<>"") {
+            $this->workStartYear=$_REQUEST['StartYear'];
+            $this->workFinalYear=$_REQUEST['FinalYear'];   
+            $this->workTitle=$_REQUEST['TitleWork'];
+            $this->workCompany=$_REQUEST['Company']; 
+            $this->workRemarkA=$_REQUEST['Remark1'];
+            $this->workRemarkB=$_REQUEST['Remark2'];   
+            $this->workRemarkC=$_REQUEST['Remark3'];              
+           }
+
+           if (isset($_REQUEST['IdWork']) && $_REQUEST['IdWork']<>"") {
+
+            $this->workId=$_REQUEST['IdWork'];
+
+        }
+
 
     }
 
@@ -435,8 +462,154 @@ class BaseDatos extends Conexion{
         }   
 
 
+        public function GetCurrentSumaryById($id){
+
+            $sql="SELECT * FROM `tblactually` WHERE IdActually ='".$id."'";
+
+            $vector=array();
+            $resultado= $this->conector->query($sql);
+            if (!empty($resultado)){
+                while ($fila = $resultado->fetch_array()) {
+                    $vector[]=$fila;
+
+                }
+            }else{
+
+            }
+             return $vector;
+
+        }
+
+        public function UpdateCurrentSummary(){
+
+            $sql="UPDATE `tblactually` SET `PlaceStudy`='".$this->placeStudy."',      
+            `Remark`='".$this->remark."'           
+            WHERE IdActually = '".$this->currentId."'";
+    
+           if ($this->conector->query($sql)) {
+               $mensaje="<strong>Attention</strong> the data was update correctly.";
+          } else {
+               $mensaje="Failed data";
+          }
+          return $mensaje;
+
+        }
+
+        public function DeleteCurrentSummary(){
+
+            $sql=" DELETE FROM tblactually where IdActually='".$_REQUEST['id']."'";
+    
+            if ($this->conector->query($sql)){
+                $mensaje=1;
+              }else{
+                 $mensaje=0;
+               }
+             return $mensaje;
+
+        }
+
+
+
+         /* In this part you will go all the logic of the database for the Work. */
+
+
+         public function ListWorkSumary(){
+
+            $sql="SELECT * FROM `tblwork` ";
+            $vector=array();
+            if($this->conector->query($sql)){
+                $resultado=$this->conector->query($sql);
+                while($fila=$resultado->fetch_array()){
+                    $vector[]=$fila;
+                }
+            }else{
+    
+            }
+            return $vector;  
+
+         }
+
+
+        public function AddWorkSummary(){
+
+            $sql="INSERT INTO `tblwork`(`StartYear`, `FinalYear`, `TitleWork`, `Company`, `Remark1`, `Remark2`, `Remark3`)
+             VALUES
+            (
+            '".$this->workStartYear."',
+            '".$this->workFinalYear."',
+            '".$this->workTitle."',
+            '".$this->workCompany."',
+            '".$this->workRemarkA."',
+            '".$this->workRemarkB."',
+            '".$this->workRemarkC."'
+            )";
+    
+            if($this->conector->query($sql)){    
+                $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
+            }else{    
+                $mensaje="Failed data";
+            }    
+            return $mensaje;
+
+
+        }
+
+        public function GetWorkById($id){
+
+            $sql="SELECT * FROM `tblwork` WHERE IdWork ='".$id."'";
+
+            $vector=array();
+            $resultado= $this->conector->query($sql);
+            if (!empty($resultado)){
+                while ($fila = $resultado->fetch_array()) {
+                    $vector[]=$fila;
+
+                }
+            }else{
+
+            }
+             return $vector;
+        }
+
+
+        public function UpdateWorkSummary(){
+
+            $sql="UPDATE `tblwork` SET `Remark1`='".$this->workRemarkA."',  
+            `Company`='".$this->workCompany."',
+            `StartYear`='".$this->workStartYear."',
+            `FinalYear`='".$this->workFinalYear."',
+            `TitleWork`='".$this->workTitle."',           
+            `Remark2`='".$this->workRemarkB."',   
+            `Remark3`='".$this->workRemarkC."'           
+             WHERE IdWork = '".$this->workId."'";
+    
+           if ($this->conector->query($sql)) {
+               $mensaje="<strong>Attention</strong> the data was update correctly.";
+          } else {
+               $mensaje="Failed data";
+          }
+          return $mensaje;
+
+        }
+
+        public function DeleteWorkSummary(){
+
+            $sql=" DELETE FROM tblwork where IdWork='".$_REQUEST['id']."'";
+    
+            if ($this->conector->query($sql)){
+                $mensaje=1;
+              }else{
+                 $mensaje=0;
+               }
+             return $mensaje;
+        }
+        
+
+
 
    
     }
 
 ?>
+
+

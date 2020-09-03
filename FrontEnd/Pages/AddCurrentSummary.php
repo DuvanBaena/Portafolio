@@ -75,7 +75,7 @@
                     <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">                                            
                       <button type="button" class="btn btn-primary" id="BtnAddCurrentSummary">Save</button>                       
-                        <button class="btn btn-default" type="button" onclick="ReturnIndexSummary()">Cancel</button>
+                        <button class="btn btn-default" type="button" onclick="ReturnCurrentSummary()">Cancel</button>
                       </div>
                     </div>
                   </form>

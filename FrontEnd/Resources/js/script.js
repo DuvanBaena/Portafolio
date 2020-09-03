@@ -58,7 +58,7 @@ function login() {
                $("#btnGuardar").text("wait...");
                $('#btnGuardar').attr("disabled", true);
                $("#capa2").show();
-               $("#capa2").html("<img src='../Resources/img/LOAD.gif'><br><strong>Working on the request</strong>").css("text-align", "center"); // cargar contenido
+               $("#capa2").html("<img src='../Resources/img/LOAD.gif'><br><strong>Working on the request</strong>").css("text-align", "center");
 
               
                location.href = "Dashboard.php";
@@ -230,19 +230,20 @@ function UpdateVersion(){
 }
 
 function Eliminar(id){
-
+  Toastr();
   var parametros = {"id": id}; 
-
      $.ajax({         
           data: parametros,        
           url: "../../BackEnd/Model/Validate.Delete.php",         
           type: "post",          
-          beforeSend: function(){			           
+          beforeSend: function(){
+            $("#loader-wrapper").show(); 			           
           },         
               success: function(reponse){
 
                if (reponse==1){
-                  
+                   $("#loader").show();                 
+                   toastr["info"]("Record removed", "Thanks")
                    //alert("Registro eliminado.");
                    location.href = "Version.php";
                }else{              
@@ -367,7 +368,7 @@ function AddSummanry(){
           success: function(response){
 
             toastr["success"](response);  
-            location.href = "AddSummary.php";     
+            location.href = "Summary.php";     
           },         
           error: function(jqXHR, textStatus, errorThrown){
           toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
@@ -436,19 +437,21 @@ function UpdateSummanry(){
 
 
 function DeleteSummary(id){
-
+   Toastr();
 	var parametros = {"id": id};
      $.ajax({         
           data: parametros,        
           url: "../../BackEnd/Model/Validate.DeleteSummary.php",         
           type: "post",          
-          beforeSend: function(){			           
+          beforeSend: function(){
+            $("#loader-wrapper").show(); 			           
           },         
               success: function(reponse){
 
-               if (reponse==1){
-                  
+               if (reponse==1){                  
+                  $("#loader").show();
                    //alert("Registro eliminado.");
+                   toastr["info"]("Record removed", "Thanks")
                    location.href = "Summary.php";
 
                }else{              
@@ -466,7 +469,7 @@ function DeleteSummary(id){
 
 function AddCurrentSummanry(){
    Toastr();
-     
+
     vector=["PlaceStudy","Remark"];
     total=vector.length;
     for (i=0;i<total;i++) {
@@ -487,15 +490,190 @@ function AddCurrentSummanry(){
       beforeSend: function(){			           
       },         
           success: function(response){
+            toastr["success"](response);
+            location.href = "CurrentSummary.php";              
+          },    
+          error: function(jqXHR, textStatus, errorThrown){
+          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+         }
+         
+      });
+
+}
+
+function UpdateCurrentSummanry(){
+   Toastr();
+    vector=["PlaceStudy","Remark"];
+    total=vector.length;
+    for (i=0;i<total;i++) {
+        if (document.getElementById(vector[i]).value=="") {          
+            toastr["error"]("You must enter value " +vector[i])         
+            document.getElementById(vector[i]).focus();         
+            return;
+        }
+    }
+    
+    let currentsummaryid = document.getElementById("IdActually").value;   
+
+    currentsummaryid = $("#IdActually").val();
+
+    let data = {
+      "IdActually": currentsummaryid,
+   }; 
+
+    let parameters = $("#FrmUpdateCurrentSummary").serialize() + '&' + $.param(data); 
+
+    $.ajax({         
+      data: parameters,        
+      url: "../../BackEnd/Model/Validate.UpdateCurrentSummary.php",         
+      type: "post",          
+      beforeSend: function(){			           
+      },         
+          success: function(response){
 
             toastr["success"](response);  
-            //location.href = "AddSummary.php";     
+            location.href = "CurrentSummary.php";     
           },         
           error: function(jqXHR, textStatus, errorThrown){
           toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
          }
       });
 
+}
+
+
+function DeleteCurrentSummary(id){
+   Toastr();
+	var parametros = {"id": id};
+     $.ajax({         
+          data: parametros,        
+          url: "../../BackEnd/Model/Validate.DeleteCurrentSummary.php",         
+          type: "post",          
+          beforeSend: function(){ 
+            $("#loader-wrapper").show();  			           
+          },         
+              success: function(reponse){
+
+               if (reponse==1){                   
+                  $("#loader").show();                    
+                   //alert("Record removed.");
+                   toastr["info"]("Record removed", "Thanks")
+                   location.href = "CurrentSummary.php";                                    
+
+               }else{              
+                    toastr["error"]("Se produjo un error?")
+                  }         
+              },            
+                        
+          error: function(jqXHR, textStatus, errorThrown){
+            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
+          }
+
+   });
+
+}
+
+
+function AddWorkSummary(){
+   Toastr();
+    vector=["StartYear","TitleWork","Company","Remark1"];
+    total=vector.length;
+    for (i=0;i<total;i++) {
+        if (document.getElementById(vector[i]).value=="") {          
+            toastr["error"]("You must enter value " +vector[i])         
+            document.getElementById(vector[i]).focus();         
+            return;
+        }
+    }
+
+    let parameters = $("#FrmAddWorkSummary").serialize();
+
+    $.ajax({         
+      data: parameters,        
+      url: "../../BackEnd/Model/Validate.AddWorkSummary.php",         
+      type: "post",          
+      beforeSend: function(){			           
+      },         
+          success: function(response){
+            toastr["success"](response);
+            location.href = "WorkSummary.php";              
+          },    
+          error: function(jqXHR, textStatus, errorThrown){
+          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+         }
+         
+      });
+
+}
+
+function UpdateWork(){
+    Toastr();
+    vector=["StartYear","TitleWork","Company","Remark1"];
+    total=vector.length;
+    for (i=0;i<total;i++) {
+        if (document.getElementById(vector[i]).value=="") {          
+            toastr["error"]("You must enter value " +vector[i])         
+            document.getElementById(vector[i]).focus();         
+            return;
+        }
+    }
+
+    let workid = document.getElementById("IdWork").value;   
+
+    workid = $("#IdWork").val();
+
+    let data = {
+      "IdWork": workid,
+   }; 
+
+    let parameters = $("#FrmEditWork").serialize() + '&' + $.param(data);
+
+    $.ajax({         
+      data: parameters,        
+      url: "../../BackEnd/Model/Validate.UpdateWorkSummary.php",         
+      type: "post",          
+      beforeSend: function(){			           
+      },         
+          success: function(response){
+            toastr["success"](response);
+            location.href = "WorkSummary.php";              
+          },    
+          error: function(jqXHR, textStatus, errorThrown){
+          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+         }
+         
+      });
+
+}
+
+function DeleteWorkSummary(id){
+   Toastr();
+	var parametros = {"id": id};
+     $.ajax({         
+          data: parametros,        
+          url: "../../BackEnd/Model/Validate.DeleteWorkSummary.php",         
+          type: "post",          
+          beforeSend: function(){ 
+            $("#loader-wrapper").show();  			           
+          },         
+              success: function(reponse){
+
+               if (reponse==1){                   
+                  $("#loader").show();                    
+                   //alert("Record removed.");
+                   toastr["info"]("Record removed", "Thanks")
+                   location.href = "WorkSummary.php";                                    
+
+               }else{              
+                    toastr["error"]("Se produjo un error?")
+                  }         
+              },            
+                        
+          error: function(jqXHR, textStatus, errorThrown){
+            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
+          }
+
+   });
 
 }
 
@@ -503,19 +681,22 @@ function AddCurrentSummanry(){
 
 
 function ReturnIndexVersion(){
-
    location.href="Version.php";
-
 }
 
 function ReturnIndex(){
-
    location.href="Dashboard.php";
-
 }
 
 function ReturnIndexSummary(){
-
    location.href="Summary.php";
-
 }
+
+function ReturnCurrentSummary(){
+   location.href="CurrentSummary.php";
+}
+
+function ReturnWorkSummary(){
+   location.href="WorkSummary.php";
+}
+

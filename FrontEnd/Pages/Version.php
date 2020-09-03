@@ -24,6 +24,7 @@ $records=$data->ListVersion();
   <link href="../Resources/vendor/elegant/css/elegant-icons-style.css" rel="stylesheet" />
   <link href="../Resources/vendor/DataTable/css/datatables.min.css" rel="stylesheet" />
   <link href="../Resources/vendor/datepicker/css/bootstrap-datepicker.css" rel="stylesheet" /> 
+  <link href="../Resources/vendor/toastr/toastr.css" rel="stylesheet">
   <link href="../Resources/css/dashboard.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/style-responsive.css" rel="stylesheet" />
   <link href="../Resources/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -45,6 +46,9 @@ $records=$data->ListVersion();
     <section id="main-content">
       <section class="wrapper">
         <div class="row">
+        <div id="loader-wrapper" style="display: none">
+            <div id="loader"></div>   
+          </div> 
           <div class="col-lg-12">
           <h3 class="page-header"><i class="fa fa fa-bars"></i> Version</h3>
             <ol class="breadcrumb">

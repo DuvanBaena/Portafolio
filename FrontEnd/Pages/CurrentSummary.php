@@ -23,6 +23,7 @@ $records=$data->ListCurrentSumary();
   <link href="../Resources/vendor/bootstrap/css/bootstrap-themev3.0.0.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/elegant-icons-style.css" rel="stylesheet" />
   <link href="../Resources/vendor/DataTable/css/datatables.min.css" rel="stylesheet" />
+  <link href="../Resources/vendor/toastr/toastr.css" rel="stylesheet">
   <link href="../Resources/css/dashboard.css" rel="stylesheet">
   <link href="../Resources/vendor/elegant/css/style-responsive.css" rel="stylesheet" />
   <link href="../Resources/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -45,6 +46,9 @@ $records=$data->ListCurrentSumary();
     <section id="main-content">
       <section class="wrapper">
         <div class="row">
+          <div id="loader-wrapper" style="display: none">
+            <div id="loader"></div>   
+          </div>        
           <div class="col-lg-12">
           <h3 class="page-header"><i class="fa fa fa-bars"></i> Version</h3>
             <ol class="breadcrumb">
@@ -62,7 +66,7 @@ $records=$data->ListCurrentSumary();
 			   </br> 
         <div class="row">
           <div class="col-lg-12">
-            <section class="panel">
+            <section class="panel">                     
               <table class="table table-striped table-advance table-hover" id="tableDetail">
               <thead>
                 <tr>
@@ -82,10 +86,10 @@ $records=$data->ListCurrentSumary();
                     <td><?php echo $records[$i]["Remark"];?></td>                                 
                      <td>
                       <div class="btn-group"> 
-                        <a class="btn btn-warning" href="EditSummary.php?id=<?php echo $records[$i]["idSummary"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>                        
+                        <a class="btn btn-warning" href="EditCurrentSummary.php?id=<?php echo $records[$i]["IdActually"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>                        
                         <!-- <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#ModalDeleteVersion" title="Delete">
                         <i class="icofont-garbage"></i><span></span></a>    -->
-                        <button type="button" class="btn btn-danger" title="Delete" onclick="btnEliminarSummary(<?php echo $records[$i]["idSummary"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                                         
+                        <button type="button" class="btn btn-danger" title="Delete" onclick="btnEliminarCurrentSummary(<?php echo $records[$i]["IdActually"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                                         
                      </div>
                     </td>                    
                   </tr> 
@@ -94,8 +98,9 @@ $records=$data->ListCurrentSumary();
                   }
                 ?>
                 </tbody>
-              </table>
+              </table>              
             </section>
+          
           </div>
         </div>
       </section>
@@ -119,20 +124,20 @@ $records=$data->ListCurrentSumary();
 
   
   <script type="text/javascript"> 
-    function btnEliminarSummary(id){
+    function btnEliminarCurrentSummary(id){
       if(confirm("You sure want to Delete the Registry?")){
-          DeleteSummary(id);
+          DeleteCurrentSummary(id);
        }
     }  
 </script>
 
-<script type="text/javascript"> 
+<!-- <script type="text/javascript"> 
     function btnEliminar(id){
       {
           Eliminar(id);
        }
     } 
-</script>
+</script> -->
 
 <script type="text/javascript"> 
     $(document).ready(function() {
