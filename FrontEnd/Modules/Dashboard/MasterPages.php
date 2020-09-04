@@ -64,6 +64,16 @@ sleep(5);
             </li>
             <li class="sub-menu">
               <a href="javascript:;" class="">
+              <i class="icofont-code"></i>
+                <span>Skill</span>
+                <span class="menu-arrow arrow_carrot-right"></span>
+              </a>
+              <ul class="sub">
+                <li><a href="WorkSummary.php">Skill Detail</a></li>                             
+              </ul>
+            </li>
+            <li class="sub-menu">
+              <a href="javascript:;" class="">
                 <i class="icon_document_alt"></i>
                 <span>Book's</span>
                 <span class="menu-arrow arrow_carrot-right"></span>

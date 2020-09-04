@@ -5,16 +5,17 @@ $data=new BaseDatos;
 $records=$data->ListPersonalInformation();
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head><meta charset="gb18030">
-  
+
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Home</title>
   <meta content="" name="descriptison">
-  <meta content="" name="keywords"> 
+  <meta content="" name="keywords">
 
   <!-- Google Fonts -->
   <link
@@ -31,19 +32,19 @@ $records=$data->ListPersonalInformation();
 <body>
 
      <!-- ======= Mobile nav toggle button ======= -->
-   
+
      <button type="button" class="mobile-nav-toggle"><i class="icofont-navigation-menu"></i></button>
-   
-     <!-- ======= Header ======= -->   
-     
+
+     <!-- ======= Header ======= -->
+
      <?php include __DIR__ . '/Modules/index/NavbarLateral.php'; ?>
-   
+
      <!-- End Header -->
-   
+
      <!-- ======= Hero Section ======= -->
-   
+
      <?php include __DIR__ . '/Modules/index/Hero.php'; ?>
-   
+
      <!-- End Hero -->
 
   <main id="main">

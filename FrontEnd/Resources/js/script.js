@@ -59,9 +59,11 @@ function login() {
                $('#btnGuardar').attr("disabled", true);
                $("#capa2").show();
                $("#capa2").html("<img src='../Resources/img/LOAD.gif'><br><strong>Working on the request</strong>").css("text-align", "center");
-
-              
-               location.href = "Dashboard.php";
+                                 
+               function back(){                                                 
+                  location.href = "Dashboard.php";                               
+                }
+                setTimeout(back, 2000);         
 
             } else {
                $("#capa").show();                
@@ -69,10 +71,9 @@ function login() {
                $("#capa").html(txtmensaje).css("text-align", "center").fadeOut(1500);
             }
 
-         },
-         // 3.6 cuando se presente el error
+         },        
          error: function (jqXHR, textStatus, errorThrown) {
-            $("#capas2").html("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
          }
 
       });
@@ -164,7 +165,7 @@ function AddVersion() {
          },
 
          error: function (jqXHR, textStatus, errorThrown) {
-            $("#capas2").html("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
          }
 
       });
@@ -223,7 +224,7 @@ function UpdateVersion(){
          },
 
          error: function (jqXHR, textStatus, errorThrown) {
-            $("#capas").html("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
          }
       });
    }
@@ -245,7 +246,12 @@ function Eliminar(id){
                    $("#loader").show();                 
                    toastr["info"]("Record removed", "Thanks")
                    //alert("Registro eliminado.");
-                   location.href = "Version.php";
+                   function back(){  
+                     $("#loader").hide();                               
+                     location.href = "Version.php";                               
+                   }
+                   setTimeout(back, 5000);
+                   
                }else{              
                     toastr["success"]("Se produjo un error?")
                   }         
@@ -253,7 +259,7 @@ function Eliminar(id){
 
           
           error: function(jqXHR, textStatus, errorThrown){
-               $("#capaMsj").html("There was a problem loading the request: "+textStatus+" - "+errorThrown);
+            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
           }
 
    });
@@ -331,8 +337,11 @@ function UpdateUserInfo(){
          },         
              success: function(response){
 
-               toastr["success"](response);  
-               location.href = "Dashboard.php";     
+               toastr["success"](response); 
+               function back(){                               
+                  location.href = "Dashboard.php";                               
+                }
+                setTimeout(back, 5000);                   
              },         
          error: function(jqXHR, textStatus, errorThrown){
             toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
@@ -366,9 +375,11 @@ function AddSummanry(){
       beforeSend: function(){			           
       },         
           success: function(response){
-
             toastr["success"](response);  
-            location.href = "Summary.php";     
+            function back(){              
+               location.href = "Summary.php";                     
+             }
+             setTimeout(back, 5000);     
           },         
           error: function(jqXHR, textStatus, errorThrown){
           toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
@@ -424,9 +435,11 @@ function UpdateSummanry(){
       beforeSend: function(){			           
       },         
           success: function(response){
-
-            toastr["success"](response);  
-            location.href = "Summary.php";     
+            toastr["success"](response); 
+            function back(){                               
+               location.href = "Summary.php";                               
+             }
+             setTimeout(back, 5000);              
           },         
           error: function(jqXHR, textStatus, errorThrown){
           toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
@@ -452,7 +465,11 @@ function DeleteSummary(id){
                   $("#loader").show();
                    //alert("Registro eliminado.");
                    toastr["info"]("Record removed", "Thanks")
-                   location.href = "Summary.php";
+                   function back(){
+                     $("#loader").hide();
+                     location.href = "Summary.php";                     
+                   }
+                   setTimeout(back, 5000);                  
 
                }else{              
                     toastr["success"]("Se produjo un error?")
@@ -491,7 +508,10 @@ function AddCurrentSummanry(){
       },         
           success: function(response){
             toastr["success"](response);
-            location.href = "CurrentSummary.php";              
+            function back(){                               
+               location.href = "CurrentSummary.php";                           
+             }
+             setTimeout(back, 5000);                         
           },    
           error: function(jqXHR, textStatus, errorThrown){
           toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
@@ -530,9 +550,12 @@ function UpdateCurrentSummanry(){
       beforeSend: function(){			           
       },         
           success: function(response){
-
-            toastr["success"](response);  
-            location.href = "CurrentSummary.php";     
+            toastr["success"](response);
+            function back(){                               
+               location.href = "CurrentSummary.php";                           
+             }
+             setTimeout(back, 5000);   
+               
           },         
           error: function(jqXHR, textStatus, errorThrown){
           toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
@@ -558,7 +581,11 @@ function DeleteCurrentSummary(id){
                   $("#loader").show();                    
                    //alert("Record removed.");
                    toastr["info"]("Record removed", "Thanks")
-                   location.href = "CurrentSummary.php";                                    
+                   function back(){
+                     $("#loader").hide();                
+                     location.href = "CurrentSummary.php";                           
+                   }
+                   setTimeout(back, 5000);                                               
 
                }else{              
                     toastr["error"]("Se produjo un error?")
@@ -595,8 +622,11 @@ function AddWorkSummary(){
       beforeSend: function(){			           
       },         
           success: function(response){
-            toastr["success"](response);
-            location.href = "WorkSummary.php";              
+            toastr["success"](response);           
+            function back(){               
+               location.href = "WorkSummary.php";                         
+             }
+             setTimeout(back, 5000);             
           },    
           error: function(jqXHR, textStatus, errorThrown){
           toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
@@ -635,8 +665,12 @@ function UpdateWork(){
       beforeSend: function(){			           
       },         
           success: function(response){
-            toastr["success"](response);
-            location.href = "WorkSummary.php";              
+            toastr["success"](response);            
+            function back(){               
+               location.href = "WorkSummary.php";                         
+             }
+             setTimeout(back, 5000);             
+
           },    
           error: function(jqXHR, textStatus, errorThrown){
           toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
@@ -661,13 +695,17 @@ function DeleteWorkSummary(id){
                if (reponse==1){                   
                   $("#loader").show();                    
                    //alert("Record removed.");
-                   toastr["info"]("Record removed", "Thanks")
-                   location.href = "WorkSummary.php";                                    
+                   toastr["info"]("Record removed", "Thanks")                
+                   function back(){
+                     $("#loader").hide();
+                     location.href = "WorkSummary.php";                       
+                   }
+                   setTimeout(back, 5000); 
 
                }else{              
                     toastr["error"]("Se produjo un error?")
                   }         
-              },            
+              },         
                         
           error: function(jqXHR, textStatus, errorThrown){
             toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
