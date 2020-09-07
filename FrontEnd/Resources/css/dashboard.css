@@ -1123,8 +1123,6 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;  
   }
-
-
   
   /* Safari */
   @-webkit-keyframes spin {
@@ -1136,3 +1134,4 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+

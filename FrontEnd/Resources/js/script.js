@@ -716,6 +716,146 @@ function DeleteWorkSummary(id){
 }
 
 
+function AddSkillSummanry(){
+   Toastr();
+    vector=["SkillName","SkillValue"];
+    total=vector.length;
+    for (i=0;i<total;i++) {
+        if (document.getElementById(vector[i]).value=="") {          
+            toastr["error"]("You must enter value " +vector[i])         
+            document.getElementById(vector[i]).focus();         
+            return;
+        }
+    }    
+
+
+    let valueSkill = document.getElementById("SkillValue").value;  
+    if( isNaN(valueSkill) ) {
+      toastr["error"]("You must enter a numeric value")
+      $("#SkillValue").focus();
+      $('#SkillValue').val('');
+      return false;
+    }
+
+    let parameters = $("#AddSkillSummary").serialize();
+
+    $.ajax({         
+      data: parameters,        
+      url: "../../BackEnd/Model/Validate.AddSkillSummary.php",         
+      type: "post",          
+      beforeSend: function(){			           
+      },         
+          success: function(response){
+            toastr["success"](response);           
+            function back(){               
+               location.href = "SkillSummary.php";                         
+             }
+             setTimeout(back, 5000);             
+          },    
+          error: function(jqXHR, textStatus, errorThrown){
+          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+         }
+         
+      });
+
+}
+
+function UpdatetSkillSummary(){
+   Toastr();
+   vector=["SkillName","SkillValue"];
+   total=vector.length;
+   for (i=0;i<total;i++) {
+       if (document.getElementById(vector[i]).value=="") {          
+           toastr["error"]("You must enter value " +vector[i])         
+           document.getElementById(vector[i]).focus();         
+           return;
+       }
+   }    
+
+   let valueSkill = document.getElementById("SkillValue").value;  
+   if( isNaN(valueSkill) ) {
+     toastr["error"]("You must enter a numeric value")
+     $("#SkillValue").focus();
+     $('#SkillValue').val('');
+     return false;
+   }
+
+
+   if (document.getElementById('Category').value== "Selected")
+   {
+       alert('You must enter value');
+       document.getElementById('Category').style.borderColor = "red"; 
+       return false; 
+   }
+
+
+   let skillid = document.getElementById("SkillId").value;   
+
+   skillid = $("#SkillId").val();
+
+   let data = {
+     "SkillId": skillid,
+  }; 
+
+   let parameters = $("#EditSkillSummary").serialize() + '&' + $.param(data);
+
+   $.ajax({         
+     data: parameters,        
+     url: "../../BackEnd/Model/Validate.UpdateSkillSummary.php",         
+     type: "post",          
+     beforeSend: function(){			           
+     },         
+         success: function(response){
+           toastr["success"](response);            
+           function back(){               
+              location.href = "SkillSummary.php";                         
+            }
+            setTimeout(back, 5000);             
+
+         },    
+         error: function(jqXHR, textStatus, errorThrown){
+         toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+        }
+        
+     });
+
+}
+
+
+function DeleteSkillSummary(id){
+   Toastr();
+	var parametros = {"id": id};
+     $.ajax({         
+          data: parametros,        
+          url: "../../BackEnd/Model/Validate.DeleteSkillSummary.php",         
+          type: "post",          
+          beforeSend: function(){ 
+            $("#loader-wrapper").show();  			           
+          },         
+              success: function(reponse){
+
+               if (reponse==1){                   
+                  $("#loader").show();                    
+                   //alert("Record removed.");
+                   toastr["info"]("Record removed", "Thanks")                
+                   function back(){
+                     $("#loader").hide();
+                     location.href = "SkillSummary.php";                       
+                   }
+                   setTimeout(back, 5000); 
+
+               }else{              
+                    toastr["error"]("Se produjo un error?")
+                  }         
+              },         
+                        
+          error: function(jqXHR, textStatus, errorThrown){
+            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
+          }
+
+   });
+
+}
 
 
 function ReturnIndexVersion(){
@@ -736,5 +876,9 @@ function ReturnCurrentSummary(){
 
 function ReturnWorkSummary(){
    location.href="WorkSummary.php";
+}
+
+function ReturnSkillSummary(){
+   location.href="SkillSummary.php";
 }
 

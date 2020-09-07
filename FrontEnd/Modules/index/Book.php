@@ -4,7 +4,7 @@
           <span>book's</span>
           <h2>Book's</h2>
           <p>
-            Maybe it's useful to you, I would like to recommend some books that have inspired me.</p>
+           Maybe it's useful to you, I would like to recommend some books that have inspired me.</p>
         </div>
 
         <div class="row" data-aos="fade-up">

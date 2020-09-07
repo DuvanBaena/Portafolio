@@ -43,7 +43,13 @@ class BaseDatos extends Conexion{
     var $workCompany;
     var $workRemarkA;
     var $workRemarkB;
-    var $workRemarkC; 
+    var $workRemarkC;
+    
+    
+    var $skillId;
+    var $skillName;
+    var $skillValue;
+    var $skillCategory;
     
     
     var $UsuLogin;
@@ -138,6 +144,18 @@ class BaseDatos extends Conexion{
 
         }
 
+        if (isset($_REQUEST['SkillName']) && $_REQUEST['SkillName']<>"") {
+            $this->skillName=$_REQUEST['SkillName'];
+            $this->skillValue=$_REQUEST['SkillValue']; 
+            $this->skillCategory=$_REQUEST['Category'];          
+            
+           }
+
+           if (isset($_REQUEST['SkillId']) && $_REQUEST['SkillId']<>"") {
+
+            $this->skillId=$_REQUEST['SkillId'];
+
+        }
 
     }
 
@@ -604,6 +622,130 @@ class BaseDatos extends Conexion{
              return $mensaje;
         }
         
+
+     /* In this part you will go all the logic of the database for Skill. */
+
+
+     public function ListSkillSumary(){
+
+        $sql="SELECT * FROM `tblskill` ";
+        $vector=array();
+        if($this->conector->query($sql)){
+            $resultado=$this->conector->query($sql);
+            while($fila=$resultado->fetch_array()){
+                $vector[]=$fila;
+            }
+        }else{
+
+        }
+        return $vector;  
+
+     }
+
+
+     public function ListSkillBackEndSumary(){
+        $sql="SELECT * FROM `tblskill`        
+        WHERE Category = 'BackEnd'";
+        $vector=array();
+        if($this->conector->query($sql)){
+            $resultado=$this->conector->query($sql);
+            while($fila=$resultado->fetch_array()){
+                $vector[]=$fila;
+            }
+        }else{
+
+        }
+        return $vector;  
+
+     }
+
+
+     public function ListSkillFrontEndSumary(){
+        $sql="SELECT * FROM `tblskill`        
+        WHERE Category = 'FrontEnd'";
+        $vector=array();
+        if($this->conector->query($sql)){
+            $resultado=$this->conector->query($sql);
+            while($fila=$resultado->fetch_array()){
+                $vector[]=$fila;
+            }
+        }else{
+
+        }
+        return $vector;  
+
+     }
+
+     public function AddSkillSummary(){
+
+        $sql="INSERT INTO `tblskill`(`SkillName`, `SkillValue`,`Category`)
+         VALUES
+        (
+        '".$this->skillName."',
+        '".$this->skillValue."',
+        '".$this->skillCategory."'
+        )";
+
+        if($this->conector->query($sql)){    
+            $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
+        }else{    
+            $mensaje="Failed data";
+        }    
+        return $mensaje;
+
+        }
+
+        public function GetInfoSkillById($id){
+
+            $sql="SELECT * FROM `tblskill` WHERE SkillId ='".$id."'";
+
+            $vector=array();
+            $resultado= $this->conector->query($sql);
+            if (!empty($resultado)){
+                while ($fila = $resultado->fetch_array()) {
+                    $vector[]=$fila;
+
+                }
+            }else{
+
+            }
+             return $vector;
+        }
+
+
+        public function  UpdateSkillSummary(){
+
+            $sql="UPDATE `tblskill` SET `SkillName`='".$this->skillName."',  
+            `Category`='".$this->skillCategory."',
+            `SkillValue`='".$this->skillValue."'           
+             WHERE SkillId = '".$this->skillId."'";
+    
+           if ($this->conector->query($sql)) {
+               $mensaje="<strong>Attention</strong> the data was update correctly.";
+          } else {
+               $mensaje="Failed data";
+          }
+          return $mensaje;
+
+        }
+       
+
+        public function DeleteSkillSummary(){
+
+            $sql=" DELETE FROM tblskill where SkillId='".$_REQUEST['id']."'";
+    
+            if ($this->conector->query($sql)){
+                $mensaje=1;
+              }else{
+                 $mensaje=0;
+               }
+             return $mensaje;
+        }
+
+        
+
+
+
 
 
 
