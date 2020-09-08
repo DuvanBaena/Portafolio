@@ -64,7 +64,7 @@
                         </div>
                         <div class="col-lg-4">                          
                             <select class="form-control" id="Category" name="Category">
-                            <option value="">- Choose Cateogry -</option>
+                            <option value="Selected">- Choose Cateogry -</option>
                             <option value="BackEnd">BackEnd</option>
                             <option value="FrontEnd">FrontEnd</option>
                           </select>

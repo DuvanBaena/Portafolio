@@ -69,9 +69,7 @@ sleep(5);
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
               <ul class="sub">
-                <li><a href="SkillSummary.php">Skill Detail</a></li>
-                <li><a href="SkillSummaryBackEnd.php">Back End</a></li>  
-                <li><a href="SkillSummaryFrontEnd.php">Front End</a></li>                               
+                <li><a href="SkillSummary.php">Skill Detail</a></li>                          
               </ul>
             </li>
             <li class="sub-menu">

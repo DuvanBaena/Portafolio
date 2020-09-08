@@ -737,6 +737,13 @@ function AddSkillSummanry(){
       return false;
     }
 
+    if (document.getElementById('Category').value== "Selected")
+    {
+        alert('You must enter value');
+        document.getElementById('Category').style.borderColor = "red"; 
+        return false; 
+    }
+    
     let parameters = $("#AddSkillSummary").serialize();
 
     $.ajax({         
