@@ -12,7 +12,7 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/profile-img.png" class="img-fluid" alt="">
+            <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/profile-img.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>Cloud Engineer &amp; Technology Enthusiasts.</h3>

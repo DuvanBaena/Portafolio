@@ -1,7 +1,7 @@
 <?php
 include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
 $data=new BaseDatos;
-$records=$data->ListVersion();
+$records=$data->ListTestimonial();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,17 +50,17 @@ $records=$data->ListVersion();
             <div id="loader"></div>   
           </div> 
           <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa fa-bars"></i> Version</h3>
+          <h3 class="page-header"><i class="fa fa fa-bars"></i> Testimonial</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="fa fa-bars"></i>version</li>
-              <li><i class="fa fa-square-o"></i>Version Detail</li>
+              <li><i class="fa fa-bars"></i>Testimonials</li>
+              <li><i class="fa fa-square-o"></i>Testimonial Detail</li>
             </ol>
           </div>          
         </div>
         <div class="row">
             <div class="col-lg-12">            
-              <a class="btn btn-success" href="AddVersion.php"><i class="icofont-save"></i></a>  
+              <a class="btn btn-success" href="AddTestimonial.php"><i class="icofont-save"></i></a>  
             </div>
           </div>    
 			   </br> 
@@ -71,9 +71,9 @@ $records=$data->ListVersion();
               <thead>     
                     <tr>
                       <th><i class="icofont-listing-number"></i> #</th>
-                      <th><i class="icofont-id"></i> Version Code</th>
-                      <th><i class="icofont-file-document"></i> Comment</th>
-                      <th><i class="icofont-calendar"></i> Date</th>    
+                      <th><i class="icofont-boy"></i> Name</th>
+                      <th><i class="icofont-chair"></i> Position</th>
+                      <th><i class="icofont-picture"></i> Img</th>    
                       <th><i class="icofont-options"></i> Option</th>  
                     </tr>
                   </thead>           
@@ -83,13 +83,13 @@ $records=$data->ListVersion();
                  for($i=0;$i<count($records);$i++){ ?>
                   <tr>                                    
                     <td><?php echo $i+1;?></td>            
-                    <td><?php echo $records[$i]["VersionCode"];?></td>
-                    <td><?php echo $records[$i]["VersionComment"];?></td> 
-                    <td><?php echo $records[$i]["VersionDate"];?></td>                  
+                    <td><?php echo $records[$i]["UserName"];?></td>
+                    <td><?php echo $records[$i]["RolUserName"];?></td> 
+                    <td><?php echo $records[$i]["ImgUser"];?></td>                  
                      <td>
                       <div class="btn-group">                         
-                        <a class="btn btn-warning" href="EditVersion.php?id=<?php echo $records[$i]["VersionId"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
-                        <button type="button" class="btn btn-danger" title="Delete" onclick="btnEliminar(<?php echo $records[$i]["VersionId"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                      
+                        <a class="btn btn-warning" href="EditTestimonial.php?id=<?php echo $records[$i]["IdTestimony"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
+                        <button type="button" class="btn btn-danger" title="Delete" onclick="btnDeleteTestimonialSummary(<?php echo $records[$i]["IdTestimony"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                      
                      </div>
                     </td>
                   </tr> 
@@ -121,9 +121,9 @@ $records=$data->ListVersion();
   <script src="../Resources/js/script.js"></script>
 
   <script type="text/javascript"> 
-    function btnEliminar(id){
+    function btnDeleteTestimonialSummary(id){
       if(confirm("You sure want to Delete the Registry?")){
-          Eliminar(id);
+          DeleteTestimonialSummary(id);
        }
     }  
 </script>

@@ -20,8 +20,8 @@
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <figure>
-                <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/JavaScriptFrontEnd.jpg" class="img-fluid">
-                <a href="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/JavaScriptBackEnd.jpg" data-lightbox="portfolio" class="link-preview venobox" title="JavaScript"><i class="icofont-eye-alt"></i></a>
+                <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/JavaScriptFrontEnd.jpg" class="img-fluid">
+                <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/JavaScriptBackEnd.jpg" data-lightbox="portfolio" class="link-preview venobox" title="JavaScript"><i class="icofont-eye-alt"></i></a>
                 <!-- <a href="portfolio-details.html" class="link-details" title="More Details"><i class="icofont-edit"></i></a> -->
               </figure>
               <div class="portfolio-info">
@@ -34,8 +34,8 @@
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <figure>
-                <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/SQLAzureFrontEnd.jpg" class="img-fluid" alt="">
-                <a href="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/SQLAzureBackEnd.jpg" data-lightbox="portfolio"  class="link-preview venobox" title="Administración SQL"><i class="icofont-eye-alt"></i></a>
+                <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/SQLAzureFrontEnd.jpg" class="img-fluid" alt="">
+                <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/SQLAzureBackEnd.jpg" data-lightbox="portfolio"  class="link-preview venobox" title="Administración SQL"><i class="icofont-eye-alt"></i></a>
               </figure>
               <div class="portfolio-info">
                 <h4>Admin SQL</h4>
@@ -47,8 +47,8 @@
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <figure>
-                <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/JavaScriptAvanzadoFrontEnd.jpg" class="img-fluid" alt="">
-                <a href="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/JavaScriptAvanzadoBackEnd.jpg" data-lightbox="portfolio"  class="link-preview venobox" title="JavaScript Avanzado"><i class="icofont-eye-alt"></i></a>
+                <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/JavaScriptAvanzadoFrontEnd.jpg" class="img-fluid" alt="">
+                <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/JavaScriptAvanzadoBackEnd.jpg" data-lightbox="portfolio"  class="link-preview venobox" title="JavaScript Avanzado"><i class="icofont-eye-alt"></i></a>
               </figure>
               <div class="portfolio-info">
                 <h4>JavaScript Avanzado</h4>
@@ -60,8 +60,8 @@
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <figure>
-                <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/ElGranLibroDeAndroidFrontEnd.jpg" class="img-fluid" alt="">
-                <a href="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/ElGranLibroDeAndroidBackEnd.jpg" data-lightbox="portfolio" class="link-preview venobox" title="Libro de Android"><i class="icofont-eye-alt"></i></a>
+                <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/ElGranLibroDeAndroidFrontEnd.jpg" class="img-fluid" alt="">
+                <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/ElGranLibroDeAndroidBackEnd.jpg" data-lightbox="portfolio" class="link-preview venobox" title="Libro de Android"><i class="icofont-eye-alt"></i></a>
               </figure>
               <div class="portfolio-info">
                 <h4>Libro de Android</h4>
@@ -73,8 +73,8 @@
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <figure>
-                <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/DesarrolloAppFrontEnd.jpg" class="img-fluid" alt="">
-                <a href="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/DesarrolloAppBackEnd.jpg" data-lightbox="portfolio" class="link-preview venobox"  title="Desarrollando App C#" ><i class="icofont-eye-alt"></i></a>
+                <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/DesarrolloAppFrontEnd.jpg" class="img-fluid" alt="">
+                <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/DesarrolloAppBackEnd.jpg" data-lightbox="portfolio" class="link-preview venobox"  title="Desarrollando App C#" ><i class="icofont-eye-alt"></i></a>
               </figure>
               <div class="portfolio-info">
                 <h4>Desarrollando App C#</h4>
@@ -86,8 +86,8 @@
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <figure>
-                <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/BaseDeDatosFrontEnd.jpg" class="img-fluid" alt="">
-                <a href="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/BaseDeDatosBackEnd.jpg" data-lightbox="portfolio"  class="link-preview venobox" title="Gestión SQL"><i class="icofont-eye-alt"></i></a>
+                <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/BaseDeDatosFrontEnd.jpg" class="img-fluid" alt="">
+                <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/BaseDeDatosBackEnd.jpg" data-lightbox="portfolio"  class="link-preview venobox" title="Gestión SQL"><i class="icofont-eye-alt"></i></a>
               </figure>
               <div class="portfolio-info">
                 <h4>Gestión SQL</h4>
@@ -99,8 +99,8 @@
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <figure>
-                <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/AjaxParaprofesionalesFrontEnd.jpg" class="img-fluid" alt="">
-                <a href="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/AjaxParaprofesionalesBackEnd.jpg" data-lightbox="portfolio" class="link-preview venobox" title="Ajax Profesionales"><i class="icofont-eye-alt"></i></a>
+                <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/AjaxParaprofesionalesFrontEnd.jpg" class="img-fluid" alt="">
+                <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/AjaxParaprofesionalesBackEnd.jpg" data-lightbox="portfolio" class="link-preview venobox" title="Ajax Profesionales"><i class="icofont-eye-alt"></i></a>
               </figure>
               <div class="portfolio-info">
                 <h4>Ajax Profesionales</h4>
@@ -112,8 +112,8 @@
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <figure>
-                <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/IngenieriaDelSoftwareFontEnd.jpg" class="img-fluid" alt="">
-                <a href="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/IngenieriaDelSoftwareBackEnd.jpg" data-lightbox="portfolio" class="link-preview venobox" title="Ing de Software"><i class="icofont-eye-alt"></i></a>
+                <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/IngenieriaDelSoftwareFontEnd.jpg" class="img-fluid" alt="">
+                <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/IngenieriaDelSoftwareBackEnd.jpg" data-lightbox="portfolio" class="link-preview venobox" title="Ing de Software"><i class="icofont-eye-alt"></i></a>
               </figure>
               <div class="portfolio-info">
                 <h4>Ing de Software</h4>
@@ -125,8 +125,8 @@
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <figure>
-                <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/IntroducciónAlaArquitectura.jpg" class="img-fluid" alt="">
-                <a href="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/IntroducciónAlaArquitectura.jpg" data-lightbox="portfolio" class="link-preview venobox" title="Arq de Software"><i class="icofont-eye-alt"></i></a>
+                <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/IntroArquitectura.jpg" class="img-fluid" alt="">
+                <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/IntroArquitectura.jpg" data-lightbox="portfolio" class="link-preview venobox" title="Arq de Software"><i class="icofont-eye-alt"></i></a>
               </figure>
               <div class="portfolio-info">
                 <h4>Arq de Software</h4>
@@ -138,8 +138,8 @@
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <figure>
-                <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/Los5SecretosDelDesarrollo.jpg" class="img-fluid" alt="">
-                <a href="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/IntroducciónAlaArquitectura.jpg" data-lightbox="portfolio" class="link-preview venobox" title="Tips Desarrollo"><i class="icofont-eye-alt"></i></a>
+                <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/Los5SecretosDelDesarrollo.jpg" class="img-fluid" alt="">
+                <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/IntroducciónAlaArquitectura.jpg" data-lightbox="portfolio" class="link-preview venobox" title="Tips Desarrollo"><i class="icofont-eye-alt"></i></a>
               </figure>
               <div class="portfolio-info">
                 <h4>Tips Desarrollo</h4>
@@ -151,8 +151,8 @@
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <figure>
-                <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/CleanCodeFrontEnd.jpg" class="img-fluid" alt="">
-                <a href="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/CleanCodeFrontEnd.jpg" data-lightbox="portfolio"  class="link-preview venobox" title="Código Limpio"><i class="icofont-eye-alt"></i></a>
+                <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/CleanCodeFrontEnd.jpg" class="img-fluid" alt="">
+                <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/CleanCodeFrontEnd.jpg" data-lightbox="portfolio"  class="link-preview venobox" title="Código Limpio"><i class="icofont-eye-alt"></i></a>
               </figure>
               <div class="portfolio-info">
                 <h4>Código Limpio</h4>
@@ -164,8 +164,8 @@
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <figure>
-                <img src="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/ElLibroDelExitoFrontEnd.jpg" class="img-fluid" alt="">
-                <a href="http://localhost:81/Portafolio/FrontEnd/Resource/img/Books/ElibroDelExitoBackEnd.jpg" data-lightbox="portfolio" class="link-preview venobox" title="El libro del Éxito"><i class="icofont-eye-alt"></i></a>
+                <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/ElLibroDelExitoFrontEnd.jpg" class="img-fluid" alt="">
+                <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/ElibroDelExitoBackEnd.jpg" data-lightbox="portfolio" class="link-preview venobox" title="El libro del Éxito"><i class="icofont-eye-alt"></i></a>
               </figure>
               <div class="portfolio-info">
                 <h4>El libro del Éxito</h4>

@@ -52,6 +52,13 @@ class BaseDatos extends Conexion{
     var $skillCategory;
     
     
+    var $testimonialId;
+    var $testimonialUserName;
+    var $testimonialRol;
+    var $testimonialImg;
+    var $testimonialRemark;
+
+
     var $UsuLogin;
     var $ClaLogin;
     
@@ -154,6 +161,20 @@ class BaseDatos extends Conexion{
            if (isset($_REQUEST['SkillId']) && $_REQUEST['SkillId']<>"") {
 
             $this->skillId=$_REQUEST['SkillId'];
+
+        }
+
+        if (isset($_REQUEST['UserName']) && $_REQUEST['UserName']<>"") {
+            $this->testimonialUserName=$_REQUEST['UserName'];
+            $this->testimonialRol=$_REQUEST['RolUserName']; 
+            $this->testimonialImg=$_REQUEST['UserImg'];    
+            $this->testimonialRemark=$_REQUEST['Remark'];      
+            
+           }
+
+           if (isset($_REQUEST['IdTestimony']) && $_REQUEST['IdTestimony']<>"") {
+
+            $this->testimonialId=$_REQUEST['IdTestimony'];
 
         }
 
@@ -744,9 +765,94 @@ class BaseDatos extends Conexion{
 
         
 
+   /* In this part you will go all the logic of the database for Testimonial. */
 
 
+        public function ListTestimonial(){
 
+            $sql="SELECT * FROM `tbltestimony` ";
+            $vector=array();
+            if($this->conector->query($sql)){
+                $resultado=$this->conector->query($sql);
+                while($fila=$resultado->fetch_array()){
+                    $vector[]=$fila;
+                }
+            }else{
+
+            }
+            return $vector;  
+
+        }
+
+
+        public function AddTestimonialSummary(){
+
+            $sql="INSERT INTO `tbltestimony`(`Remark`, `UserName`,`RolUserName`,`ImgUser`)
+             VALUES
+            (
+            '".$this->testimonialRemark."',
+            '".$this->testimonialUserName."',
+            '".$this->testimonialRol."',
+            '".$this->testimonialImg."'
+            )";
+    
+            if($this->conector->query($sql)){    
+                $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
+            }else{    
+                $mensaje="Failed data";
+            }    
+            return $mensaje;
+    
+            }
+
+            public function GetInfoTestimonialById($id){
+
+                $sql="SELECT * FROM `tbltestimony` WHERE IdTestimony ='".$id."'";
+    
+                $vector=array();
+                $resultado= $this->conector->query($sql);
+                if (!empty($resultado)){
+                    while ($fila = $resultado->fetch_array()) {
+                        $vector[]=$fila;
+    
+                    }
+                }else{
+    
+                }
+                 return $vector;
+            }
+
+
+            public function  UpdateTestimonialSummary(){
+
+                $sql="UPDATE `tbltestimony` SET `Remark`='".$this->testimonialRemark."',  
+                `UserName`='".$this->testimonialUserName."',
+                `ImgUser`='".$this->testimonialImg."',
+                `RolUserName`='".$this->testimonialRol."'           
+                 WHERE IdTestimony = '".$this->testimonialId."'";
+        
+               if ($this->conector->query($sql)) {
+                   $mensaje="<strong>Attention</strong> the data was update correctly.";
+              } else {
+                   $mensaje="Failed data";
+              }
+              return $mensaje;
+    
+            }
+            
+
+            public function DeleteTestimonialSummary(){
+
+                $sql=" DELETE FROM `tbltestimony` where IdTestimony='".$_REQUEST['id']."'";
+        
+                if ($this->conector->query($sql)){
+                    $mensaje=1;
+                  }else{
+                     $mensaje=0;
+                   }
+                 return $mensaje;
+            }
+            
 
 
    

@@ -253,7 +253,7 @@ function Eliminar(id){
                    setTimeout(back, 5000);
                    
                }else{              
-                    toastr["success"]("Se produjo un error?")
+                    toastr["success"]("There was an error?")
                   }         
               },
 
@@ -472,7 +472,7 @@ function DeleteSummary(id){
                    setTimeout(back, 5000);                  
 
                }else{              
-                    toastr["success"]("Se produjo un error?")
+                    toastr["success"]("There was an error?")
                   }         
               },
           
@@ -588,7 +588,7 @@ function DeleteCurrentSummary(id){
                    setTimeout(back, 5000);                                               
 
                }else{              
-                    toastr["error"]("Se produjo un error?")
+                    toastr["error"]("There was an error?")
                   }         
               },            
                         
@@ -703,7 +703,7 @@ function DeleteWorkSummary(id){
                    setTimeout(back, 5000); 
 
                }else{              
-                    toastr["error"]("Se produjo un error?")
+                    toastr["error"]("There was an error?")
                   }         
               },         
                         
@@ -852,7 +852,125 @@ function DeleteSkillSummary(id){
                    setTimeout(back, 5000); 
 
                }else{              
-                    toastr["error"]("Se produjo un error?")
+                    toastr["error"]("There was an error?")
+                  }         
+              },         
+                        
+          error: function(jqXHR, textStatus, errorThrown){
+            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
+          }
+
+   });
+
+}
+
+
+
+function AddTestimonial(){
+   Toastr();
+    vector=["UserName","RolUserName","Remark"];
+    total=vector.length;
+    for (i=0;i<total;i++) {
+        if (document.getElementById(vector[i]).value=="") {          
+            toastr["error"]("You must enter value " +vector[i])         
+            document.getElementById(vector[i]).focus();         
+            return;
+        }
+    }    
+    
+    let parameters = $("#FrmAddTestimonial").serialize();
+
+    $.ajax({         
+      data: parameters,        
+      url: "../../BackEnd/Model/Validate.AddTestimonialSummary.php",         
+      type: "post",          
+      beforeSend: function(){			           
+      },         
+          success: function(response){
+            toastr["success"](response);           
+            function back(){               
+               location.href = "Testimonial.php";                         
+             }
+             setTimeout(back, 5000);             
+          },    
+          error: function(jqXHR, textStatus, errorThrown){
+          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+         }
+         
+      });
+
+}
+
+
+function UpdateTestimonial(){
+   Toastr();
+    vector=["UserName","RolUserName","Remark"];
+    total=vector.length;
+    for (i=0;i<total;i++) {
+        if (document.getElementById(vector[i]).value=="") {          
+            toastr["error"]("You must enter value " +vector[i])         
+            document.getElementById(vector[i]).focus();         
+            return;
+        }
+    }   
+
+
+   let TestimonyId = document.getElementById("IdTestimony").value;   
+
+   TestimonyId = $("#IdTestimony").val();
+
+   let data = {
+     "IdTestimony": TestimonyId,
+  }; 
+
+   let parameters = $("#FrmEditTestimonial").serialize() + '&' + $.param(data);
+
+   $.ajax({         
+     data: parameters,        
+     url: "../../BackEnd/Model/Validate.UpdateTestimonialSummary.php",         
+     type: "post",          
+     beforeSend: function(){			           
+     },         
+         success: function(response){
+           toastr["success"](response);            
+           function back(){               
+              location.href = "Testimonial.php";                         
+            }
+            setTimeout(back, 5000);             
+
+         },    
+         error: function(jqXHR, textStatus, errorThrown){
+         toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+        }
+        
+     });
+
+}
+
+function DeleteTestimonialSummary(id){
+   Toastr();
+	var parametros = {"id": id};
+     $.ajax({         
+          data: parametros,        
+          url: "../../BackEnd/Model/Validate.DeleteTestimonialSummary.php",         
+          type: "post",          
+          beforeSend: function(){ 
+            $("#loader-wrapper").show();  			           
+          },         
+              success: function(reponse){
+
+               if (reponse==1){                   
+                  $("#loader").show();                    
+                   //alert("Record removed.");
+                   toastr["info"]("Record removed", "Thanks")                
+                   function back(){
+                     $("#loader").hide();
+                     location.href = "Testimonial.php";                       
+                   }
+                   setTimeout(back, 5000); 
+
+               }else{              
+                    toastr["error"]("There was an error?")
                   }         
               },         
                         
@@ -887,5 +1005,9 @@ function ReturnWorkSummary(){
 
 function ReturnSkillSummary(){
    location.href="SkillSummary.php";
+}
+
+function ReturnTestimonial(){
+   location.href="Testimonial.php";
 }
 
