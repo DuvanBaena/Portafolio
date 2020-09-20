@@ -87,8 +87,8 @@ $records=$data->ListTestimonial();
                     <td><?php echo $i+1;?></td>            
                     <td><?php echo $records[$i]["UserName"];?></td>
                     <td><?php echo $records[$i]["RolUserName"];?></td> 
-                    <td><?php echo $records[$i]["ImgUser"];?></td>                  
-                     <td>
+                    <td><?php echo "<img src='../Resources/img/Testimonials/".$records[$i]["ImgUser"]."' width=80>";$records[$i]["ImgUser"];?></td>
+                    <td>
                       <div class="btn-group">                         
                         <a class="btn btn-warning" href="EditTestimonial.php?id=<?php echo $records[$i]["IdTestimony"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
                         <button type="button" class="btn btn-danger" title="Delete" onclick="btnDeleteTestimonialSummary(<?php echo $records[$i]["IdTestimony"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                      

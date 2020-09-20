@@ -25,7 +25,7 @@
               <h3>Send me emalil</h3>            
             </div>
           </div>          
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <form action="./Pages/forms/contact.php" method="post" role="form" class="php-email-form">
             <div class="form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
               <div class="validate"></div>

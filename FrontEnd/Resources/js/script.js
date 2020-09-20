@@ -875,9 +875,19 @@ function AddTestimonial(){
             document.getElementById(vector[i]).focus();         
             return;
         }
-    }    
+    }  
     
-    let parameters = $("#FrmAddTestimonial").serialize();
+    
+    let Img = document.getElementById("UserImg").value;  
+       
+    Img = $("#UserImg").val();
+ 
+    let data = {
+      "UserImg": Img,
+   }; 
+ 
+     
+    let parameters = $("#FrmAddTestimonial").serialize() + '&' + $.param(data);
 
     $.ajax({         
       data: parameters,        

@@ -56,7 +56,7 @@
               </header>
               <div class="panel-body">
                 <div class="form">
-                  <form class="form-horizontal" id="FrmAddTestimonial" autocomplete="off">
+                  <form class="form-horizontal" id="FrmAddTestimonial" autocomplete="off" enctype="multipart/form-data">
                     <div class="form-group ">
                       <label for="UserName" class="control-label col-lg-2">Name </label>
                       <div class="col-lg-10">
@@ -76,7 +76,7 @@
                     <div class="form-group">
                       <label class="control-label col-lg-2">Img</label>
                       <div class="col-lg-10">
-                        <input class="form-control date"  id="UserImg" name="UserImg"
+                        <input type="file" class="form-control date"  id="UserImg" name="UserImg"
                         placeholder="img">                     
                        </div>
                     </div> 

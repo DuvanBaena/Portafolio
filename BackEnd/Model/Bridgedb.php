@@ -785,7 +785,9 @@ class BaseDatos extends Conexion{
         }
 
 
-        public function AddTestimonialSummary(){
+        public function AddTestimonialSummary(){   
+
+
 
             $sql="INSERT INTO `tbltestimony`(`Remark`, `UserName`,`RolUserName`,`ImgUser`)
              VALUES
@@ -853,6 +855,14 @@ class BaseDatos extends Conexion{
                  return $mensaje;
             }
             
+
+
+            
+
+
+
+        
+
 
 
    
