@@ -38,6 +38,9 @@ if (isset($_REQUEST['id'])){
 
   <section id="container" class="">
 
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+
     <!--header start-->
 
     <?php include __DIR__ . '../../Modules/Dashboard/MasterPages.php'; ?>

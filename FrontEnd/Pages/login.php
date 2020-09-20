@@ -69,6 +69,7 @@ include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
   <script type="text/javascript">
     document.getElementById("btnGuardar").onclick = login;
   </script>
-
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
 </body>
 </html>

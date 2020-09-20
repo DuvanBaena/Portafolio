@@ -31,6 +31,9 @@ $records=$data->ListPersonalInformation();
 
 <body>
 
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+    
      <!-- ======= Mobile nav toggle button ======= -->
 
      <button type="button" class="mobile-nav-toggle"><i class="icofont-navigation-menu"></i></button>

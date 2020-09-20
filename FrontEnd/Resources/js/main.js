@@ -6,7 +6,6 @@
 */
 !(function($) {
   "use strict";
-
   // Hero typed
   if ($('.typed').length) {
     var typed_strings = $(".typed").data('typed-items');
@@ -19,7 +18,19 @@
       backDelay: 2000
     });
   }
-
+  
+  !(function($) {
+    "use strict";  
+    // Preloader
+    $(window).on('load', function() {
+      if ($('#preloader').length) {
+        $('#preloader').delay(100).fadeOut('slow', function() {
+          $(this).remove();
+        });
+      }      
+    });
+  })(jQuery);
+  
   // Smooth scroll for the navigation menu and links with .scrollto classes
   $(document).on('click', '.nav-menu a, .scrollto', function(e) {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -235,3 +246,7 @@ $('#GetFileCV').on('click', function () {
       }
   });
 });
+
+
+
+

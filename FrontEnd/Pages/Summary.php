@@ -49,6 +49,8 @@ $records=$data->ListSumaryInformation();
         <div id="loader-wrapper" style="display: none">
             <div id="loader"></div>   
           </div> 
+          <div id="preloader"></div>
+          <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>             
           <div class="col-lg-12">
           <h3 class="page-header"><i class="fa fa fa-bars"></i> Version</h3>
             <ol class="breadcrumb">

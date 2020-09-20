@@ -18,7 +18,6 @@ function Toastr(){
     }
 }
 
-
 function login() {
 
    let UserName = document.getElementById("Username").value;
