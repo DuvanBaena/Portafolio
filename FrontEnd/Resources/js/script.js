@@ -1,4 +1,4 @@
-function Toastr(){
+function Toastr() {
    toastr.options = {
       "closeButton": false,
       "debug": false,
@@ -15,7 +15,7 @@ function Toastr(){
       "hideEasing": "linear",
       "showMethod": "fadeIn",
       "hideMethod": "fadeOut"
-    }
+   }
 }
 
 function login() {
@@ -58,21 +58,21 @@ function login() {
                $('#btnGuardar').attr("disabled", true);
                $("#capa2").show();
                $("#capa2").html("<img src='../Resources/img/LOAD.gif'><br><strong>Working on the request</strong>").css("text-align", "center");
-                                 
-               function back(){                                                 
-                  location.href = "Dashboard.php";                               
-                }
-                setTimeout(back, 2000);         
+
+               function back() {
+                  location.href = "Dashboard.php";
+               }
+               setTimeout(back, 2000);
 
             } else {
-               $("#capa").show();                
+               $("#capa").show();
                txtmensaje = "<strong>Invalid Username or Password</strong>";
                $("#capa").html(txtmensaje).css("text-align", "center").fadeOut(1500);
             }
 
-         },        
+         },
          error: function (jqXHR, textStatus, errorThrown) {
-            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
+            toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
          }
 
       });
@@ -83,34 +83,34 @@ function login() {
 
 
 
-function AddVersion32(){
+function AddVersion32() {
    $("span.help-block").hide();
    let versionCode = document.getElementById("versionCode").value;
    let versionDate = document.getElementById("VersionDate").value;
    let versionComment = document.getElementById("VersionComment").value;
    if (versionCode == null || versionCode.length == 0 || /^\s+$/.test(versionCode)) {
-        $("#versionCode").parent().attr("class","form-group has-error has-feedback");
-        $("#versionCode").parent().children("span").text("Campo requerido").show();
-        //$("#versionCode").parent().append("<span class='glyphicon glyphicon-remove form-control-feedback'></span>");        
-        $("#versionCode").focus();
-         return false;
-      }
+      $("#versionCode").parent().attr("class", "form-group has-error has-feedback");
+      $("#versionCode").parent().children("span").text("Campo requerido").show();
+      //$("#versionCode").parent().append("<span class='glyphicon glyphicon-remove form-control-feedback'></span>");        
+      $("#versionCode").focus();
+      return false;
+   }
 
-   else if (versionDate == null || versionDate.length == 0 || /^\s+$/.test(versionDate)) { 
-      $("#versionCode").parent().attr("class","form-group has-success");     
-      $("#VersionDate").parent().attr("class","form-group has-error");
-      $("#VersionDate").parent().children("span").text("Campo requerido").show();   
+   else if (versionDate == null || versionDate.length == 0 || /^\s+$/.test(versionDate)) {
+      $("#versionCode").parent().attr("class", "form-group has-success");
+      $("#VersionDate").parent().attr("class", "form-group has-error");
+      $("#VersionDate").parent().children("span").text("Campo requerido").show();
       $("#VersionDate").focus();
       return false;
    }
-   else if (versionComment == null || versionComment.length == 0 || /^\s+$/.test(versionComment)) { 
-      $("#VersionDate").parent().attr("class","form-group has-success");     
-      $("#VersionComment").parent().attr("class","form-group has-error");
-      $("#VersionComment").parent().children("span").text("Campo requerido").show();   
+   else if (versionComment == null || versionComment.length == 0 || /^\s+$/.test(versionComment)) {
+      $("#VersionDate").parent().attr("class", "form-group has-success");
+      $("#VersionComment").parent().attr("class", "form-group has-error");
+      $("#VersionComment").parent().children("span").text("Campo requerido").show();
       $("#VersionComment").focus();
       return false;
    }
- }
+}
 
 function AddVersion() {
    Toastr();
@@ -153,18 +153,18 @@ function AddVersion() {
          beforeSend: function () {
 
          },
-         success: function (response) { 
-            
+         success: function (response) {
+
             $('#versionCode').val('');
             $('#VersionDate').val('');
             $('#VersionComment').val('');
-           
+
             toastr["success"](response)
 
          },
 
          error: function (jqXHR, textStatus, errorThrown) {
-            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
+            toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
          }
 
       });
@@ -175,17 +175,17 @@ function AddVersion() {
 }
 
 
-function UpdateVersion(){
+function UpdateVersion() {
    Toastr();
    let Max_Length = 50;
    let versionId = document.getElementById("VersionId").value;
-   let versionCode = document.getElementById("versionCode").value; 
-   let versionDate = document.getElementById("VersionDate").value;  
+   let versionCode = document.getElementById("versionCode").value;
+   let versionDate = document.getElementById("VersionDate").value;
    let length = document.getElementById("VersionComment").value.length;
-   
+
    if (length > Max_Length) {
-      let alerttext = document.getElementById("VersionComment");      
-      alerttext.parentNode.innerHTML = alerttext.parentNode.innerHTML + "<p style='color:red'>the max length of "+Max_Length + " characters is reached, you typed in  " + length + "characters</p>";
+      let alerttext = document.getElementById("VersionComment");
+      alerttext.parentNode.innerHTML = alerttext.parentNode.innerHTML + "<p style='color:red'>the max length of " + Max_Length + " characters is reached, you typed in  " + length + "characters</p>";
       $("#versionComment").focus();
       return false;
    }
@@ -195,20 +195,20 @@ function UpdateVersion(){
       $("#VersionComment").focus();
       return false;
 
-   }else {
+   } else {
 
       versionId = $("#VersionId").val();
       versionCode = $("#versionCode").val();
       versionDate = $("#VersionDate").val();
       length = $("#VersionComment").val();
 
-      var parametros = {         
+      var parametros = {
          "VersionId": versionId,
          "versionCode": versionCode,
          "VersionDate": versionDate,
          "VersionComment": length
       };
-      
+
 
       $.ajax({
          data: parametros,
@@ -217,49 +217,49 @@ function UpdateVersion(){
          beforeSend: function () {
 
          },
-         success: function (response) {             
-           
+         success: function (response) {
+
             toastr["success"](response)
          },
 
          error: function (jqXHR, textStatus, errorThrown) {
-            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
+            toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
          }
       });
    }
 }
 
-function Eliminar(id){
-  Toastr();
-  var parametros = {"id": id}; 
-     $.ajax({         
-          data: parametros,        
-          url: "../../BackEnd/Model/Validate.Delete.php",         
-          type: "post",          
-          beforeSend: function(){
-            $("#loader-wrapper").show(); 			           
-          },         
-              success: function(reponse){
+function Eliminar(id) {
+   Toastr();
+   var parametros = { "id": id };
+   $.ajax({
+      data: parametros,
+      url: "../../BackEnd/Model/Validate.Delete.php",
+      type: "post",
+      beforeSend: function () {
+         $("#loader-wrapper").show();
+      },
+      success: function (reponse) {
 
-               if (reponse==1){
-                   $("#loader").show();                 
-                   toastr["info"]("Record removed", "Thanks")
-                   //alert("Registro eliminado.");
-                   function back(){  
-                     $("#loader").hide();                               
-                     location.href = "Version.php";                               
-                   }
-                   setTimeout(back, 5000);
-                   
-               }else{              
-                    toastr["success"]("There was an error?")
-                  }         
-              },
+         if (reponse == 1) {
+            $("#loader").show();
+            toastr["info"]("Record removed", "Thanks")
+            //alert("Registro eliminado.");
+            function back() {
+               $("#loader").hide();
+               location.href = "Version.php";
+            }
+            setTimeout(back, 5000);
 
-          
-          error: function(jqXHR, textStatus, errorThrown){
-            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
-          }
+         } else {
+            toastr["success"]("There was an error?")
+         }
+      },
+
+
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
 
    });
 
@@ -268,596 +268,594 @@ function Eliminar(id){
 
 
 
-function UpdateUserInfo(){
+function UpdateUserInfo() {
    Toastr();
-  
-    vector=["UserName","userLastName","userLastName","userLastName","UserEmail","userLastName"
-    ,"UserPhone","UserCity","UserAge","UserDegree","UserHour","UserTopDescription","UserBodyDescription"
-    ,"UserFooterDescription"];
-    total=vector.length;
-    for (i=0;i<total;i++) {
-        if (document.getElementById(vector[i]).value=="") {
-           toastr["error"]("Debes ingresar " +vector[i]+ " no contienen ningún Información", "Error")         
-            document.getElementById(vector[i]).focus();         
-            return;
-        }
-    }
 
-    let UserID = document.getElementById("UserID").value; 
-    let UserName = document.getElementById("UserName").value; 
-    let UserlastName = document.getElementById("userLastName").value;
-    let UserEmail = document.getElementById("UserEmail").value;
-    let UserPhone = document.getElementById("UserPhone").value;
-    let UserCity = document.getElementById("UserCity").value;
-    let UserAge = document.getElementById("UserAge").value;
-    let UserDegree = document.getElementById("UserDegree").value;
-    let UserHour = document.getElementById("UserHour").value;
-    let UserTopDescription = document.getElementById("UserTopDescription").value;
-    let UserBodyDescription = document.getElementById("UserBodyDescription").value;
-    let UserFooterDescription = document.getElementById("UserFooterDescription").value;
+   vector = ["UserName", "userLastName", "userLastName", "userLastName", "UserEmail", "userLastName"
+      , "UserPhone", "UserCity", "UserAge", "UserDegree", "UserHour", "UserTopDescription", "UserBodyDescription"
+      , "UserFooterDescription"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("Debes ingresar " + vector[i] + " no contienen ningún Información", "Error")
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
-      //let parametros = $("#UpdateUserInfo").serialize();
+   let UserID = document.getElementById("UserID").value;
+   let UserName = document.getElementById("UserName").value;
+   let UserlastName = document.getElementById("userLastName").value;
+   let UserEmail = document.getElementById("UserEmail").value;
+   let UserPhone = document.getElementById("UserPhone").value;
+   let UserCity = document.getElementById("UserCity").value;
+   let UserAge = document.getElementById("UserAge").value;
+   let UserDegree = document.getElementById("UserDegree").value;
+   let UserHour = document.getElementById("UserHour").value;
+   let UserTopDescription = document.getElementById("UserTopDescription").value;
+   let UserBodyDescription = document.getElementById("UserBodyDescription").value;
+   let UserFooterDescription = document.getElementById("UserFooterDescription").value;
 
-      UserID = $("#UserID").val();
-      UserName = $("#UserName").val();
-      UserlastName = $("#userLastName").val();
-      UserEmail = $("#UserEmail").val();
-      UserPhone = $("#UserPhone").val();
-      UserCity = $("#UserCity").val();
-      UserAge = $("#UserAge").val();
-      UserDegree = $("#UserDegree").val();
-      UserURL = $("#UserURL").val();
-      UserHour = $("#UserHour").val();
-      UserTopDescription = $("#UserTopDescription").val();
-      UserBodyDescription = $("#UserBodyDescription").val();
-      UserFooterDescription = $("#UserFooterDescription").val();
+   //let parametros = $("#UpdateUserInfo").serialize();
 
-      var parametros = {
-         "UserID": UserID,
-         "UserName": UserName,
-         "userLastName": UserlastName,
-         "UserEmail": UserEmail,
-         "UserURL": UserURL,
-         "UserPhone": UserPhone,
-         "UserCity": UserCity,
-         "UserAge": UserAge,
-         "UserDegree": UserDegree,         
-         "UserHour": UserHour,
-         "UserTopDescription": UserTopDescription,
-         "UserBodyDescription": UserBodyDescription,
-         "UserFooterDescription": UserFooterDescription,
-      };
+   UserID = $("#UserID").val();
+   UserName = $("#UserName").val();
+   UserlastName = $("#userLastName").val();
+   UserEmail = $("#UserEmail").val();
+   UserPhone = $("#UserPhone").val();
+   UserCity = $("#UserCity").val();
+   UserAge = $("#UserAge").val();
+   UserDegree = $("#UserDegree").val();
+   UserURL = $("#UserURL").val();
+   UserHour = $("#UserHour").val();
+   UserTopDescription = $("#UserTopDescription").val();
+   UserBodyDescription = $("#UserBodyDescription").val();
+   UserFooterDescription = $("#UserFooterDescription").val();
 
-      $.ajax({         
-         data: parametros,        
-         url: "../../BackEnd/Model/Validate.UpdateInfoUser.php",         
-         type: "post",          
-         beforeSend: function(){			           
-         },         
-             success: function(response){
+   var parametros = {
+      "UserID": UserID,
+      "UserName": UserName,
+      "userLastName": UserlastName,
+      "UserEmail": UserEmail,
+      "UserURL": UserURL,
+      "UserPhone": UserPhone,
+      "UserCity": UserCity,
+      "UserAge": UserAge,
+      "UserDegree": UserDegree,
+      "UserHour": UserHour,
+      "UserTopDescription": UserTopDescription,
+      "UserBodyDescription": UserBodyDescription,
+      "UserFooterDescription": UserFooterDescription,
+   };
 
-               toastr["success"](response); 
-               function back(){                               
-                  location.href = "Dashboard.php";                               
-                }
-                setTimeout(back, 5000);                   
-             },         
-         error: function(jqXHR, textStatus, errorThrown){
-            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
-              //$("#capaMsj").html("There was a problem loading the request: "+textStatus+" - "+errorThrown);
+   $.ajax({
+      data: parametros,
+      url: "../../BackEnd/Model/Validate.UpdateInfoUser.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+
+         toastr["success"](response);
+         function back() {
+            location.href = "Dashboard.php";
          }
-  });
+         setTimeout(back, 5000);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+         //$("#capaMsj").html("There was a problem loading the request: "+textStatus+" - "+errorThrown);
+      }
+   });
 
 }
 
 
-function AddSummanry(){
+function AddSummanry() {
    Toastr();
-  
-    vector=["Title","StartYear","School","Remark","FinalYear"];
-    total=vector.length;
-    for (i=0;i<total;i++) {
-        if (document.getElementById(vector[i]).value=="") {
-           toastr["error"]("You must enter value " +vector[i])         
-            document.getElementById(vector[i]).focus();         
-            return;
-        }
-    }
+
+   vector = ["Title", "StartYear", "School", "Remark", "FinalYear"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
 
-    let parameters = $("#FrmAddSummary").serialize();
+   let parameters = $("#FrmAddSummary").serialize();
 
-    $.ajax({         
-      data: parameters,        
-      url: "../../BackEnd/Model/Validate.AddSummary.php",         
-      type: "post",          
-      beforeSend: function(){			           
-      },         
-          success: function(response){
-            toastr["success"](response);  
-            function back(){              
-               location.href = "Summary.php";                     
-             }
-             setTimeout(back, 5000);     
-          },         
-          error: function(jqXHR, textStatus, errorThrown){
-          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.AddSummary.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "Summary.php";
          }
-      });
+         setTimeout(back, 5000);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+   });
 
 
 }
 
-function UpdateSummanry(){
+function UpdateSummanry() {
 
    Toastr();
-  
-    vector=["Title","StartYear","FinalYear","School","Remark"];
-    total=vector.length;
-    for (i=0;i<total;i++) {
-        if (document.getElementById(vector[i]).value=="") {
-           toastr["error"]("You must enter value " +vector[i])         
-            document.getElementById(vector[i]).focus();         
-            return;
-        }
-    }
 
-    let summaryid = document.getElementById("idSummary").value;   
-    let summaryTitle = document.getElementById("Title").value; 
-    let summaryStartYear = document.getElementById("StartYear").value;
-    let summaryFinalYear = document.getElementById("FinalYear").value;
-    let summarySchool = document.getElementById("School").value;
-    let summaryRemark = document.getElementById("Remark").value;
-    
+   vector = ["Title", "StartYear", "FinalYear", "School", "Remark"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
-    summaryid = $("#idSummary").val();
-    summaryTitle = $("#Title").val();
-    summaryStartYear = $("#StartYear").val();
-    summaryFinalYear = $("#FinalYear").val();
-    summarySchool = $("#School").val();
-    summaryRemark = $("#Remark").val();
+   let summaryid = document.getElementById("idSummary").value;
+   let summaryTitle = document.getElementById("Title").value;
+   let summaryStartYear = document.getElementById("StartYear").value;
+   let summaryFinalYear = document.getElementById("FinalYear").value;
+   let summarySchool = document.getElementById("School").value;
+   let summaryRemark = document.getElementById("Remark").value;
 
-    var parameters = {
+
+   summaryid = $("#idSummary").val();
+   summaryTitle = $("#Title").val();
+   summaryStartYear = $("#StartYear").val();
+   summaryFinalYear = $("#FinalYear").val();
+   summarySchool = $("#School").val();
+   summaryRemark = $("#Remark").val();
+
+   var parameters = {
       "idSummary": summaryid,
       "Title": summaryTitle,
       "StartYear": summaryStartYear,
       "FinalYear": summaryFinalYear,
       "School": summarySchool,
       "Remark": summaryRemark,
-   };    
+   };
 
 
-    $.ajax({         
-      data: parameters,        
-      url: "../../BackEnd/Model/Validate.UpdateInfoSummary.php",         
-      type: "post",          
-      beforeSend: function(){			           
-      },         
-          success: function(response){
-            toastr["success"](response); 
-            function back(){                               
-               location.href = "Summary.php";                               
-             }
-             setTimeout(back, 5000);              
-          },         
-          error: function(jqXHR, textStatus, errorThrown){
-          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.UpdateInfoSummary.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "Summary.php";
          }
-      });
+         setTimeout(back, 5000);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+   });
 
 }
 
 
-function DeleteSummary(id){
+function DeleteSummary(id) {
    Toastr();
-	var parametros = {"id": id};
-     $.ajax({         
-          data: parametros,        
-          url: "../../BackEnd/Model/Validate.DeleteSummary.php",         
-          type: "post",          
-          beforeSend: function(){
-            $("#loader-wrapper").show(); 			           
-          },         
-              success: function(reponse){
+   var parametros = { "id": id };
+   $.ajax({
+      data: parametros,
+      url: "../../BackEnd/Model/Validate.DeleteSummary.php",
+      type: "post",
+      beforeSend: function () {
+         $("#loader-wrapper").show();
+      },
+      success: function (reponse) {
 
-               if (reponse==1){                  
-                  $("#loader").show();
-                   //alert("Registro eliminado.");
-                   toastr["info"]("Record removed", "Thanks")
-                   function back(){
-                     $("#loader").hide();
-                     location.href = "Summary.php";                     
-                   }
-                   setTimeout(back, 5000);                  
+         if (reponse == 1) {
+            $("#loader").show();
+            //alert("Registro eliminado.");
+            toastr["info"]("Record removed", "Thanks")
+            function back() {
+               $("#loader").hide();
+               location.href = "Summary.php";
+            }
+            setTimeout(back, 5000);
 
-               }else{              
-                    toastr["success"]("There was an error?")
-                  }         
-              },
-          
-          error: function(jqXHR, textStatus, errorThrown){
-               $("#capaMsj").html("There was a problem loading the request: "+textStatus+" - "+errorThrown);
-          }
+         } else {
+            toastr["success"]("There was an error?")
+         }
+      },
+
+      error: function (jqXHR, textStatus, errorThrown) {
+         $("#capaMsj").html("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
 
    });
 
 }
 
-function AddCurrentSummanry(){
+function AddCurrentSummanry() {
    Toastr();
 
-    vector=["PlaceStudy","Remark"];
-    total=vector.length;
-    for (i=0;i<total;i++) {
-        if (document.getElementById(vector[i]).value=="") {          
-            toastr["error"]("You must enter value " +vector[i])         
-            document.getElementById(vector[i]).focus();         
-            return;
-        }
-    }
+   vector = ["PlaceStudy", "Remark"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
-    let parameters = $("#FrmAddCurrentSummary").serialize(); 
+   let parameters = $("#FrmAddCurrentSummary").serialize();
 
 
-    $.ajax({         
-      data: parameters,        
-      url: "../../BackEnd/Model/Validate.AddCurrentSummary.php",         
-      type: "post",          
-      beforeSend: function(){			           
-      },         
-          success: function(response){
-            toastr["success"](response);
-            function back(){                               
-               location.href = "CurrentSummary.php";                           
-             }
-             setTimeout(back, 5000);                         
-          },    
-          error: function(jqXHR, textStatus, errorThrown){
-          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.AddCurrentSummary.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "CurrentSummary.php";
          }
-         
-      });
+         setTimeout(back, 5000);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
 
 }
 
-function UpdateCurrentSummanry(){
+function UpdateCurrentSummanry() {
    Toastr();
-    vector=["PlaceStudy","Remark"];
-    total=vector.length;
-    for (i=0;i<total;i++) {
-        if (document.getElementById(vector[i]).value=="") {          
-            toastr["error"]("You must enter value " +vector[i])         
-            document.getElementById(vector[i]).focus();         
-            return;
-        }
-    }
-    
-    let currentsummaryid = document.getElementById("IdActually").value;   
+   vector = ["PlaceStudy", "Remark"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
-    currentsummaryid = $("#IdActually").val();
+   let currentsummaryid = document.getElementById("IdActually").value;
 
-    let data = {
+   currentsummaryid = $("#IdActually").val();
+
+   let data = {
       "IdActually": currentsummaryid,
-   }; 
+   };
 
-    let parameters = $("#FrmUpdateCurrentSummary").serialize() + '&' + $.param(data); 
+   let parameters = $("#FrmUpdateCurrentSummary").serialize() + '&' + $.param(data);
 
-    $.ajax({         
-      data: parameters,        
-      url: "../../BackEnd/Model/Validate.UpdateCurrentSummary.php",         
-      type: "post",          
-      beforeSend: function(){			           
-      },         
-          success: function(response){
-            toastr["success"](response);
-            function back(){                               
-               location.href = "CurrentSummary.php";                           
-             }
-             setTimeout(back, 5000);   
-               
-          },         
-          error: function(jqXHR, textStatus, errorThrown){
-          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.UpdateCurrentSummary.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "CurrentSummary.php";
          }
-      });
+         setTimeout(back, 5000);
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+   });
 
 }
 
 
-function DeleteCurrentSummary(id){
+function DeleteCurrentSummary(id) {
    Toastr();
-	var parametros = {"id": id};
-     $.ajax({         
-          data: parametros,        
-          url: "../../BackEnd/Model/Validate.DeleteCurrentSummary.php",         
-          type: "post",          
-          beforeSend: function(){ 
-            $("#loader-wrapper").show();  			           
-          },         
-              success: function(reponse){
+   var parametros = { "id": id };
+   $.ajax({
+      data: parametros,
+      url: "../../BackEnd/Model/Validate.DeleteCurrentSummary.php",
+      type: "post",
+      beforeSend: function () {
+         $("#loader-wrapper").show();
+      },
+      success: function (reponse) {
 
-               if (reponse==1){                   
-                  $("#loader").show();                    
-                   //alert("Record removed.");
-                   toastr["info"]("Record removed", "Thanks")
-                   function back(){
-                     $("#loader").hide();                
-                     location.href = "CurrentSummary.php";                           
-                   }
-                   setTimeout(back, 5000);                                               
+         if (reponse == 1) {
+            $("#loader").show();
+            //alert("Record removed.");
+            toastr["info"]("Record removed", "Thanks")
+            function back() {
+               $("#loader").hide();
+               location.href = "CurrentSummary.php";
+            }
+            setTimeout(back, 5000);
 
-               }else{              
-                    toastr["error"]("There was an error?")
-                  }         
-              },            
-                        
-          error: function(jqXHR, textStatus, errorThrown){
-            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
-          }
+         } else {
+            toastr["error"]("There was an error?")
+         }
+      },
+
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
 
    });
 
 }
 
 
-function AddWorkSummary(){
+function AddWorkSummary() {
    Toastr();
-    vector=["StartYear","TitleWork","Company","Remark1"];
-    total=vector.length;
-    for (i=0;i<total;i++) {
-        if (document.getElementById(vector[i]).value=="") {          
-            toastr["error"]("You must enter value " +vector[i])         
-            document.getElementById(vector[i]).focus();         
-            return;
-        }
-    }
+   vector = ["StartYear", "TitleWork", "Company", "Remark1"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
-    let parameters = $("#FrmAddWorkSummary").serialize();
+   let parameters = $("#FrmAddWorkSummary").serialize();
 
-    $.ajax({         
-      data: parameters,        
-      url: "../../BackEnd/Model/Validate.AddWorkSummary.php",         
-      type: "post",          
-      beforeSend: function(){			           
-      },         
-          success: function(response){
-            toastr["success"](response);           
-            function back(){               
-               location.href = "WorkSummary.php";                         
-             }
-             setTimeout(back, 5000);             
-          },    
-          error: function(jqXHR, textStatus, errorThrown){
-          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.AddWorkSummary.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "WorkSummary.php";
          }
-         
-      });
+         setTimeout(back, 5000);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
 
 }
 
-function UpdateWork(){
-    Toastr();
-    vector=["StartYear","TitleWork","Company","Remark1"];
-    total=vector.length;
-    for (i=0;i<total;i++) {
-        if (document.getElementById(vector[i]).value=="") {          
-            toastr["error"]("You must enter value " +vector[i])         
-            document.getElementById(vector[i]).focus();         
-            return;
-        }
-    }
+function UpdateWork() {
+   Toastr();
+   vector = ["StartYear", "TitleWork", "Company", "Remark1"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
-    let workid = document.getElementById("IdWork").value;   
+   let workid = document.getElementById("IdWork").value;
 
-    workid = $("#IdWork").val();
+   workid = $("#IdWork").val();
 
-    let data = {
+   let data = {
       "IdWork": workid,
-   }; 
+   };
 
-    let parameters = $("#FrmEditWork").serialize() + '&' + $.param(data);
+   let parameters = $("#FrmEditWork").serialize() + '&' + $.param(data);
 
-    $.ajax({         
-      data: parameters,        
-      url: "../../BackEnd/Model/Validate.UpdateWorkSummary.php",         
-      type: "post",          
-      beforeSend: function(){			           
-      },         
-          success: function(response){
-            toastr["success"](response);            
-            function back(){               
-               location.href = "WorkSummary.php";                         
-             }
-             setTimeout(back, 5000);             
-
-          },    
-          error: function(jqXHR, textStatus, errorThrown){
-          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.UpdateWorkSummary.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "WorkSummary.php";
          }
-         
-      });
+         setTimeout(back, 5000);
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
 
 }
 
-function DeleteWorkSummary(id){
+function DeleteWorkSummary(id) {
    Toastr();
-	var parametros = {"id": id};
-     $.ajax({         
-          data: parametros,        
-          url: "../../BackEnd/Model/Validate.DeleteWorkSummary.php",         
-          type: "post",          
-          beforeSend: function(){ 
-            $("#loader-wrapper").show();  			           
-          },         
-              success: function(reponse){
+   var parametros = { "id": id };
+   $.ajax({
+      data: parametros,
+      url: "../../BackEnd/Model/Validate.DeleteWorkSummary.php",
+      type: "post",
+      beforeSend: function () {
+         $("#loader-wrapper").show();
+      },
+      success: function (reponse) {
 
-               if (reponse==1){                   
-                  $("#loader").show();                    
-                   //alert("Record removed.");
-                   toastr["info"]("Record removed", "Thanks")                
-                   function back(){
-                     $("#loader").hide();
-                     location.href = "WorkSummary.php";                       
-                   }
-                   setTimeout(back, 5000); 
+         if (reponse == 1) {
+            $("#loader").show();
+            //alert("Record removed.");
+            toastr["info"]("Record removed", "Thanks")
+            function back() {
+               $("#loader").hide();
+               location.href = "WorkSummary.php";
+            }
+            setTimeout(back, 5000);
 
-               }else{              
-                    toastr["error"]("There was an error?")
-                  }         
-              },         
-                        
-          error: function(jqXHR, textStatus, errorThrown){
-            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
-          }
+         } else {
+            toastr["error"]("There was an error?")
+         }
+      },
+
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
 
    });
 
 }
 
 
-function AddSkillSummanry(){
+function AddSkillSummanry() {
    Toastr();
-    vector=["SkillName","SkillValue"];
-    total=vector.length;
-    for (i=0;i<total;i++) {
-        if (document.getElementById(vector[i]).value=="") {          
-            toastr["error"]("You must enter value " +vector[i])         
-            document.getElementById(vector[i]).focus();         
-            return;
-        }
-    }    
+   vector = ["SkillName", "SkillValue"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
 
-    let valueSkill = document.getElementById("SkillValue").value;  
-    if( isNaN(valueSkill) ) {
+   let valueSkill = document.getElementById("SkillValue").value;
+   if (isNaN(valueSkill)) {
       toastr["error"]("You must enter a numeric value")
       $("#SkillValue").focus();
       $('#SkillValue').val('');
       return false;
-    }
+   }
 
-    if (document.getElementById('Category').value== "Selected")
-    {
-        alert('You must enter value');
-        document.getElementById('Category').style.borderColor = "red"; 
-        return false; 
-    }
-    
-    let parameters = $("#AddSkillSummary").serialize();
+   if (document.getElementById('Category').value == "Selected") {
+      alert('You must enter value');
+      document.getElementById('Category').style.borderColor = "red";
+      return false;
+   }
 
-    $.ajax({         
-      data: parameters,        
-      url: "../../BackEnd/Model/Validate.AddSkillSummary.php",         
-      type: "post",          
-      beforeSend: function(){			           
-      },         
-          success: function(response){
-            toastr["success"](response);           
-            function back(){               
-               location.href = "SkillSummary.php";                         
-             }
-             setTimeout(back, 5000);             
-          },    
-          error: function(jqXHR, textStatus, errorThrown){
-          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
+   let parameters = $("#AddSkillSummary").serialize();
+
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.AddSkillSummary.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "SkillSummary.php";
          }
-         
-      });
+         setTimeout(back, 5000);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
 
 }
 
-function UpdatetSkillSummary(){
+function UpdatetSkillSummary() {
    Toastr();
-   vector=["SkillName","SkillValue"];
-   total=vector.length;
-   for (i=0;i<total;i++) {
-       if (document.getElementById(vector[i]).value=="") {          
-           toastr["error"]("You must enter value " +vector[i])         
-           document.getElementById(vector[i]).focus();         
-           return;
-       }
-   }    
+   vector = ["SkillName", "SkillValue"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
-   let valueSkill = document.getElementById("SkillValue").value;  
-   if( isNaN(valueSkill) ) {
-     toastr["error"]("You must enter a numeric value")
-     $("#SkillValue").focus();
-     $('#SkillValue').val('');
-     return false;
+   let valueSkill = document.getElementById("SkillValue").value;
+   if (isNaN(valueSkill)) {
+      toastr["error"]("You must enter a numeric value")
+      $("#SkillValue").focus();
+      $('#SkillValue').val('');
+      return false;
    }
 
 
-   if (document.getElementById('Category').value== "Selected")
-   {
-       alert('You must enter value');
-       document.getElementById('Category').style.borderColor = "red"; 
-       return false; 
+   if (document.getElementById('Category').value == "Selected") {
+      alert('You must enter value');
+      document.getElementById('Category').style.borderColor = "red";
+      return false;
    }
 
 
-   let skillid = document.getElementById("SkillId").value;   
+   let skillid = document.getElementById("SkillId").value;
 
    skillid = $("#SkillId").val();
 
    let data = {
-     "SkillId": skillid,
-  }; 
+      "SkillId": skillid,
+   };
 
    let parameters = $("#EditSkillSummary").serialize() + '&' + $.param(data);
 
-   $.ajax({         
-     data: parameters,        
-     url: "../../BackEnd/Model/Validate.UpdateSkillSummary.php",         
-     type: "post",          
-     beforeSend: function(){			           
-     },         
-         success: function(response){
-           toastr["success"](response);            
-           function back(){               
-              location.href = "SkillSummary.php";                         
-            }
-            setTimeout(back, 5000);             
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.UpdateSkillSummary.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "SkillSummary.php";
+         }
+         setTimeout(back, 5000);
 
-         },    
-         error: function(jqXHR, textStatus, errorThrown){
-         toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
-        }
-        
-     });
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
 
 }
 
 
-function DeleteSkillSummary(id){
+function DeleteSkillSummary(id) {
    Toastr();
-	var parametros = {"id": id};
-     $.ajax({         
-          data: parametros,        
-          url: "../../BackEnd/Model/Validate.DeleteSkillSummary.php",         
-          type: "post",          
-          beforeSend: function(){ 
-            $("#loader-wrapper").show();  			           
-          },         
-              success: function(reponse){
+   var parametros = { "id": id };
+   $.ajax({
+      data: parametros,
+      url: "../../BackEnd/Model/Validate.DeleteSkillSummary.php",
+      type: "post",
+      beforeSend: function () {
+         $("#loader-wrapper").show();
+      },
+      success: function (reponse) {
 
-               if (reponse==1){                   
-                  $("#loader").show();                    
-                   //alert("Record removed.");
-                   toastr["info"]("Record removed", "Thanks")                
-                   function back(){
-                     $("#loader").hide();
-                     location.href = "SkillSummary.php";                       
-                   }
-                   setTimeout(back, 5000); 
+         if (reponse == 1) {
+            $("#loader").show();
+            //alert("Record removed.");
+            toastr["info"]("Record removed", "Thanks")
+            function back() {
+               $("#loader").hide();
+               location.href = "SkillSummary.php";
+            }
+            setTimeout(back, 5000);
 
-               }else{              
-                    toastr["error"]("There was an error?")
-                  }         
-              },         
-                        
-          error: function(jqXHR, textStatus, errorThrown){
-            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
-          }
+         } else {
+            toastr["error"]("There was an error?")
+         }
+      },
+
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
 
    });
 
@@ -865,158 +863,135 @@ function DeleteSkillSummary(id){
 
 
 
-function AddTestimonial(){
+function AddTestimonial() {
    Toastr();
-    vector=["UserName","RolUserName","Remark"];
-    total=vector.length;
-    for (i=0;i<total;i++) {
-        if (document.getElementById(vector[i]).value=="") {          
-            toastr["error"]("You must enter value " +vector[i])         
-            document.getElementById(vector[i]).focus();         
-            return;
-        }
-    }  
-    
-    
-    let Img = document.getElementById("UserImg").value;  
-       
-    Img = $("#UserImg").val();
- 
-    let data = {
-      "UserImg": Img,
-   }; 
- 
-     
-    let parameters = $("#FrmAddTestimonial").serialize() + '&' + $.param(data);
+   vector = ["UserName", "RolUserName", "Remark", "UserImg"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
-    $.ajax({         
-      data: parameters,        
-      url: "../../BackEnd/Model/Validate.AddTestimonialSummary.php",         
-      type: "post",          
-      beforeSend: function(){			           
-      },         
-          success: function(response){
-            toastr["success"](response);           
-            function back(){               
-               location.href = "Testimonial.php";                         
-             }
-             setTimeout(back, 5000);             
-          },    
-          error: function(jqXHR, textStatus, errorThrown){
-          toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
-         }
-         
-      });
+   document.getElementById("FrmAddTestimonial").submit();
+
+
+   function back() {
+      location.href = "Testimonial.php";
+   }
+   setTimeout(back, 1000);
 
 }
 
 
-function UpdateTestimonial(){
+function UpdateTestimonial() {
    Toastr();
-    vector=["UserName","RolUserName","Remark"];
-    total=vector.length;
-    for (i=0;i<total;i++) {
-        if (document.getElementById(vector[i]).value=="") {          
-            toastr["error"]("You must enter value " +vector[i])         
-            document.getElementById(vector[i]).focus();         
-            return;
-        }
-    }   
+   vector = ["UserName", "RolUserName", "Remark"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
 
-   let TestimonyId = document.getElementById("IdTestimony").value;   
+   let TestimonyId = document.getElementById("IdTestimony").value;
 
    TestimonyId = $("#IdTestimony").val();
 
    let data = {
-     "IdTestimony": TestimonyId,
-  }; 
+      "IdTestimony": TestimonyId,
+   };
 
    let parameters = $("#FrmEditTestimonial").serialize() + '&' + $.param(data);
 
-   $.ajax({         
-     data: parameters,        
-     url: "../../BackEnd/Model/Validate.UpdateTestimonialSummary.php",         
-     type: "post",          
-     beforeSend: function(){			           
-     },         
-         success: function(response){
-           toastr["success"](response);            
-           function back(){               
-              location.href = "Testimonial.php";                         
-            }
-            setTimeout(back, 5000);             
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.UpdateTestimonialSummary.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "Testimonial.php";
+         }
+         setTimeout(back, 5000);
 
-         },    
-         error: function(jqXHR, textStatus, errorThrown){
-         toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown);           
-        }
-        
-     });
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
 
 }
 
-function DeleteTestimonialSummary(id){
+function DeleteTestimonialSummary(id) {
    Toastr();
-	var parametros = {"id": id};
-     $.ajax({         
-          data: parametros,        
-          url: "../../BackEnd/Model/Validate.DeleteTestimonialSummary.php",         
-          type: "post",          
-          beforeSend: function(){ 
-            $("#loader-wrapper").show();  			           
-          },         
-              success: function(reponse){
+   var parametros = { "id": id };
+   $.ajax({
+      data: parametros,
+      url: "../../BackEnd/Model/Validate.DeleteTestimonialSummary.php",
+      type: "post",
+      beforeSend: function () {
+         $("#loader-wrapper").show();
+      },
+      success: function (reponse) {
 
-               if (reponse==1){                   
-                  $("#loader").show();                    
-                   //alert("Record removed.");
-                   toastr["info"]("Record removed", "Thanks")                
-                   function back(){
-                     $("#loader").hide();
-                     location.href = "Testimonial.php";                       
-                   }
-                   setTimeout(back, 5000); 
+         if (reponse == 1) {
+            $("#loader").show();
+            //alert("Record removed.");
+            toastr["info"]("Record removed", "Thanks")
+            function back() {
+               $("#loader").hide();
+               location.href = "Testimonial.php";
+            }
+            setTimeout(back, 5000);
 
-               }else{              
-                    toastr["error"]("There was an error?")
-                  }         
-              },         
-                        
-          error: function(jqXHR, textStatus, errorThrown){
-            toastr["error"]("There was a problem loading the request: "+textStatus+" - "+errorThrown); 
-          }
+         } else {
+            toastr["error"]("There was an error?")
+         }
+      },
+
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
 
    });
 
 }
 
 
-function ReturnIndexVersion(){
-   location.href="Version.php";
+function ReturnIndexVersion() {
+   location.href = "Version.php";
 }
 
-function ReturnIndex(){
-   location.href="Dashboard.php";
+function ReturnIndex() {
+   location.href = "Dashboard.php";
 }
 
-function ReturnIndexSummary(){
-   location.href="Summary.php";
+function ReturnIndexSummary() {
+   location.href = "Summary.php";
 }
 
-function ReturnCurrentSummary(){
-   location.href="CurrentSummary.php";
+function ReturnCurrentSummary() {
+   location.href = "CurrentSummary.php";
 }
 
-function ReturnWorkSummary(){
-   location.href="WorkSummary.php";
+function ReturnWorkSummary() {
+   location.href = "WorkSummary.php";
 }
 
-function ReturnSkillSummary(){
-   location.href="SkillSummary.php";
+function ReturnSkillSummary() {
+   location.href = "SkillSummary.php";
 }
 
-function ReturnTestimonial(){
-   location.href="Testimonial.php";
+function ReturnTestimonial() {
+   location.href = "Testimonial.php";
 }
 

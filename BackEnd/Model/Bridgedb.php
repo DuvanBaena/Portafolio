@@ -785,27 +785,25 @@ class BaseDatos extends Conexion{
         }
 
 
-        public function AddTestimonialSummary(){   
-
-
-
-            $sql="INSERT INTO `tbltestimony`(`Remark`, `UserName`,`RolUserName`,`ImgUser`)
-             VALUES
-            (
-            '".$this->testimonialRemark."',
-            '".$this->testimonialUserName."',
-            '".$this->testimonialRol."',
-            '".$this->testimonialImg."'
-            )";
+        //Comento esta funcion para cuando consiga mediante ajax replicar la subida de img
+        // public function AddTestimonialSummary(){   
+        //     $sql="INSERT INTO `tbltestimony`(`Remark`, `UserName`,`RolUserName`,`ImgUser`)
+        //      VALUES
+        //     (
+        //     '".$this->testimonialRemark."',
+        //     '".$this->testimonialUserName."',
+        //     '".$this->testimonialRol."',
+        //     '".$this->testimonialImg."'
+        //     )";
     
-            if($this->conector->query($sql)){    
-                $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
-            }else{    
-                $mensaje="Failed data";
-            }    
-            return $mensaje;
+        //     if($this->conector->query($sql)){    
+        //         $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
+        //     }else{    
+        //         $mensaje="Failed data";
+        //     }    
+        //     return $mensaje;
     
-            }
+        //     }
 
             public function GetInfoTestimonialById($id){
 
@@ -855,12 +853,33 @@ class BaseDatos extends Conexion{
                  return $mensaje;
             }
             
+           
+   // funcion que permite cargar archivo
+   function cargararchivo(){
+    $origen=$_FILES['archivo']['tmp_name']; //  el archivo temporal donde subre los archivos
+    $destino=date("His")."-".$_FILES['archivo']['name']; // eñ nombre del archivo que se pasa en el formulario
+    $ruta="../../FrontEnd/Resources/img/testimonials/"; // carpeta o ruta donde se guardara el archivo para leer
+    $extension=$_FILES['archivo']['type']; //aca guardamos el tipo de archivo
+ 
+    if(move_uploaded_file($origen, $ruta."/".$destino))
+    {
+        $sql="INSERT INTO `tbltestimony`(`Remark`, `UserName`,`RolUserName`,`ImgUser`)
+        VALUES
+       (
+       '".$this->testimonialRemark."',
+       '".$this->testimonialUserName."',
+       '".$this->testimonialRol."',
+       '$destino'
+       )";
+       if($this->conector->query($sql)){    
+           $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
+       }else{    
+           $mensaje="Failed data";
+       }     
+  
+    }
 
-
-            
-
-
-
+   }
         
 
 
