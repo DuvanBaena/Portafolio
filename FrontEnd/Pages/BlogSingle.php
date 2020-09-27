@@ -26,6 +26,10 @@
 
   <main id="main">
 
+  <main id="main">
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+
     <!-- ======= Intro Navbar Single ======= -->
 
     <?php include __DIR__ . '../../Modules/Blog/SingleNavbar.php'; ?>
