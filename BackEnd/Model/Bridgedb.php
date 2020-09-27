@@ -59,6 +59,13 @@ class BaseDatos extends Conexion{
     var $testimonialRemark;
 
 
+    var $bookId;
+    var $bookThematic;
+    var $bookAuthor;
+    var $bookImgFront;
+    var $bookImgBack;
+
+
     var $UsuLogin;
     var $ClaLogin;
     
@@ -175,6 +182,21 @@ class BaseDatos extends Conexion{
            if (isset($_REQUEST['IdTestimony']) && $_REQUEST['IdTestimony']<>"") {
 
             $this->testimonialId=$_REQUEST['IdTestimony'];
+
+        }
+
+
+        if (isset($_REQUEST['Thematic']) && $_REQUEST['Thematic']<>"") {
+
+            $this->bookThematic=$_REQUEST['Thematic'];
+            $this->bookAuthor=$_REQUEST['Author'];            
+            $this->bookImgFront=$_REQUEST['ImgFront'];
+            $this->bookImgBack=$_REQUEST['ImgBack'];                 
+           }
+
+           if (isset($_REQUEST['IdBook']) && $_REQUEST['IdBook']<>"") {
+
+            $this->bookId=$_REQUEST['IdBook'];
 
         }
 
@@ -856,12 +878,12 @@ class BaseDatos extends Conexion{
            
    // funcion que permite cargar archivo
    function cargararchivo(){
-    $origen=$_FILES['archivo']['tmp_name']; //  el archivo temporal donde subre los archivos
-    $destino=date("His")."-".$_FILES['archivo']['name']; // eñ nombre del archivo que se pasa en el formulario
-    $ruta="../../FrontEnd/Resources/img/testimonials/"; // carpeta o ruta donde se guardara el archivo para leer
+    $source=$_FILES['archivo']['tmp_name']; //  el archivo temporal donde subre los archivos
+    $tarjet=date("His")."-".$_FILES['archivo']['name']; // eñ nombre del archivo que se pasa en el formulario
+    $path="../../FrontEnd/Resources/img/testimonials/"; // carpeta o path donde se guardara el archivo para leer
     $extension=$_FILES['archivo']['type']; //aca guardamos el tipo de archivo
- 
-    if(move_uploaded_file($origen, $ruta."/".$destino))
+
+    if(move_uploaded_file($source, $path."/".$tarjet))
     {
         $sql="INSERT INTO `tbltestimony`(`Remark`, `UserName`,`RolUserName`,`ImgUser`)
         VALUES
@@ -869,7 +891,7 @@ class BaseDatos extends Conexion{
        '".$this->testimonialRemark."',
        '".$this->testimonialUserName."',
        '".$this->testimonialRol."',
-       '$destino'
+       '$tarjet'
        )";
        if($this->conector->query($sql)){    
            $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
@@ -882,11 +904,193 @@ class BaseDatos extends Conexion{
    }
         
 
+   /* In this part you will go all the logic of the database for Book's. */
 
 
+        
+        public function ListBooks(){
+
+            $sql="SELECT * FROM `tblbook` ";
+            $vector=array();
+            if($this->conector->query($sql)){
+                $resultado=$this->conector->query($sql);
+                while($fila=$resultado->fetch_array()){
+                    $vector[]=$fila;
+                }
+            }else{
+
+            }
+            return $vector;  
+
+            }
+
+
+            function UploadFile(){
+            $source=$_FILES['ImgFront']['tmp_name']; 
+            $tarjet=date("His")."-".$_FILES['ImgFront']['name']; 
+            $path="../../FrontEnd/Resources/img/Books/";
+            $extension=$_FILES['ImgFront']['type']; 
+
+            if(move_uploaded_file($source, $path."/".$tarjet))
+            {
+                $sql="INSERT INTO `tblbook`(`Thematic`,`Author`,`ImgFront`,`ImgBack`)
+                VALUES
+            (
+            '".$this->bookThematic."',
+            '".$this->bookAuthor."',      
+            '$tarjet',
+            '$tarjet'
+            )";
+            if($this->conector->query($sql)){    
+                $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
+            }else{    
+                $mensaje="Failed data";
+            }     
+            
+            }
+
+        }
+
+        public function GetBookById($id){
+
+            $sql="SELECT * FROM `tblbook` WHERE IdBook ='".$id."'";
+
+            $vector=array();
+            $resultado= $this->conector->query($sql);
+            if (!empty($resultado)){
+                while ($fila = $resultado->fetch_array()) {
+                    $vector[]=$fila;
+                }
+            }else{
+
+            }
+            return $vector;
+        }
+
+        public function  UpdateInfoBook(){
+
+            $sql="UPDATE `tblbook` SET `Thematic`='".$this->bookThematic."',  
+            `Author`='".$this->bookAuthor."',
+            `ImgFront`='".$this->bookImgFront."',
+            `ImgBack`='".$this->bookImgBack."'           
+            WHERE IdBook = '".$this->bookId."'";
+
+        if ($this->conector->query($sql)) {
+            $mensaje="<strong>Attention</strong> the data was update correctly.";
+        } else {
+            $mensaje="Failed data";
+        }
+        return $mensaje;
+
+        }
+
+        public function DeleteBook(){
+
+            $sql=" DELETE FROM `tblbook` where IdBook='".$_REQUEST['id']."'";
+    
+            if ($this->conector->query($sql)){
+                $mensaje=1;
+              }else{
+                 $mensaje=0;
+               }
+             return $mensaje;
+        }
+
+        public function ListPictureBook(){
+          
+           $path = "../../FrontEnd/Resources/img/Books/";
+            //$path = "../Resources/img/Books/";
+            $data=array();
+
+            if (is_dir($path)){
+              if ($directorio=opendir($path)){
+                // para encontrar y recorre la informacion dentro de la carpeta utilizamos whiole y la funcion llamada readdir
+      
+                while($archivo=readdir($directorio)){
+      
+                  // generar unas variables que me permitan almacenar nombre, tipo de archivo, tamaño, 
+      
+                  $nombre=$archivo;
+                  // si queremos traernos el tipo se utiliza la combinacion de funciones pathinfo y pathinfo_extension
+                  $tipo=pathinfo($archivo,
+                    PATHINFO_EXTENSION);
+                  // si queremos traer el tamaño, usamos filesize
+                  $tamano=filesize($path.$archivo);
+      
+                  // solo mostrar archivos el . y el ..
+      
+                  if($archivo<>"." && $archivo<>".."){
+      
+                     $data[]=array("nombre"=>$nombre,"tipo"=>$tipo,"tamano"=>$tamano);              
+                  }         
+      
+                }// findel while
+              }// fin open dir
+              // cerrar la lectura de la carpeta
+               closedir($directorio);
+            } // fin si is dir
+        
+         return $data;
+        }
+
+        function DeletePictureBook(){
+
+            $path = "../../FrontEnd/Resources/img/Books/";
+             if(unlink($path."/".$_REQUEST['n'])){                 
+                 $mensaje = "Archivo".$_REQUEST['n']."borrador con exito";
+             }else{
+       
+                $mensaje = "Archivo".$_REQUEST['n']." no puedo ser borrador";
+             }
+       
+             return $mensaje;
+          }
+
+          
+          public function ListPictureTestimonial(){
+          
+            $path = "../../FrontEnd/Resources/img/testimonials/";            
+             $data=array();
+ 
+             if (is_dir($path)){
+               if ($directorio=opendir($path)){               
+       
+                    while($archivo=readdir($directorio)){     
+                        
+                   $nombre=$archivo;
+                   
+                   $tipo=pathinfo($archivo,
+                     PATHINFO_EXTENSION);
+                  
+                   $tamano=filesize($path.$archivo);    
+                 
+                    if($archivo<>"." && $archivo<>".."){
+       
+                      $data[]=array("nombre"=>$nombre,"tipo"=>$tipo,"tamano"=>$tamano);              
+                   }        
+       
+                 }
+               }
+                closedir($directorio);
+             }
+         
+          return $data;
+         }
+ 
+        function DeletePictureTestimonial(){
+
+            $path = "../../FrontEnd/Resources/img/testimonials/";
+             if(unlink($path."/".$_REQUEST['n'])){                 
+                 $mensaje = "Archivo".$_REQUEST['n']."borrador con exito";
+             }else{
+       
+                $mensaje = "Archivo".$_REQUEST['n']." no puedo ser borrador";
+             }
+       
+             return $mensaje;
+          }
    
     }
 
 ?>
-
 

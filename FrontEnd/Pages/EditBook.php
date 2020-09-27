@@ -1,9 +1,10 @@
 
 <?php
- include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
-$data=new BaseDatos;
-if (count($_FILES)>0) $mensaje=$data->cargararchivo();
-
+if (isset($_REQUEST['id'])){
+   include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
+   $data=new BaseDatos;
+   $records=$data->GetBookById($_REQUEST['id']); 
+ }
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@ if (count($_FILES)>0) $mensaje=$data->cargararchivo();
    <!-- Favicons -->
    <link href="../Resources/img/favicon.ico" rel="icon">
 
-  <title>Form Abouth me</title>
+  <title>Administrator</title>
 
   <!-- All CSS -->
   <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -51,8 +52,8 @@ if (count($_FILES)>0) $mensaje=$data->cargararchivo();
           <div class="col-lg-12">
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="icon_document_alt"></i>Testimonial</li>
-              <li><i class="fa fa-files-o"></i>Add Testimonials</li>
+              <li><i class="icon_document_alt"></i>Book</li>
+              <li><i class="fa fa-files-o"></i>Add Book's</li>
             </ol>
           </div>
         </div>
@@ -60,47 +61,55 @@ if (count($_FILES)>0) $mensaje=$data->cargararchivo();
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-               Add testimonial
+               Add Book's
               </header>
               <div class="panel-body">
                 <div class="form">
-                  <form method="POST"  action="AddTestimonial.php" class="form-horizontal" id="FrmAddTestimonial" autocomplete="off" enctype="multipart/form-data">
-                    <div class="form-group ">
-                      <label for="UserName" class="control-label col-lg-2">Name </label>
+                  <form method="POST"  action="AddBook.php" class="form-horizontal" id="FrmUpdateBook" autocomplete="off" enctype="multipart/form-data">
+                  <div class="form-group" style="display: none">
+                      <label  class="control-label col-lg-2">Id</label>
                       <div class="col-lg-10">
-                        <input class="form-control " id="UserName" type="text" name="UserName"
-                        placeholder="Duvan Baena">
-                       </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-lg-2">Position</label>
-                      <div class="col-lg-10">
-                        <input class="form-control date"  id="RolUserName" name="RolUserName"
-                        placeholder="CEO">
-                       </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="control-label col-lg-2">Img</label>
-                      <div class="col-lg-10">
-                        <input type="file" class="form-control date"  id="UserImg" name="archivo"
-                        placeholder="img">
-                       </div>
-                    </div>
-
-                    <div class="form-group ">
-                      <label for="Remark" class="control-label col-lg-2">Remark</label>
-                      <div class="col-lg-10">
-                        <textarea class="form-control" id="Remark" name="Remark"
-                        placeholder="Remark">
-                        </textarea>
+                        <input class="form-control " id="IdBook" type="text" name="IdBook"
+                        value="<?php echo $records[0]['IdBook'];?>" disabled>                        
                       </div>
+                    </div>                   
+                    
+                    <div class="form-group ">
+                      <label for="Author" class="control-label col-lg-2">Author </label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="Author" type="text" name="Author"
+                        placeholder="Duvan Baena" value="<?php echo $records[0]['Author'];?>">
+                       </div>
                     </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-lg-2">Thematic</label>
+                      <div class="col-lg-10">
+                        <input class="form-control date"  id="Thematic" name="Thematic"
+                        placeholder="JavaScript" value="<?php echo $records[0]['Thematic'];?>">
+                       </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-lg-2">Img Front</label>
+                      <div class="col-lg-10">
+                        <input class="form-control date"  id="ImgFront" name="ImgFront"
+                        placeholder="JavaScript" value="<?php echo $records[0]['ImgFront'];?>">
+                       </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-lg-2">Img Front</label>
+                      <div class="col-lg-10">
+                        <input class="form-control date"  id="ImgBack" name="ImgBack"
+                        placeholder="JavaScript" value="<?php echo $records[0]['ImgBack'];?>">
+                       </div>
+                    </div>
+
                     <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">
-                        <button type="button" class="btn btn-primary" id="BtnAddTestimonial">Save</button>
-                        <button class="btn btn-default" type="button" onclick="ReturnTestimonial()">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="BtnUpdateBook">Save</button>
+                        <button class="btn btn-default" type="button" onclick="ReturnBook()">Cancel</button>
                        </div>
                     </div>
                   </form>
@@ -126,7 +135,7 @@ if (count($_FILES)>0) $mensaje=$data->cargararchivo();
   <script src="../Resources/js/script.js"></script>
 
   <script type="text/javascript">
-    document.getElementById("BtnAddTestimonial").onclick = AddTestimonial;
+    document.getElementById("BtnUpdateBook").onclick = UpdateBook;
   </script>
 
   <script>

@@ -966,6 +966,109 @@ function DeleteTestimonialSummary(id) {
 
 }
 
+function AddBook() {
+   Toastr();
+   vector = ["Author", "Thematic", "ImgFront"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
+
+   document.getElementById("FrmAddBook").submit();
+
+
+   function back() {
+      location.href = "ListBook.php";
+   }
+   setTimeout(back, 1000);
+
+}
+
+
+function UpdateBook() {
+   Toastr();
+   // vector = ["Author","Thematic","ImgFront","ImgBack"];
+   // total = vector.length;
+   // for (i = 0; i < total; i++) {
+   //    if (document.getElementById(vector[i]).value == "") {
+   //       toastr["error"]("You must enter value " + vector[i])
+   //       document.getElementById(vector[i]).focus();
+   //       return;
+   //    }
+   // }
+
+
+   let BookId = document.getElementById("IdBook").value;
+
+   BookId = $("#IdBook").val();
+
+   let data = {
+      "IdBook": BookId,
+   };
+
+   let parameters = $("#FrmUpdateBook").serialize() + '&' + $.param(data);
+
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.UpdateInfoBook.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "ListBook.php";
+         }
+         setTimeout(back, 5000);
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
+
+}
+
+function DeleteBook(id) {
+   Toastr();
+   var parametros = { "id": id };
+   $.ajax({
+      data: parametros,
+      url: "../../BackEnd/Model/Validate.DeleteBook.php",
+      type: "post",
+      beforeSend: function () {
+         $("#loader-wrapper").show();
+      },
+      success: function (reponse) {
+
+         if (reponse == 1) {
+            $("#loader").show();
+            //alert("Record removed.");
+            toastr["info"]("Record removed", "Thanks")
+            function back() {
+               $("#loader").hide();
+               location.href = "ListBook.php";
+            }
+            setTimeout(back, 5000);
+
+         } else {
+            toastr["error"]("There was an error?")
+         }
+      },
+
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
+
+}
+
 
 function ReturnIndexVersion() {
    location.href = "Version.php";
@@ -994,4 +1097,10 @@ function ReturnSkillSummary() {
 function ReturnTestimonial() {
    location.href = "Testimonial.php";
 }
+
+function ReturnBook() {
+   location.href = "ListBook.php";
+}
+
+
 

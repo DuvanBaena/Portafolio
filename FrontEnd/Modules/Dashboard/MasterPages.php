@@ -79,7 +79,8 @@ sleep(5);
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
               <ul class="sub">
-                <li><a href="#">Menu Book</a></li>                             
+                <li><a href="ListBook.php">Menu Book</a></li> 
+                <li><a href="AdminPictureBook.php">Administrator Img</a></li>                               
               </ul>
             </li>
             <li class="sub-menu">
@@ -90,6 +91,7 @@ sleep(5);
               </a>
               <ul class="sub">
                 <li><a href="Testimonial.php">Testimonial Detail</a></li> 
+                <li><a href="AdminPictureTestimonial.php">Administrator Img</a></li> 
               </ul>
             </li>
             <li class="sub-menu">

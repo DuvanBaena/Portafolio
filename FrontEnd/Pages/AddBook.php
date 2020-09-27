@@ -2,8 +2,7 @@
 <?php
  include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
 $data=new BaseDatos;
-if (count($_FILES)>0) $mensaje=$data->cargararchivo();
-
+if (count($_FILES)>0) $mensaje=$data->UploadFile();
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +18,7 @@ if (count($_FILES)>0) $mensaje=$data->cargararchivo();
    <!-- Favicons -->
    <link href="../Resources/img/favicon.ico" rel="icon">
 
-  <title>Form Abouth me</title>
+  <title>Administrator</title>
 
   <!-- All CSS -->
   <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -51,8 +50,8 @@ if (count($_FILES)>0) $mensaje=$data->cargararchivo();
           <div class="col-lg-12">
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="icon_document_alt"></i>Testimonial</li>
-              <li><i class="fa fa-files-o"></i>Add Testimonials</li>
+              <li><i class="icon_document_alt"></i>Book</li>
+              <li><i class="fa fa-files-o"></i>Add Book's</li>
             </ol>
           </div>
         </div>
@@ -60,47 +59,47 @@ if (count($_FILES)>0) $mensaje=$data->cargararchivo();
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-               Add testimonial
+               Add Book's
               </header>
               <div class="panel-body">
                 <div class="form">
-                  <form method="POST"  action="AddTestimonial.php" class="form-horizontal" id="FrmAddTestimonial" autocomplete="off" enctype="multipart/form-data">
+                  <form method="POST"  action="AddBook.php" class="form-horizontal" id="FrmAddBook" autocomplete="off" enctype="multipart/form-data">
                     <div class="form-group ">
-                      <label for="UserName" class="control-label col-lg-2">Name </label>
+                      <label for="Author" class="control-label col-lg-2">Author </label>
                       <div class="col-lg-10">
-                        <input class="form-control " id="UserName" type="text" name="UserName"
+                        <input class="form-control " id="Author" type="text" name="Author"
                         placeholder="Duvan Baena">
                        </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-lg-2">Position</label>
+                      <label class="control-label col-lg-2">Thematic</label>
                       <div class="col-lg-10">
-                        <input class="form-control date"  id="RolUserName" name="RolUserName"
-                        placeholder="CEO">
+                        <input class="form-control date"  id="Thematic" name="Thematic"
+                        placeholder="JavaScript">
                        </div>
                     </div>
 
-                    <div class="form-group">
-                      <label class="control-label col-lg-2">Img</label>
+                     <div class="form-group">
+                      <label class="control-label col-lg-2">Img Front</label>
                       <div class="col-lg-10">
-                        <input type="file" class="form-control date"  id="UserImg" name="archivo"
+                        <input type="file" class="form-control date"  id="ImgFront" name="ImgFront"
                         placeholder="img">
                        </div>
                     </div>
-
-                    <div class="form-group ">
-                      <label for="Remark" class="control-label col-lg-2">Remark</label>
+<!-- 
+                    <div class="form-group">
+                      <label class="control-label col-lg-2">Img Back</label>
                       <div class="col-lg-10">
-                        <textarea class="form-control" id="Remark" name="Remark"
-                        placeholder="Remark">
-                        </textarea>
-                      </div>
-                    </div>
+                        <input type="file" class="form-control date"  id="ImgBack" name="ImgBack"
+                        placeholder="img">
+                       </div>
+                    </div> -->
+
                     <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">
-                        <button type="button" class="btn btn-primary" id="BtnAddTestimonial">Save</button>
-                        <button class="btn btn-default" type="button" onclick="ReturnTestimonial()">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="BtnAddBook">Save</button>
+                        <button class="btn btn-default" type="button" onclick="ReturnBook()">Cancel</button>
                        </div>
                     </div>
                   </form>
@@ -126,7 +125,7 @@ if (count($_FILES)>0) $mensaje=$data->cargararchivo();
   <script src="../Resources/js/script.js"></script>
 
   <script type="text/javascript">
-    document.getElementById("BtnAddTestimonial").onclick = AddTestimonial;
+    document.getElementById("BtnAddBook").onclick = AddBook;
   </script>
 
   <script>
