@@ -1089,6 +1089,41 @@ class BaseDatos extends Conexion{
        
              return $mensaje;
           }
+
+        /* In this part you will go all the logic of the database for Blogs. */
+
+                
+        public function ListBlogs(){
+
+            $sql="SELECT * FROM `tblblog` ";
+            $vector=array();
+            if($this->conector->query($sql)){
+                $resultado=$this->conector->query($sql);
+                while($fila=$resultado->fetch_array()){
+                    $vector[]=$fila;
+                }
+            }else{
+
+            }
+            return $vector;  
+
+            }
+
+            public function GetBlogById($id){
+
+                $sql="SELECT * FROM `tblblog` WHERE IdBlog ='".$id."'";
+    
+                $vector=array();
+                $resultado= $this->conector->query($sql);
+                if (!empty($resultado)){
+                    while ($fila = $resultado->fetch_array()) {
+                        $vector[]=$fila;
+                    }
+                }else{
+    
+                }
+                return $vector;
+            }
    
     }
 

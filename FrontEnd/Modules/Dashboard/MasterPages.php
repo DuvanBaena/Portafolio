@@ -101,7 +101,7 @@ sleep(5);
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
               <ul class="sub">
-                <li><a href="#">Blog General</a></li> 
+                <li><a href="BlogList.php">Blog General</a></li> 
                 <li><a href="#">Administrator Img</a></li> 
               </ul>
             </li>

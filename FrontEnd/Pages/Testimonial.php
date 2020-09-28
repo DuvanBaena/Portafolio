@@ -71,7 +71,7 @@ $records=$data->ListTestimonial();
             <section class="panel">
               <table class="table table-striped table-advance table-hover" id="tableDetail">
               <thead>     
-                    <tr>
+                    <tr class="text-center">
                       <th><i class="icofont-listing-number"></i> #</th>
                       <th><i class="icofont-boy"></i> Name</th>
                       <th><i class="icofont-chair"></i> Position</th>

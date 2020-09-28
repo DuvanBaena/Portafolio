@@ -1,7 +1,7 @@
 <?php
 include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
 $data=new BaseDatos;
-$records=$data->ListBooks();
+$records=$data->ListBlogs();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,17 +52,17 @@ $records=$data->ListBooks();
           <div id="preloader"></div>
           <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a> 
           <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa fa-bars"></i> Book's</h3>
+          <h3 class="page-header"><i class="fa fa fa-bars"></i> Testimonial</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="fa fa-bars"></i>Book</li>
-              <li><i class="fa fa-square-o"></i>Books Detail</li>
+              <li><i class="fa fa-bars"></i>Testimonials</li>
+              <li><i class="fa fa-square-o"></i>Testimonial Detail</li>
             </ol>
           </div>          
         </div>
         <div class="row">
             <div class="col-lg-12">            
-              <a class="btn btn-success" href="AddBook.php"><i class="icofont-save"></i></a>  
+              <a class="btn btn-success" href="AddTestimonial.php"><i class="icofont-save"></i></a>  
             </div>
           </div>    
 			   </br> 
@@ -71,13 +71,14 @@ $records=$data->ListBooks();
             <section class="panel">
               <table class="table table-striped table-advance table-hover" id="tableDetail">
               <thead>     
-                 <tr class="text-center">
+                    <tr class="text-center">
                       <th><i class="icofont-listing-number"></i> #</th>
-                      <th><i class="icofont-funky-man"></i> Author</th>
-                      <th><i class="icofont-key"></i> Thematic</th>
-                      <th><i class="icofont-picture"></i> Img</th>    
+                      <th><i class="icofont-list"></i> Category</th>
+                      <th><i class="icofont-bullhorn"></i> Title</th>
+                      <th><i class="icofont-boy"></i> Author</th> 
+                      <th><i class="icofont-calendar"></i> Date Create</th>     
                       <th><i class="icofont-options"></i> Option</th>  
-                  </tr>
+                    </tr>
                   </thead>           
               <tbody>
                 <?php
@@ -85,13 +86,14 @@ $records=$data->ListBooks();
                  for($i=0;$i<count($records);$i++){ ?>
                   <tr>                                    
                     <td><?php echo $i+1;?></td>            
+                    <td><?php echo $records[$i]["Category"];?></td>
+                    <td><?php echo $records[$i]["Title"];?></td> 
                     <td><?php echo $records[$i]["Author"];?></td>
-                    <td><?php echo $records[$i]["Thematic"];?></td> 
-                    <td><?php echo "<img src='../Resources/img/Books/".$records[$i]["ImgFront"]."' width=80>";$records[$i]["ImgFront"];?></td>
+                    <td><?php echo $records[$i]["DateCreate"];?></td>                    
                     <td>
                       <div class="btn-group">                         
-                        <a class="btn btn-warning" href="EditBook.php?id=<?php echo $records[$i]["IdBook"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
-                        <button type="button" class="btn btn-danger" title="Delete" onclick="btnDeleteBook(<?php echo $records[$i]["IdBook"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                      
+                        <a class="btn btn-warning" href="EditTestimonial.php?id=<?php echo $records[$i]["IdBlog"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
+                        <button type="button" class="btn btn-danger" title="Delete" onclick="btnDeleteTestimonialSummary(<?php echo $records[$i]["IdTestimony"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                      
                      </div>
                     </td>
                   </tr> 
@@ -123,9 +125,9 @@ $records=$data->ListBooks();
   <script src="../Resources/js/script.js"></script>
 
   <script type="text/javascript"> 
-    function btnDeleteBook(id){
+    function btnDeleteTestimonialSummary(id){
       if(confirm("You sure want to Delete the Registry?")){
-          DeleteBook(id);
+          DeleteTestimonialSummary(id);
        }
     }  
 </script>
@@ -133,10 +135,10 @@ $records=$data->ListBooks();
 <script type="text/javascript"> 
     $(document).ready(function() {
       $('#tableDetail').DataTable( {
-        "paging":   true,
-        "ordering": true,
-        "info":     true,
-        "searching": true
+        "paging":   false,
+        "ordering": false,
+        "info":     false,
+        "searching": false
        } ); 
     });  
 </script>

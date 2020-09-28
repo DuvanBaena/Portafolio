@@ -1,4 +1,11 @@
-<section class="news-single nav-arrow-b">
+<?php
+if (isset($_REQUEST['id'])){
+   include __DIR__ . '../../../../BackEnd/Model/Bridgedb.php';
+   $data=new BaseDatos;
+   $records=$data->GetBlogById($_REQUEST['id']); 
+ }
+?>
+  <section class="news-single nav-arrow-b">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
@@ -11,15 +18,15 @@
               <ul class="list-inline text-center color-a">
                 <li class="list-inline-item mr-2">
                   <strong>Author: </strong>
-                  <span class="color-text-a">Duvan Baena</span>
+                  <span class="color-text-a"><?php echo $records[0]['Author'];?></span>
                 </li>
                 <li class="list-inline-item mr-2">
                   <strong>Category: </strong>
-                  <span class="color-text-a">Development</span>
+                  <span class="color-text-a"><?php echo $records[0]['Category'];?></span>
                 </li>
                 <li class="list-inline-item">
                   <strong>Date: </strong>
-                  <span class="color-text-a">28 Mayo. 2020</span>
+                  <span class="color-text-a"><?php echo $records[0]['DateCreate'];?></span>
                 </li>
               </ul>
             </div>
