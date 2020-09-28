@@ -24,7 +24,7 @@
               </div>
             </div>
 
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               <div class="card-box-b card-shadow news-box">
                 <div class="img-box-b">
                   <img src="../Resources/img/blog/post-1.jpg" alt="" class="img-b img-fluid">
@@ -143,7 +143,9 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
+
+
           </div>
         </div>
     </section>

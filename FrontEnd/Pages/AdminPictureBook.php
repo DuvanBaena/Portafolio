@@ -100,7 +100,7 @@ $records=$data->ListPictureBook();
                     <td>
                       <div class="btn-group">                         
                         <a class="btn btn-primary" href="../../BackEnd/Model/DownLoadFileBook.php?n=<?php echo $records[$i]["nombre"];?>" title="DownLoad"><i class="icofont-download"></i></a>
-                        <a class="btn btn-danger" href="AdminPicture.php?n=<?php echo $records[$i]["nombre"];?>" title="Delete"  id="BtnDelete"><i class="icofont-garbage"></i></a>
+                        <a class="btn btn-danger" href="AdminPictureBook.php?n=<?php echo $records[$i]["nombre"];?>" title="Delete"  id="BtnDelete"><i class="icofont-garbage"></i></a>
                       </div>
                     </td>
                   </tr> 

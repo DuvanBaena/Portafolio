@@ -133,10 +133,10 @@ $records=$data->ListBooks();
 <script type="text/javascript"> 
     $(document).ready(function() {
       $('#tableDetail').DataTable( {
-        "paging":   false,
-        "ordering": false,
-        "info":     false,
-        "searching": false
+        "paging":   true,
+        "ordering": true,
+        "info":     true,
+        "searching": true
        } ); 
     });  
 </script>

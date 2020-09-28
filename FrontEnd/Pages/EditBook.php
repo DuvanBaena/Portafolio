@@ -99,7 +99,7 @@ if (isset($_REQUEST['id'])){
                     </div>
 
                     <div class="form-group">
-                      <label class="control-label col-lg-2">Img Front</label>
+                      <label class="control-label col-lg-2">Img Back</label>
                       <div class="col-lg-10">
                         <input class="form-control date"  id="ImgBack" name="ImgBack"
                         placeholder="JavaScript" value="<?php echo $records[0]['ImgBack'];?>">

@@ -97,6 +97,17 @@ sleep(5);
             <li class="sub-menu">
               <a href="javascript:;" class="">
                 <i class="icon_document_alt"></i>
+                <span>Blog</span>
+                <span class="menu-arrow arrow_carrot-right"></span>
+              </a>
+              <ul class="sub">
+                <li><a href="#">Blog General</a></li> 
+                <li><a href="#">Administrator Img</a></li> 
+              </ul>
+            </li>
+            <li class="sub-menu">
+              <a href="javascript:;" class="">
+                <i class="icon_document_alt"></i>
                 <span>Version</span>
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>

@@ -5,10 +5,9 @@
 
 	if (is_file($path."/".$file)){
 		// los header para forzar una descarga
-			// 1. Indicar que se va a descargar
-		// estos con comandos propios de html
+		// 1. Indicar el tipo de acción para este caso es la de descargar	
 		header("Content-type: Application/force-download");
-		//2. le vamos a indicar que loi uqe va a descargar es un file
+		//2. le vamos a indicar que lo que va a descargar es un elemento tipo file
 		header("Content-type: Application/octet-strem");
 		//3. le vamos a indicar que nos muesre si descargamos  o abrimos el file
 		header("Content-Disposition: attachment;filename=".$file);
@@ -17,7 +16,7 @@
 		// 5. indicamos el tamaño indicado del file para que nos muestre cuanto tiempo falta para descargarlo
 		header("Content-Length:".filesize($path."/".$file));
 		//6. lea EL ARCHIVO
-		header($path."/".$file);
+		readfile($path."/".$file);
 
 	} else{		
 

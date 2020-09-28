@@ -119,8 +119,6 @@ $records=$data->ListPictureTestimonial();
   </section>
   <!-- container section start -->
 
-
-
   <!-- javascripts -->
   <script src="../Resources/vendor/jquery/jquery.js"></script>
   <script src="../Resources/vendor/bootstrap/js/bootstrapv3.0.0.min.js"></script>

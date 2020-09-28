@@ -19,7 +19,7 @@
 		// 5. indicamos el tamaño indicado del file para que nos muestre cuanto tiempo falta para descargarlo
 		header("Content-Length:".filesize($path."/".$file));
 		//6. lea EL ARCHIVO
-		header($path."/".$file);
+		readfile($path."/".$file);
 
 	} else{		
 
