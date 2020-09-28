@@ -95,9 +95,7 @@ class BaseDatos extends Conexion{
 
         }
 
-        if (isset($_REQUEST['UserID']) && $_REQUEST['UserID']<>"") {
-
-            $this->userID=$_REQUEST['UserID'];
+        if (isset($_REQUEST['UserName']) && $_REQUEST['UserName']<>"") {           
             $this->userInfoName=$_REQUEST['UserName'];
             $this->userLastName=$_REQUEST['userLastName'];  
             $this->userEmail=$_REQUEST['UserEmail']; 
@@ -110,6 +108,11 @@ class BaseDatos extends Conexion{
             $this->userTopDescription=$_REQUEST['UserTopDescription'];
             $this->userBodyDescription=$_REQUEST['UserBodyDescription']; 
             $this->userFooterDescription=$_REQUEST['UserFooterDescription'];     
+           }
+
+           
+        if (isset($_REQUEST['UserID']) && $_REQUEST['UserID']<>"") {
+            $this->userID=$_REQUEST['UserID'];   
            }
 
 
@@ -171,7 +174,7 @@ class BaseDatos extends Conexion{
 
         }
 
-        if (isset($_REQUEST['UserName']) && $_REQUEST['UserName']<>"") {
+        if (isset($_REQUEST['RolUserName']) && $_REQUEST['RolUserName']<>"") {
             $this->testimonialUserName=$_REQUEST['UserName'];
             $this->testimonialRol=$_REQUEST['RolUserName']; 
             $this->testimonialImg=$_REQUEST['UserImg'];    

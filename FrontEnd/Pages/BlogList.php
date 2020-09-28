@@ -62,7 +62,7 @@ $records=$data->ListBlogs();
         </div>
         <div class="row">
             <div class="col-lg-12">            
-              <a class="btn btn-success" href="AddTestimonial.php"><i class="icofont-save"></i></a>  
+              <a class="btn btn-success" href="AddNewBlog.php"><i class="icofont-save"></i></a>  
             </div>
           </div>    
 			   </br> 
