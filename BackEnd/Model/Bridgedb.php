@@ -95,7 +95,7 @@ class BaseDatos extends Conexion{
 
         }
 
-        if (isset($_REQUEST['UserName']) && $_REQUEST['UserName']<>"") {           
+        if (isset($_REQUEST['userLastName']) && $_REQUEST['userLastName']<>"") {           
             $this->userInfoName=$_REQUEST['UserName'];
             $this->userLastName=$_REQUEST['userLastName'];  
             $this->userEmail=$_REQUEST['UserEmail']; 
