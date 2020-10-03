@@ -844,42 +844,40 @@ class BaseDatos extends Conexion{
 
         }
 
+        public function GetInfoTestimonialById($id){
 
-        //Comento esta funcion para cuando consiga mediante ajax replicar la subida de img
-        // public function AddTestimonialSummary(){   
-        //     $sql="INSERT INTO `tbltestimony`(`Remark`, `UserName`,`RolUserName`,`ImgUser`)
-        //      VALUES
-        //     (
-        //     '".$this->testimonialRemark."',
-        //     '".$this->testimonialUserName."',
-        //     '".$this->testimonialRol."',
-        //     '".$this->testimonialImg."'
-        //     )";
-    
-        //     if($this->conector->query($sql)){    
-        //         $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
-        //     }else{    
-        //         $mensaje="Failed data";
-        //     }    
-        //     return $mensaje;
-    
-        //     }
+            $sql="SELECT * FROM `tbltestimony` WHERE IdTestimony ='".$id."'";
 
-            public function GetInfoTestimonialById($id){
+            $vector=array();
+            $resultado= $this->conector->query($sql);
+            if (!empty($resultado)){
+                while ($fila = $resultado->fetch_array()) {
+                    $vector[]=$fila;
 
-                $sql="SELECT * FROM `tbltestimony` WHERE IdTestimony ='".$id."'";
-    
-                $vector=array();
-                $resultado= $this->conector->query($sql);
-                if (!empty($resultado)){
-                    while ($fila = $resultado->fetch_array()) {
-                        $vector[]=$fila;
-    
-                    }
-                }else{
-    
                 }
-                 return $vector;
+            }else{
+
+            }
+             return $vector;
+        }
+       
+        public function AddTestimonialSummary(){   
+            $sql="INSERT INTO `tbltestimony`(`Remark`, `UserName`,`RolUserName`,`ImgUser`)
+             VALUES
+            (
+            '".$this->testimonialRemark."',
+            '".$this->testimonialUserName."',
+            '".$this->testimonialRol."',
+            '".$this->testimonialImg."'
+            )";
+    
+            if($this->conector->query($sql)){    
+                $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
+            }else{    
+                $mensaje="Failed data";
+            }    
+            return $mensaje;
+    
             }
 
 
@@ -898,8 +896,7 @@ class BaseDatos extends Conexion{
               }
               return $mensaje;
     
-            }
-            
+            }            
 
             public function DeleteTestimonialSummary(){
 
@@ -915,36 +912,93 @@ class BaseDatos extends Conexion{
             
            
    // funcion que permite cargar archivo
-   function cargararchivo(){
-    $source=$_FILES['archivo']['tmp_name']; //  el archivo temporal donde subre los archivos
-    $tarjet=date("His")."-".$_FILES['archivo']['name']; // eñ nombre del archivo que se pasa en el formulario
-    $path="../../FrontEnd/Resources/img/testimonials/"; // carpeta o path donde se guardara el archivo para leer
-    $extension=$_FILES['archivo']['type']; //aca guardamos el tipo de archivo
+//    function cargararchivo(){
+//     $source=$_FILES['archivo']['tmp_name']; //  el archivo temporal donde subre los archivos
+//     $tarjet=date("His")."-".$_FILES['archivo']['name']; // eñ nombre del archivo que se pasa en el formulario
+//     $path="../../FrontEnd/Resources/img/testimonials/"; // carpeta o path donde se guardara el archivo para leer
+//     $extension=$_FILES['archivo']['type']; //aca guardamos el tipo de archivo
 
-    if(move_uploaded_file($source, $path."/".$tarjet))
-    {
-        $sql="INSERT INTO `tbltestimony`(`Remark`, `UserName`,`RolUserName`,`ImgUser`)
-        VALUES
-       (
-       '".$this->testimonialRemark."',
-       '".$this->testimonialUserName."',
-       '".$this->testimonialRol."',
-       '$tarjet'
-       )";
-       if($this->conector->query($sql)){    
-           $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
-       }else{    
-           $mensaje="Failed data";
-       }     
+//     if(move_uploaded_file($source, $path."/".$tarjet))
+//     {
+//         $sql="INSERT INTO `tbltestimony`(`Remark`, `UserName`,`RolUserName`,`ImgUser`)
+//         VALUES
+//        (
+//        '".$this->testimonialRemark."',
+//        '".$this->testimonialUserName."',
+//        '".$this->testimonialRol."',
+//        '$tarjet'
+//        )";
+//        if($this->conector->query($sql)){    
+//            $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
+//        }else{    
+//            $mensaje="Failed data";
+//        }     
   
-    }
+//     }
 
-   }
+//    }
         
 
+            function UploadImgTestimonial(){
+            $source=$_FILES['archivo']['tmp_name']; 
+            $tarjet=date("His")."-".$_FILES['archivo']['name']; 
+            $path="../../FrontEnd/Resources/img/testimonials/";
+            $extension=$_FILES['archivo']['type']; 
+
+            if(move_uploaded_file($source, $path."/".$tarjet))
+            {
+                $mensaje="File uploaded successfully";
+            }else{
+                $mensaje="Archivo NO se puede cargar.";
+            }
+            return $mensaje;
+            }
+
+            public function ListPictureTestimonial(){
+                
+                $path = "../../FrontEnd/Resources/img/testimonials/";            
+                $data=array();
+
+                if (is_dir($path)){
+                if ($directorio=opendir($path)){               
+        
+                        while($archivo=readdir($directorio)){     
+                            
+                    $nombre=$archivo;
+                    
+                    $tipo=pathinfo($archivo,
+                        PATHINFO_EXTENSION);
+                    
+                    $tamano=filesize($path.$archivo);    
+                    
+                        if($archivo<>"." && $archivo<>".."){
+        
+                        $data[]=array("nombre"=>$nombre,"tipo"=>$tipo,"tamano"=>$tamano);              
+                    }        
+        
+                    }
+                }
+                    closedir($directorio);
+                }
+            
+            return $data;
+            }
+
+            function DeletePictureTestimonial(){
+
+                $path = "../../FrontEnd/Resources/img/testimonials/";
+                if(unlink($path."/".$_REQUEST['n'])){                 
+                    $mensaje = "Archivo".$_REQUEST['n']."borrador con exito";
+                }else{
+        
+                    $mensaje = "Archivo".$_REQUEST['n']." no puedo ser borrador";
+                }
+        
+                return $mensaje;
+            }
+
+
    /* In this part you will go all the logic of the database for Book's. */
-
-
         
         public function ListBooks(){
 
@@ -962,33 +1016,6 @@ class BaseDatos extends Conexion{
 
             }
 
-
-            function UploadFile(){
-            $source=$_FILES['ImgFront']['tmp_name']; 
-            $tarjet=date("His")."-".$_FILES['ImgFront']['name']; 
-            $path="../../FrontEnd/Resources/img/Books/";
-            $extension=$_FILES['ImgFront']['type']; 
-
-            if(move_uploaded_file($source, $path."/".$tarjet))
-            {
-                $sql="INSERT INTO `tblbook`(`Thematic`,`Author`,`ImgFront`,`ImgBack`)
-                VALUES
-            (
-            '".$this->bookThematic."',
-            '".$this->bookAuthor."',      
-            '$tarjet',
-            '$tarjet'
-            )";
-            if($this->conector->query($sql)){    
-                $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
-            }else{    
-                $mensaje="Failed data";
-            }     
-            
-            }
-
-        }
-
         public function GetBookById($id){
 
             $sql="SELECT * FROM `tblbook` WHERE IdBook ='".$id."'";
@@ -1004,6 +1031,28 @@ class BaseDatos extends Conexion{
             }
             return $vector;
         }
+        
+
+        public function AddBook(){   
+        $sql="INSERT INTO `tblbook`(`Thematic`, `Author`,`ImgFront`,`ImgBack`)
+         VALUES
+        (
+        '".$this->bookThematic."',
+        '".$this->bookAuthor."',
+        '".$this->bookImgFront."',
+        '".$this->bookImgBack."'
+        )";
+
+    
+        if($this->conector->query($sql)){    
+            $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
+        }else{    
+            $mensaje="Failed data";
+        }    
+        return $mensaje;
+    
+        }
+
 
         public function  UpdateInfoBook(){
 
@@ -1071,6 +1120,48 @@ class BaseDatos extends Conexion{
          return $data;
         }
 
+        // function UploadImgBook(){
+        //     $source=$_FILES['archivo']['tmp_name']; 
+        //     $tarjet=date("His")."-".$_FILES['archivo']['name']; 
+        //     $path="../../FrontEnd/Resources/img/Books/";
+        //     $extension=$_FILES['archivo']['type']; 
+
+        //     if(move_uploaded_file($source, $path."/".$tarjet))
+        //     {
+        //         $sql="INSERT INTO `tblbook`(`Thematic`,`Author`,`ImgFront`,`ImgBack`)
+        //         VALUES
+        //     (
+        //     '".$this->bookThematic."',
+        //     '".$this->bookAuthor."',      
+        //     '$tarjet',
+        //     '$tarjet'
+        //     )";
+        //     if($this->conector->query($sql)){    
+        //         $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
+        //     }else{    
+        //         $mensaje="Failed data";
+        //     }     
+            
+        //     }
+
+        // }
+
+
+        function UploadImgBook(){
+            $source=$_FILES['archivo']['tmp_name']; 
+            $tarjet=date("His")."-".$_FILES['archivo']['name']; 
+            $path="../../FrontEnd/Resources/img/Books/";
+            $extension=$_FILES['archivo']['type']; 
+
+            if(move_uploaded_file($source, $path."/".$tarjet))
+            {
+                $mensaje="Archivo cargado con Exito!.";
+              }else{
+                $mensaje="Archivo NO se puede cargar.";
+              }
+              return $mensaje;
+        }
+
         function DeletePictureBook(){
 
             $path = "../../FrontEnd/Resources/img/Books/";
@@ -1082,51 +1173,8 @@ class BaseDatos extends Conexion{
              }
        
              return $mensaje;
-          }
-
-          
-          public function ListPictureTestimonial(){
-          
-            $path = "../../FrontEnd/Resources/img/testimonials/";            
-             $data=array();
+          }         
  
-             if (is_dir($path)){
-               if ($directorio=opendir($path)){               
-       
-                    while($archivo=readdir($directorio)){     
-                        
-                   $nombre=$archivo;
-                   
-                   $tipo=pathinfo($archivo,
-                     PATHINFO_EXTENSION);
-                  
-                   $tamano=filesize($path.$archivo);    
-                 
-                    if($archivo<>"." && $archivo<>".."){
-       
-                      $data[]=array("nombre"=>$nombre,"tipo"=>$tipo,"tamano"=>$tamano);              
-                   }        
-       
-                 }
-               }
-                closedir($directorio);
-             }
-         
-          return $data;
-         }
- 
-        function DeletePictureTestimonial(){
-
-            $path = "../../FrontEnd/Resources/img/testimonials/";
-             if(unlink($path."/".$_REQUEST['n'])){                 
-                 $mensaje = "Archivo".$_REQUEST['n']."borrador con exito";
-             }else{
-       
-                $mensaje = "Archivo".$_REQUEST['n']." no puedo ser borrador";
-             }
-       
-             return $mensaje;
-          }
 
         /* In this part you will go all the logic of the database for Blogs. */
 
@@ -1283,6 +1331,27 @@ class BaseDatos extends Conexion{
                  return $mensaje;
               }
     
+              
+        function UploadImgBlog(){
+            $source=$_FILES['archivo']['tmp_name']; 
+            $tarjet=date("His")."-".$_FILES['archivo']['name']; 
+            $path="../../FrontEnd/Resources/img/blog/";
+            $extension=$_FILES['archivo']['type']; 
+
+            if(move_uploaded_file($source, $path."/".$tarjet))
+            {
+                $mensaje="Archivo cargado con Exito!.";
+              }else{
+                $mensaje="Archivo NO se puede cargar.";
+              }
+              return $mensaje;
+            }
+
+      
+
+
+
+
    
     }
 

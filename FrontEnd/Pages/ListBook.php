@@ -69,6 +69,7 @@ $records=$data->ListBooks();
         <div class="row">
           <div class="col-lg-12">
             <section class="panel">
+            </br>
               <table class="table table-striped table-advance table-hover" id="tableDetail">
               <thead>     
                  <tr class="text-center">

@@ -1,9 +1,9 @@
-
+<!-- 
 <?php
- include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
-$data=new BaseDatos;
-if (count($_FILES)>0) $mensaje=$data->UploadFile();
-?>
+ //include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
+//$data=new BaseDatos;
+//if (count($_FILES)>0) $mensaje=$data->UploadFile();
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -87,14 +87,14 @@ if (count($_FILES)>0) $mensaje=$data->UploadFile();
                         placeholder="img">
                        </div>
                     </div>
-<!-- 
+
                     <div class="form-group">
                       <label class="control-label col-lg-2">Img Back</label>
                       <div class="col-lg-10">
                         <input type="file" class="form-control date"  id="ImgBack" name="ImgBack"
                         placeholder="img">
                        </div>
-                    </div> -->
+                    </div>
 
                     <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">

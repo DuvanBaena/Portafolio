@@ -872,7 +872,6 @@ function DeleteSkillSummary(id) {
 }
 
 
-
 function AddTestimonial() {
    Toastr();
    vector = ["UserName", "RolUserName", "Remark", "UserImg"];
@@ -885,13 +884,36 @@ function AddTestimonial() {
       }
    }
 
-   document.getElementById("FrmAddTestimonial").submit();
+   let img = document.getElementById("UserImg").value;
+
+   img = $("#UserImg").val();
+
+   let data = {
+      "UserImg": img
+   };
+
+   let parameters = $("#FrmAddTestimonial").serialize() + '&' + $.param(data);
+
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.AddTestimonialSummary.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "Testimonial.php";
+         }
+         setTimeout(back, 5000);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
 
 
-   function back() {
-      location.href = "Testimonial.php";
-   }
-   setTimeout(back, 1000);
 
 }
 
@@ -976,6 +998,27 @@ function DeleteTestimonialSummary(id) {
 
 }
 
+// function AddBook() {
+//    Toastr();
+//    vector = ["Author", "Thematic", "ImgFront"];
+//    total = vector.length;
+//    for (i = 0; i < total; i++) {
+//       if (document.getElementById(vector[i]).value == "") {
+//          toastr["error"]("You must enter value " + vector[i])
+//          document.getElementById(vector[i]).focus();
+//          return;
+//       }
+//    }
+
+//    document.getElementById("FrmAddBook").submit();
+
+//    function back() {
+//       location.href = "ListBook.php";
+//    }
+//    setTimeout(back, 1000);
+
+// }
+
 function AddBook() {
    Toastr();
    vector = ["Author", "Thematic", "ImgFront"];
@@ -988,14 +1031,43 @@ function AddBook() {
       }
    }
 
-   document.getElementById("FrmAddBook").submit();
+   let imgFront = document.getElementById("ImgFront").value;
+   let imgBack = document.getElementById("ImgBack").value;
 
-   function back() {
-      location.href = "ListBook.php";
-   }
-   setTimeout(back, 1000);
+   imgFront = $("#ImgFront").val();
+   imgBack = $("#ImgBack").val();
+
+   let data = {
+      "ImgFront": imgFront,
+      "ImgBack": imgBack,
+   };
+
+   let parameters = $("#FrmAddBook").serialize() + '&' + $.param(data);
+
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.AddBook.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "ListBook.php";
+         }
+         setTimeout(back, 5000);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
+
+
 
 }
+
+
 
 
 function UpdateBook() {

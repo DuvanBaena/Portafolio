@@ -1,10 +1,10 @@
 
-<?php
- include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
-$data=new BaseDatos;
-if (count($_FILES)>0) $mensaje=$data->cargararchivo();
+<!-- <?php
+ //include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
+//$data=new BaseDatos;
+//if (count($_FILES)>0) $mensaje=$data->cargararchivo();
 
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">

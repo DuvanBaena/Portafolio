@@ -69,6 +69,7 @@ $records=$data->ListBlogs();
         <div class="row">
           <div class="col-lg-12">
             <section class="panel">
+              </br>
               <table class="table table-striped table-advance table-hover" id="tableDetail">
               <thead>     
                     <tr class="text-center">
@@ -137,10 +138,10 @@ $records=$data->ListBlogs();
 <script type="text/javascript"> 
     $(document).ready(function() {
       $('#tableDetail').DataTable( {
-        "paging":   false,
-        "ordering": false,
-        "info":     false,
-        "searching": false
+        "paging":   true,
+        "ordering": true,
+        "info":     true,
+        "searching": true
        } ); 
     });  
 </script>

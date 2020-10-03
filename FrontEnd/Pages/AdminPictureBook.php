@@ -2,6 +2,7 @@
 include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
 $data=new BaseDatos;
 if (isset($_REQUEST['n'])) $mensaje=$data->DeletePictureBook();
+if (count($_FILES)>0) $mensaje=$data->UploadImgBook();
 $records=$data->ListPictureBook();
 ?>
 <!DOCTYPE html>
@@ -65,28 +66,36 @@ $records=$data->ListPictureBook();
         </div>
         <div class="row">
             <div class="col-lg-12">            
-              <!-- <a class="btn btn-success" href="AddBook.php"><i class="icofont-save"></i></a>   -->
-            </div>
-          </div>    
-			   </br> 
+            <a onclick="document.getElementById('InputFile').style.display=''" class="btn btn-warning te"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Upload File</a>
+            <div id="InputFile" style="display:none">
+              <div>
+                <form method="POST" action="AdminPictureBook.php" enctype="multipart/form-data" class="form-inline">
+                <div class="form-group">                  
+                  <input type="file" class="form-control" name="archivo">
+                </div>
+                <button type="submit" class="btn btn-primary mx-sm-2 mb-1">Send Img</button>
+                </form>    
+              </div>            
+           </div>
+          </div>
+        </div>    
+			  </br> 
         <div class="row">
           <div class="col-lg-12">
             <section class="panel">
-
+            </br>
               <table class="table table-striped table-advance table-hover" id="tableDetail">
               <thead>     
-                    <tr class="text-center">
-                        <th><i class="icofont-listing-number"></i> #</th>
-                        <th><i class="icofont-picture"></i> Img</th>
-                        <th><i class="icofont-key"></i> Thematic</th>
-                        <th><i class="icofont-picture"></i> Size</th>    
-                        <th><i class="icofont-picture"></i> Type</th>  
-                        <th><i class="icofont-options"></i> Option</th>  
-                    </tr>
-                  </thead>           
-              <tbody>
-
-       
+                  <tr class="text-center">
+                    <th><i class="icofont-listing-number"></i> #</th>
+                    <th><i class="icofont-picture"></i> Img</th>
+                    <th><i class="icofont-key"></i> Thematic</th>
+                    <th><i class="icofont-picture"></i> Size</th>    
+                    <th><i class="icofont-picture"></i> Type</th>  
+                    <th><i class="icofont-options"></i> Option</th>  
+                  </tr>
+              </thead>           
+              <tbody>       
                 <?php
                 if(count($records)>0){
                  for($i=0;$i<count($records);$i++){ ?>

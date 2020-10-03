@@ -59,7 +59,7 @@ $records=$data->ListTestimonial();
               <li><i class="fa fa-square-o"></i>Testimonial Detail</li>
             </ol>
           </div>          
-        </div>
+        </div>      
         <div class="row">
             <div class="col-lg-12">            
               <a class="btn btn-success" href="AddTestimonial.php"><i class="icofont-save"></i></a>  
@@ -69,6 +69,7 @@ $records=$data->ListTestimonial();
         <div class="row">
           <div class="col-lg-12">
             <section class="panel">
+              </br>
               <table class="table table-striped table-advance table-hover" id="tableDetail">
               <thead>     
                     <tr class="text-center">
@@ -133,10 +134,10 @@ $records=$data->ListTestimonial();
 <script type="text/javascript"> 
     $(document).ready(function() {
       $('#tableDetail').DataTable( {
-        "paging":   false,
-        "ordering": false,
-        "info":     false,
-        "searching": false
+        "paging":   true,
+        "ordering": true,
+        "info":     true,
+        "searching": true
        } ); 
     });  
 </script>
