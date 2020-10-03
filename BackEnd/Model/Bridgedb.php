@@ -1237,7 +1237,52 @@ class BaseDatos extends Conexion{
                    }
                  return $mensaje;
             }
+
+
+
+            public function ListPictureBlog(){
+          
+                $path = "../../FrontEnd/Resources/img/blog/";            
+                 $data=array();
+     
+                 if (is_dir($path)){
+                   if ($directorio=opendir($path)){               
+           
+                        while($archivo=readdir($directorio)){     
+                            
+                       $nombre=$archivo;
+                       
+                       $tipo=pathinfo($archivo,
+                         PATHINFO_EXTENSION);
+                      
+                       $tamano=filesize($path.$archivo);    
+                     
+                        if($archivo<>"." && $archivo<>".."){
+           
+                          $data[]=array("nombre"=>$nombre,"tipo"=>$tipo,"tamano"=>$tamano);              
+                       }        
+           
+                     }
+                   }
+                    closedir($directorio);
+                 }
              
+              return $data;
+             }
+             
+             function DeletePictureBlog(){
+
+                $path = "../../FrontEnd/Resources/img/blog/";
+                 if(unlink($path."/".$_REQUEST['n'])){                 
+                     $mensaje = "Archivo".$_REQUEST['n']."borrador con exito";
+                 }else{
+           
+                    $mensaje = "Archivo".$_REQUEST['n']." no puedo ser borrador";
+                 }
+           
+                 return $mensaje;
+              }
+    
    
     }
 

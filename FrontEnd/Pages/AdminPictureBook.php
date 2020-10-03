@@ -77,10 +77,10 @@ $records=$data->ListPictureBook();
               <thead>     
                     <tr class="text-center">
                         <th><i class="icofont-listing-number"></i> #</th>
-                        <th><i class="icofont-funky-man"></i> Author</th>
+                        <th><i class="icofont-picture"></i> Img</th>
                         <th><i class="icofont-key"></i> Thematic</th>
-                        <th><i class="icofont-picture"></i> Img</th>    
-                        <th><i class="icofont-options"></i> Option</th>  
+                        <th><i class="icofont-picture"></i> Size</th>    
+                        <th><i class="icofont-picture"></i> Type</th>  
                         <th><i class="icofont-options"></i> Option</th>  
                     </tr>
                   </thead>           

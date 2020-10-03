@@ -10,8 +10,8 @@ $recordsB=$data->ListWorkSumary();
         <div class="section-title">
           <span>resumen</span>
           <h2>resume</h2>
-          <p>I still have a long way to go, academically and professionally, I already did the most difficult thing, was
-            to start.<strong> 🖥️Lifelong learning💻</strong></p>
+          <p>I yet have a long way to go, academically and professionally, I already did the most difficult thing, was
+            to start.<strong> 🖥️ Lifelong learning 💻</strong></p>
         </div>
 
         <div class="row">

@@ -1,7 +1,8 @@
 <?php
 include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
 $data=new BaseDatos;
-$records=$data->ListBlogs();
+if (isset($_REQUEST['n'])) $mensaje=$data->DeletePictureBlog();
+$records=$data->ListPictureBlog();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,51 +53,55 @@ $records=$data->ListBlogs();
           <div id="preloader"></div>
           <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a> 
           <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa fa-bars"></i> Testimonial</h3>
+          <h3 class="page-header"><i class="fa fa fa-bars"></i> Blog's <?php 
+            if (isset($mensaje)) echo $mensaje;
+          ?></h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="fa fa-bars"></i>Testimonials</li>
-              <li><i class="fa fa-square-o"></i>Testimonial Detail</li>
+              <li><i class="fa fa-bars"></i>Blog</li>
+              <li><i class="fa fa-square-o"></i>img Detail</li>
             </ol>
           </div>          
         </div>
         <div class="row">
             <div class="col-lg-12">            
-              <a class="btn btn-success" href="AddNewBlog.php"><i class="icofont-save"></i></a>  
+              <!-- <a class="btn btn-success" href="AddBook.php"><i class="icofont-save"></i></a>   -->
             </div>
           </div>    
 			   </br> 
         <div class="row">
           <div class="col-lg-12">
             <section class="panel">
+
               <table class="table table-striped table-advance table-hover" id="tableDetail">
               <thead>     
                     <tr class="text-center">
-                      <th><i class="icofont-listing-number"></i> #</th>
-                      <th><i class="icofont-list"></i> Category</th>
-                      <th><i class="icofont-bullhorn"></i> Title</th>
-                      <th><i class="icofont-boy"></i> Author</th> 
-                      <th><i class="icofont-calendar"></i> Date Create</th> 
-                      <th><i class="icofont-picture"></i> Img</th>     
-                      <th><i class="icofont-options"></i> Option</th>  
+                        <th><i class="icofont-listing-number"></i> #</th>
+                        <th><i class="icofont-picture"></i> Img</th>
+                        <th><i class="icofont-funky-man"></i> Name</th>
+                        <th><i class="icofont-picture"></i> Size</th>
+                        <th><i class="icofont-picture"></i> Type</th>                        
+                        <th><i class="icofont-options"></i> Option</th>  
                     </tr>
                   </thead>           
               <tbody>
+
+       
                 <?php
                 if(count($records)>0){
                  for($i=0;$i<count($records);$i++){ ?>
                   <tr>                                    
-                    <td><?php echo $i+1;?></td>            
-                    <td><?php echo $records[$i]["Category"];?></td>
-                    <td><?php echo $records[$i]["TitleBlog"];?></td> 
-                    <td><?php echo $records[$i]["Author"];?></td>
-                    <td><?php echo $records[$i]["DateCreate"];?></td> 
-                    <td><?php echo "<img src='../Resources/img/blog/".$records[$i]["img"]."' width=80>";$records[$i]["img"];?></td>                   
+                    <td><?php echo $i+1;?></td> 
+                    <td><?php echo "<img src='../../FrontEnd/Resources/img/blog/".$records[$i]["nombre"]."' width=80>";?></td>            
+                    <td><?php echo $records[$i]["nombre"];?></td>
+                    <td><?php echo $records[$i]["tamano"];?></td> 
+                    <td><?php echo $records[$i]["tipo"];?></td> 
+                                       
                     <td>
                       <div class="btn-group">                         
-                        <a class="btn btn-warning" href="EditBlog.php?id=<?php echo $records[$i]["IdBlog"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
-                        <button type="button" class="btn btn-danger" title="Delete" onclick="btnDeleteBlog(<?php echo $records[$i]["IdBlog"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                      
-                     </div>
+                        <a class="btn btn-primary" href="../../BackEnd/Model/DownLoadFileBlog.php?n=<?php echo $records[$i]["nombre"];?>" title="DownLoad"><i class="icofont-download"></i></a>
+                        <a class="btn btn-danger" href="AdminPictureBlog.php?n=<?php echo $records[$i]["nombre"];?>" title="Delete"  id="BtnDelete"><i class="icofont-garbage"></i></a>
+                      </div>
                     </td>
                   </tr> 
                   <?php 
@@ -105,6 +110,7 @@ $records=$data->ListBlogs();
                 ?>
                 </tbody>
               </table>
+              
             </section>
           </div>
         </div>
@@ -126,36 +132,16 @@ $records=$data->ListBlogs();
   <script src="../Resources/js/scriptsDashboard.js"></script>
   <script src="../Resources/js/script.js"></script>
 
-  <script type="text/javascript"> 
-    function btnDeleteBlog(id){
-      if(confirm("You sure want to Delete the Registry?")){
-          DeleteBlog(id);
-       }
-    }  
-</script>
-
 <script type="text/javascript"> 
     $(document).ready(function() {
       $('#tableDetail').DataTable( {
-        "paging":   false,
-        "ordering": false,
-        "info":     false,
-        "searching": false
+        "paging":   true,
+        "ordering": true,
+        "info":     true,
+        "searching": true
        } ); 
     });  
 </script>
-
-<!-- <script type="text/javascript"> 
-    function btnEliminar(id){
-      {
-          Eliminar(id);
-       }
-    }   
- 
-</script> -->
-
-
-
 </body>
 
 </html>

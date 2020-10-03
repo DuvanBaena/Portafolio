@@ -2,9 +2,7 @@
       <div class="container">
         <div class="section-title">          
           <h2>contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-            in iste officiis commodi quidem hic quas.</p>
+          <p>If I can help you with what I can, I will gladly do it</p>
         </div>
         <div class="row contact-info">
           <div class="col-md-4">

@@ -102,7 +102,7 @@ sleep(5);
               </a>
               <ul class="sub">
                 <li><a href="BlogList.php">Blog General</a></li> 
-                <li><a href="#">Administrator Img</a></li> 
+                <li><a href="AdminPictureBlog.php">Administrator Img</a></li> 
               </ul>
             </li>
             <li class="sub-menu">

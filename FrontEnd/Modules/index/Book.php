@@ -25,7 +25,7 @@ $records=$data->ListBooks();
             <div class="col-lg-3 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
                 <figure>
-                  <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/<?php echo $records[$i]["ImgFront"];?>" class="img-fluid">
+                  <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/<?php echo $records[$i]["ImgFront"];?>" style="width:255px;height:345px;" class="img-fluid">
                   <a href="<?php echo UrlServer?>/FrontEnd/Resources/img/Books/<?php echo $records[$i]["ImgBack"];?>" data-lightbox="portfolio" class="link-preview venobox" title="<?php echo $records[$i]["Thematic"];?>"><i class="icofont-eye-alt"></i></a>
                 </figure>
                 <div class="portfolio-info">

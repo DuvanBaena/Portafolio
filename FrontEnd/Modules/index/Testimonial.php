@@ -19,7 +19,7 @@ $records=$data->ListTestimonial();
               <?php echo $records[$i]["Remark"];?>.
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/testimonials/<?php echo $records[$i]["ImgUser"];?>" class="testimonial-img" alt="">
+            <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/testimonials/<?php echo $records[$i]["ImgUser"];?>" style="width:90px;height:107px;" class="testimonial-img" alt="">
             <h3><?php echo $records[$i]["UserName"];?></h3>
             <h4><?php echo $records[$i]["RolUserName"];?></h4>
           </div>

@@ -77,16 +77,14 @@ $records=$data->ListPictureTestimonial();
               <thead>     
                     <tr>
                       <th><i class="icofont-listing-number"></i> #</th>
+                      <th><i class="icofont-picture"></i> Img</th> 
                       <th><i class="icofont-funky-man"></i> Author</th>
-                      <th><i class="icofont-key"></i> Thematic</th>
-                      <th><i class="icofont-picture"></i> Img</th>    
-                      <th><i class="icofont-options"></i> Option</th>  
-                      <th><i class="icofont-options"></i> Option</th>  
+                      <th><i class="icofont-picture"></i> Size</th>
+                      <th><i class="icofont-picture"></i> Type</th>    
+                      <th><i class="icofont-options"></i> Option</th>                       
                     </tr>
                   </thead>           
-              <tbody>
-
-       
+              <tbody>       
                 <?php
                 if(count($records)>0){
                  for($i=0;$i<count($records);$i++){ ?>

@@ -43,15 +43,13 @@
 
   <!-- End #main -->
 
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
     <!-- ======= Footer ======= -->
 
     <?php include __DIR__ . '../../Modules/Footer.php'; ?>
 
     <!-- End  Footer -->
-
-
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-
 
   <!-- All Files  JAvaScripts -->
 
