@@ -908,36 +908,7 @@ class BaseDatos extends Conexion{
                      $mensaje=0;
                    }
                  return $mensaje;
-            }
-            
-           
-   // funcion que permite cargar archivo
-//    function cargararchivo(){
-//     $source=$_FILES['archivo']['tmp_name']; //  el archivo temporal donde subre los archivos
-//     $tarjet=date("His")."-".$_FILES['archivo']['name']; // eñ nombre del archivo que se pasa en el formulario
-//     $path="../../FrontEnd/Resources/img/testimonials/"; // carpeta o path donde se guardara el archivo para leer
-//     $extension=$_FILES['archivo']['type']; //aca guardamos el tipo de archivo
-
-//     if(move_uploaded_file($source, $path."/".$tarjet))
-//     {
-//         $sql="INSERT INTO `tbltestimony`(`Remark`, `UserName`,`RolUserName`,`ImgUser`)
-//         VALUES
-//        (
-//        '".$this->testimonialRemark."',
-//        '".$this->testimonialUserName."',
-//        '".$this->testimonialRol."',
-//        '$tarjet'
-//        )";
-//        if($this->conector->query($sql)){    
-//            $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
-//        }else{    
-//            $mensaje="Failed data";
-//        }     
-  
-//     }
-
-//    }
-        
+            }                    
 
             function UploadImgTestimonial(){
             $source=$_FILES['archivo']['tmp_name']; 
@@ -1119,33 +1090,6 @@ class BaseDatos extends Conexion{
         
          return $data;
         }
-
-        // function UploadImgBook(){
-        //     $source=$_FILES['archivo']['tmp_name']; 
-        //     $tarjet=date("His")."-".$_FILES['archivo']['name']; 
-        //     $path="../../FrontEnd/Resources/img/Books/";
-        //     $extension=$_FILES['archivo']['type']; 
-
-        //     if(move_uploaded_file($source, $path."/".$tarjet))
-        //     {
-        //         $sql="INSERT INTO `tblbook`(`Thematic`,`Author`,`ImgFront`,`ImgBack`)
-        //         VALUES
-        //     (
-        //     '".$this->bookThematic."',
-        //     '".$this->bookAuthor."',      
-        //     '$tarjet',
-        //     '$tarjet'
-        //     )";
-        //     if($this->conector->query($sql)){    
-        //         $mensaje="<strong>Attention</strong> the data was inserted correctly.";     
-        //     }else{    
-        //         $mensaje="Failed data";
-        //     }     
-            
-        //     }
-
-        // }
-
 
         function UploadImgBook(){
             $source=$_FILES['archivo']['tmp_name']; 
