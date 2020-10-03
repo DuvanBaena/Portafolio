@@ -41,8 +41,8 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   transition: display 0.5s ease-in-out;
   z-index: 99999;
-  
-  
+
+
 }
 
 .back-to-top i {
@@ -280,17 +280,17 @@ section {
   background: #f5f8fd;
 }
 
-.section-title {  
+.section-title {
   padding: 30px 0;
   position: relative;
 }
 
 .section-title h2 {
   font-size: 32px;
-  font-weight: bold;  
+  font-weight: bold;
   margin-bottom: 20px;
   padding-bottom: 0;
-  color: #173b6c;  
+  color: #173b6c;
   position: relative;
   text-transform: lowercase;
   z-index: 2;
@@ -304,7 +304,7 @@ section {
   right: 0;
   z-index: 1;
   font-weight: 700;
-  font-size: 52px;  
+  font-size: 52px;
   line-height: 0;
 }
 
@@ -486,7 +486,7 @@ section {
   line-height: 20px;
   color: #272829;
   border-radius: 4px;
-  text-transform: uppercase; 
+  text-transform: uppercase;
   margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
   border-radius: 50px;
@@ -635,7 +635,7 @@ section {
 .cv .cv-btn:hover {
   background: #2487ce;
   color: #fff;
-  
+
 }
 
 
@@ -1138,7 +1138,7 @@ section {
   padding: 10px;
   color: #f4f6fd;
   font-size: 14px;
-  background: #040b14; 
+  background: #040b14;
 }
 
 #footer .copyright {
@@ -1149,8 +1149,8 @@ section {
   padding-top: 5px;
   text-align: center;
   font-size: 13px;
-  color: #eaebf0; 
-  
+  color: #eaebf0;
+
 }
 
 /*--------------------------------------------------------------
@@ -1169,11 +1169,11 @@ section {
 	text-align:center;
   font-size:30px;
 	box-shadow: 2px 2px 3px #999;
-  z-index:100; 
-  
+  z-index:100;
+
 }
 
-.icofont-brand-whatsapp{  
+.icofont-brand-whatsapp{
   position: absolute;
    top: 45%;
    left: 50%;
@@ -1325,7 +1325,7 @@ section {
 
 
 /*--------------------------------------------------------------
-# Menu blog Intro Single 
+# Menu blog Intro Single
 --------------------------------------------------------------*/
 .intro-single {
   padding: 1rem 0 3rem;
@@ -1341,13 +1341,13 @@ section {
   padding: 1rem 0 1rem 2rem;
 }
 
-.intro-single .title-single-box span {  
+.intro-single .title-single-box span {
   top: 20px;
   margin-left: 30px;
 }
 
-.intro-single .title-single-box h2 {  
-  text-align: left; 
+.intro-single .title-single-box h2 {
+  text-align: left;
 }
 
 
@@ -1560,6 +1560,7 @@ section {
 
 .post-content p {
   margin-bottom: 1.7rem;
+  text-align : justify;
 }
 
 .post-content .blockquote {
@@ -1583,7 +1584,7 @@ section {
 
 .post-share .socials li {
   margin-left: .6rem;
-  
+
 }
 
 
@@ -1794,7 +1795,7 @@ background-size: cover;
 }
 
 .login-form span {
-  color: #000;    
+  color: #000;
 }
 
 
@@ -1891,5 +1892,6 @@ background-size: cover;
     transform: rotate(360deg);
   }
 }
+
 
 

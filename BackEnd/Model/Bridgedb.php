@@ -66,6 +66,20 @@ class BaseDatos extends Conexion{
     var $bookImgBack;
 
 
+    var $blogId;
+    var $blogCategory;
+    var $blogTitle;
+    var $blogDateCreate;
+    var $blogAuthor;
+    var $blogimg;
+    var $bloginterview;
+    var $blogFirstParagraph;
+    var $blogSecondParagraph;
+    var $blogThreeParagraph;
+    var $blogFourParagraph;
+    var $blogReferencePhrase;
+    var $blogAuthorReference;
+
     var $UsuLogin;
     var $ClaLogin;
     
@@ -203,8 +217,29 @@ class BaseDatos extends Conexion{
 
         }
 
-    }
+        if (isset($_REQUEST['TitleBlog']) && $_REQUEST['TitleBlog']<>"") {
 
+            $this->blogCategory=$_REQUEST['Category'];
+            $this->blogTitle=$_REQUEST['TitleBlog'];            
+            $this->blogDateCreate=$_REQUEST['DateCreate'];
+            $this->blogAuthor=$_REQUEST['Author'];  
+            $this->blogimg=$_REQUEST['ImgBlog'];         
+            $this->bloginterview=$_REQUEST['interviewBlog'];            
+            $this->blogFirstParagraph=$_REQUEST['FirstParagraph'];
+            $this->blogSecondParagraph=$_REQUEST['SecondParagraph'];
+            $this->blogThreeParagraph=$_REQUEST['ThreeParagraph'];   
+            $this->blogFourParagraph=$_REQUEST['FourParagraph'];            
+            $this->blogReferencePhrase=$_REQUEST['ReferenceParagraph'];
+            $this->blogAuthorReference=$_REQUEST['AuthorReference'];                 
+           }
+
+           if (isset($_REQUEST['IdBlog']) && $_REQUEST['IdBlog']<>"") {
+
+            $this->blogId=$_REQUEST['IdBlog'];
+
+        }
+
+    }
 
     public function validaringreso(){
 
@@ -1127,6 +1162,82 @@ class BaseDatos extends Conexion{
                 }
                 return $vector;
             }
+
+            
+            public function AddBlog(){
+
+                $sql="INSERT INTO `tblblog`(`Category`,`TitleBlog`,`DateCreate`,`Author`,`img`,`interviewBlog`,
+                `FirstParagraph`,`SecondParagraph`,`ThreeParagraph`,`FourParagraph`,`ReferencePhrase`,`AuthorReference`) 
+                VALUES
+                (
+                '".$this->blogCategory."',
+                '".$this->blogTitle."',
+                '".$this->blogDateCreate."',
+                '".$this->blogAuthor."',
+                '".$this->blogimg."',
+                '".$this->bloginterview."',
+                '".$this->blogFirstParagraph."',
+                '".$this->blogSecondParagraph."',
+                '".$this->blogThreeParagraph."',
+                '".$this->blogFourParagraph."',
+                '".$this->blogReferencePhrase."',
+                '".$this->blogAuthorReference."'
+                )";
+
+                if($this->conector->query($sql)){
+
+                    $mensaje="<strong>Attention</strong> the data was inserted correctly.";
+
+
+                }else{
+
+                    $mensaje="Failed data";
+                }
+
+
+                return $mensaje;
+                
+            }
+
+            public function  UpdateInfoBlog(){
+
+                $sql="UPDATE `tblblog` SET `Category`='".$this->blogCategory."',  
+                `TitleBlog`='".$this->blogTitle."',
+                `DateCreate`='".$this->blogDateCreate."',
+                `Author`='".$this->blogAuthor."',
+                `DateCreate`='".$this->blogDateCreate."',
+                `img`='".$this->blogimg."',
+                `DateCreate`='".$this->blogDateCreate."',
+                `interviewBlog`='".$this->bloginterview."',
+                `FirstParagraph`='".$this->blogFirstParagraph."',
+                `SecondParagraph`='".$this->blogSecondParagraph."',
+                `ThreeParagraph`='".$this->blogThreeParagraph."',
+                `FourParagraph`='".$this->blogFourParagraph."',
+                `ReferencePhrase`='".$this->blogReferencePhrase."',
+                `AuthorReference`='".$this->blogAuthorReference."'           
+                WHERE IdBlog = '".$this->blogId."'";
+    
+            if ($this->conector->query($sql)) {
+                $mensaje="<strong>Attention</strong> the data was update correctly.";
+            } else {
+                $mensaje="Failed data";
+            }
+            return $mensaje;
+    
+            }
+
+            public function DeleteBlog(){
+
+                $sql=" DELETE FROM `tblblog` where IdBlog='".$_REQUEST['id']."'";
+        
+                if ($this->conector->query($sql)){
+                    $mensaje=1;
+                  }else{
+                     $mensaje=0;
+                   }
+                 return $mensaje;
+            }
+             
    
     }
 

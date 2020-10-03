@@ -1,4 +1,3 @@
-
 <?php
 if (isset($_REQUEST['id'])){
    include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';

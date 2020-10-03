@@ -87,13 +87,13 @@ $records=$data->ListBlogs();
                   <tr>                                    
                     <td><?php echo $i+1;?></td>            
                     <td><?php echo $records[$i]["Category"];?></td>
-                    <td><?php echo $records[$i]["Title"];?></td> 
+                    <td><?php echo $records[$i]["TitleBlog"];?></td> 
                     <td><?php echo $records[$i]["Author"];?></td>
                     <td><?php echo $records[$i]["DateCreate"];?></td>                    
                     <td>
                       <div class="btn-group">                         
-                        <a class="btn btn-warning" href="EditTestimonial.php?id=<?php echo $records[$i]["IdBlog"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
-                        <button type="button" class="btn btn-danger" title="Delete" onclick="btnDeleteTestimonialSummary(<?php echo $records[$i]["IdTestimony"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                      
+                        <a class="btn btn-warning" href="EditBlog.php?id=<?php echo $records[$i]["IdBlog"];?>" title="Edit"><i class="icofont-ui-edit"></i></a>
+                        <button type="button" class="btn btn-danger" title="Delete" onclick="btnDeleteBlog(<?php echo $records[$i]["IdBlog"];?>)"> <i class="icofont-garbage" aria-hidden="true"></i></button>                      
                      </div>
                     </td>
                   </tr> 
@@ -125,9 +125,9 @@ $records=$data->ListBlogs();
   <script src="../Resources/js/script.js"></script>
 
   <script type="text/javascript"> 
-    function btnDeleteTestimonialSummary(id){
+    function btnDeleteBlog(id){
       if(confirm("You sure want to Delete the Registry?")){
-          DeleteTestimonialSummary(id);
+          DeleteBlog(id);
        }
     }  
 </script>

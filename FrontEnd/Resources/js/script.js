@@ -83,40 +83,44 @@ function login() {
 
 
 
-function AddVersion32() {
-   $("span.help-block").hide();
-   let versionCode = document.getElementById("versionCode").value;
-   let versionDate = document.getElementById("VersionDate").value;
-   let versionComment = document.getElementById("VersionComment").value;
-   if (versionCode == null || versionCode.length == 0 || /^\s+$/.test(versionCode)) {
-      $("#versionCode").parent().attr("class", "form-group has-error has-feedback");
-      $("#versionCode").parent().children("span").text("Campo requerido").show();
-      //$("#versionCode").parent().append("<span class='glyphicon glyphicon-remove form-control-feedback'></span>");        
-      $("#versionCode").focus();
-      return false;
-   }
+// function AddVersion32() {
+//    $("span.help-block").hide();
+//    let versionCode = document.getElementById("versionCode").value;
+//    let versionDate = document.getElementById("VersionDate").value;
+//    let versionComment = document.getElementById("VersionComment").value;
+//    if (versionCode == null || versionCode.length == 0 || /^\s+$/.test(versionCode)) {
+//       $("#versionCode").parent().attr("class", "form-group has-error has-feedback");
+//       $("#versionCode").parent().children("span").text("Campo requerido").show();
+//       //$("#versionCode").parent().append("<span class='glyphicon glyphicon-remove form-control-feedback'></span>");        
+//       $("#versionCode").focus();
+//       return false;
+//    }
 
-   else if (versionDate == null || versionDate.length == 0 || /^\s+$/.test(versionDate)) {
-      $("#versionCode").parent().attr("class", "form-group has-success");
-      $("#VersionDate").parent().attr("class", "form-group has-error");
-      $("#VersionDate").parent().children("span").text("Campo requerido").show();
-      $("#VersionDate").focus();
-      return false;
-   }
-   else if (versionComment == null || versionComment.length == 0 || /^\s+$/.test(versionComment)) {
-      $("#VersionDate").parent().attr("class", "form-group has-success");
-      $("#VersionComment").parent().attr("class", "form-group has-error");
-      $("#VersionComment").parent().children("span").text("Campo requerido").show();
-      $("#VersionComment").focus();
-      return false;
-   }
-}
+//    else if (versionDate == null || versionDate.length == 0 || /^\s+$/.test(versionDate)) {
+//       $("#versionCode").parent().attr("class", "form-group has-success");
+//       $("#VersionDate").parent().attr("class", "form-group has-error");
+//       $("#VersionDate").parent().children("span").text("Campo requerido").show();
+//       $("#VersionDate").focus();
+//       return false;
+//    }
+//    else if (versionComment == null || versionComment.length == 0 || /^\s+$/.test(versionComment)) {
+//       $("#VersionDate").parent().attr("class", "form-group has-success");
+//       $("#VersionComment").parent().attr("class", "form-group has-error");
+//       $("#VersionComment").parent().children("span").text("Campo requerido").show();
+//       $("#VersionComment").focus();
+//       return false;
+//    }
+// }
 
 function AddVersion() {
    Toastr();
    let versionCode = document.getElementById("versionCode").value;
    let versionDate = document.getElementById("VersionDate").value;
    let versionComment = document.getElementById("VersionComment").value;
+   let Max_Length = 50;
+   let length = document.getElementById("VersionComment").value.length;
+
+
 
    if (versionCode == null || versionCode.length == 0 || /^\s+$/.test(versionCode)) {
       toastr["error"]("Debes ingresar un versionCode", "Error")
@@ -127,6 +131,13 @@ function AddVersion() {
    else if (versionDate == null || versionDate.length == 0 || /^\s+$/.test(versionDate)) {
       toastr["error"]("Debes ingresar una VersionDate", "Error")
       $("#VersionDate").focus();
+      return false;
+   }
+
+   else if (length > Max_Length) {
+      let alerttext = document.getElementById("VersionComment");
+      alerttext.parentNode.innerHTML = alerttext.parentNode.innerHTML + "<p style='color:red'>the max length of " + Max_Length + " characters is reached, you typed in  " + length + "characters</p>";
+      $("#versionComment").focus();
       return false;
    }
 
@@ -271,8 +282,7 @@ function Eliminar(id) {
 function UpdateUserInfo() {
    Toastr();
 
-   vector = ["UserName", "userLastName", "userLastName", "userLastName", "UserEmail", "userLastName"
-      , "UserPhone", "UserCity", "UserAge", "UserDegree", "UserHour", "UserTopDescription", "UserBodyDescription"
+   vector = ["UserName", "userLastName", "UserEmail", "UserPhone", "UserCity", "UserAge", "UserDegree", "UserHour", "UserTopDescription", "UserBodyDescription"
       , "UserFooterDescription"];
    total = vector.length;
    for (i = 0; i < total; i++) {
@@ -980,7 +990,6 @@ function AddBook() {
 
    document.getElementById("FrmAddBook").submit();
 
-
    function back() {
       location.href = "ListBook.php";
    }
@@ -991,16 +1000,15 @@ function AddBook() {
 
 function UpdateBook() {
    Toastr();
-   // vector = ["Author","Thematic","ImgFront","ImgBack"];
-   // total = vector.length;
-   // for (i = 0; i < total; i++) {
-   //    if (document.getElementById(vector[i]).value == "") {
-   //       toastr["error"]("You must enter value " + vector[i])
-   //       document.getElementById(vector[i]).focus();
-   //       return;
-   //    }
-   // }
-
+   vector = ["Author","Thematic","ImgFront","ImgBack"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
    let BookId = document.getElementById("IdBook").value;
 
@@ -1069,6 +1077,176 @@ function DeleteBook(id) {
 
 }
 
+function AddNewBlog() {
+   Toastr();
+   vector = ["Category","TitleBlog","Author","DateCreate","ImgBlog"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
+
+   let img = document.getElementById("ImgBlog").value;
+
+   img = $("#ImgBlog").val();
+
+   let data = {
+      "ImgBlog": img
+      ,
+   };
+
+   let parameters = $("#AddBlog").serialize() + '&' + $.param(data);
+
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.Addblog.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "BlogList.php";
+         }
+         setTimeout(back, 5000);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
+
+
+}
+
+function UpdateBlog() {
+   Toastr();
+   let Max_Length = 119;
+   //let length = document.getElementById("FirstParagraph").value.length;
+   let lengthFi = document.getElementById("FirstParagraph").value.length;
+   let lengthSe = document.getElementById("SecondParagraph").value.length;
+   let lengthTh = document.getElementById("ThreeParagraph").value.length;
+   let lengthFo = document.getElementById("FourParagraph").value.length;
+   let lengthRe = document.getElementById("ReferenceParagraph").value.length;
+   let lengthAu = document.getElementById("AuthorReference").value.length;
+   vector = ["Category","TitleBlog","Author","DateCreate","ImgBlog"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+
+      else if (lengthFi > Max_Length) {
+         let alerttext = document.getElementById("FirstParagraph");
+         alerttext.parentNode.innerHTML = alerttext.parentNode.innerHTML + "<p style='color:red'>the max length of " + Max_Length + " characters is reached, you typed in  " + length + "characters</p>";
+         $("#FirstParagraph").focus();
+         return false;
+      }
+
+      else if (lengthSe > Max_Length) {
+         let alerttext = document.getElementById("SecondParagraph");
+         alerttext.parentNode.innerHTML = alerttext.parentNode.innerHTML + "<p style='color:red'>the max length of " + Max_Length + " characters is reached, you typed in  " + length + "characters</p>";
+         $("#SecondParagraph").focus();
+         return false;
+      }
+      else if (lengthTh > Max_Length) {
+         let alerttext = document.getElementById("ThreeParagraph");
+         alerttext.parentNode.innerHTML = alerttext.parentNode.innerHTML + "<p style='color:red'>the max length of " + Max_Length + " characters is reached, you typed in  " + length + "characters</p>";
+         $("#ThreeParagraph").focus();
+         return false;
+      }
+      else if (lengthFo > Max_Length) {
+         let alerttext = document.getElementById("FourParagraph");
+         alerttext.parentNode.innerHTML = alerttext.parentNode.innerHTML + "<p style='color:red'>the max length of " + Max_Length + " characters is reached, you typed in  " + length + "characters</p>";
+         $("#FourParagraph").focus();
+         return false;
+      }
+      else if (lengthRe > Max_Length) {
+         let alerttext = document.getElementById("ReferenceParagraph");
+         alerttext.parentNode.innerHTML = alerttext.parentNode.innerHTML + "<p style='color:red'>the max length of " + Max_Length + " characters is reached, you typed in  " + length + "characters</p>";
+         $("#ReferenceParagraph").focus();
+         return false;
+      }
+      else if (lengthAu > Max_Length) {
+         let alerttext = document.getElementById("AuthorReference");
+         alerttext.parentNode.innerHTML = alerttext.parentNode.innerHTML + "<p style='color:red'>the max length of " + Max_Length + " characters is reached, you typed in  " + length + "characters</p>";
+         $("#AuthorReference").focus();
+         return false;
+      }
+   }
+
+   let BlogId = document.getElementById("IdBlog").value;
+
+   BlogId = $("#IdBlog").val();
+
+   let data = {
+      "IdBlog": BlogId,
+   };
+
+   let parameters = $("#FrmUpdateBlog").serialize() + '&' + $.param(data);
+
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.UpdateBlog.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "BlogList.php";
+         }
+         setTimeout(back, 5000);
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });   
+
+}
+
+
+function DeleteBlog(id) {
+   Toastr();
+   var parametros = { "id": id };
+   $.ajax({
+      data: parametros,
+      url: "../../BackEnd/Model/Validate.DeleteBlog.php",
+      type: "post",
+      beforeSend: function () {
+         $("#loader-wrapper").show();
+      },
+      success: function (reponse) {
+
+         if (reponse == 1) {
+            $("#loader").show();
+            //alert("Record removed.");
+            toastr["info"]("Record removed", "Thanks")
+            function back() {
+               $("#loader").hide();
+               location.href = "BlogList.php";
+            }
+            setTimeout(back, 5000);
+
+         } else {
+            toastr["error"]("There was an error?")
+         }
+      },
+
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
+
+}
 
 function ReturnIndexVersion() {
    location.href = "Version.php";
@@ -1100,6 +1278,10 @@ function ReturnTestimonial() {
 
 function ReturnBook() {
    location.href = "ListBook.php";
+}
+
+function ReturnBlog() {
+   location.href = "BlogList.php";
 }
 
 

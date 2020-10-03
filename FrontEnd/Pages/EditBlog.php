@@ -1,3 +1,10 @@
+<?php
+if (isset($_REQUEST['id'])){
+   include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
+   $data=new BaseDatos;
+   $records=$data->GetBlogById($_REQUEST['id']); 
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,47 +63,57 @@
               </header>
               <div class="panel-body">
                 <div class="form">
-                  <form class="form-horizontal" id="AddBlog" autocomplete="off">
+                  <form class="form-horizontal" id="FrmUpdateBlog" autocomplete="off">
+                  <div class="form-group" style="display: none">
+                      <label  class="control-label col-lg-2">Id</label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="IdBlog" type="text" name="IdBlog"
+                        value="<?php echo $records[0]['IdBlog'];?>" disabled>                        
+                      </div>
+                    </div>
+
                     <div class="form-group ">
                       <label for="Category" class="control-label col-lg-2">Category</label>
                       <div class="col-lg-10">
                         <input class="form-control " id="Category" type="text" name="Category" 
-                        placeholder="DevOps">
+                        placeholder="DevOps" value="<?php echo $records[0]['Category'];?>">
                        </div>
                     </div>   
 
-                   <div class="form-group ">
+ 
+                    <div class="form-group ">
                       <label for="TitleBlog" class="control-label col-lg-2">Title Blog</label>
                       <div class="col-lg-10">
                         <input class="form-control " id="TitleBlog" type="text" name="TitleBlog" 
-                        placeholder="Text about the topic">
+                        placeholder="Text about the topic" value="<?php echo $records[0]['TitleBlog'];?>">
                        </div>
-                    </div>   
+                    </div>
 
                     <div class="form-group ">
                       <label for="Author" class="control-label col-lg-2">Athor</label>
                       <div class="col-lg-10">
                         <input class="form-control " id="Author" type="text" name="Author" 
-                        placeholder="Duvan Baena">
+                        placeholder="Duvan Baena" value="<?php echo $records[0]['Author'];?>" >
                        </div>
-                    </div>                
+                    </div>     
+                    
+                    <div class="form-group">
+                      <label class="control-label col-lg-2">Img Blog</label>
+                      <div class="col-lg-10">
+                        <input class="form-control date"  id="ImgBlog" name="ImgBlog"
+                        placeholder="JavaScript" value="<?php echo $records[0]['img'];?>">
+                       </div>
+                    </div>
 
                     <div class="form-group">
                       <label class="control-label col-lg-2">Date Create</label>
                       <div class="col-lg-10">
                         <input class="form-control date"  id="DateCreate" name="DateCreate"
-                        placeholder="2020-08-30">                     
+                        placeholder="2020-08-30" value="<?php echo $records[0]['DateCreate'];?>">                     
                        </div>
-                    </div>   
+                    </div>          
                     
-                    <div class="form-group">
-                      <label class="control-label col-lg-2">Img</label>
-                      <div class="col-lg-10">
-                        <input type="file" class="form-control date"  id="ImgBlog" name="ImgBlog"
-                        placeholder="img">
-                       </div>
-                    </div>
-                    
+
                     <div class="form-group ">
                       <label for="interviewBlog" class="control-label col-lg-2">Interview Blog</label>
                       <div class="col-lg-10">
@@ -113,7 +130,7 @@
                         placeholder="First Paragraph" rows="2">
                         </textarea>
                       </div>
-                    </div>
+                    </div> 
 
                     <div class="form-group ">
                       <label for="SecondParagraph" class="control-label col-lg-2">Second Paragraph</label>
@@ -150,19 +167,18 @@
                         </textarea>
                       </div>
                     </div>
-
+                   
                     <div class="form-group ">
                       <label for="Author" class="control-label col-lg-2">Author's reference</label>
                       <div class="col-lg-10">
                         <input class="form-control " id="AuthorReference" type="Author" name="AuthorReference" 
-                        placeholder="Duvan Baena">
+                        placeholder="Duvan Baena" value="<?php echo $records[0]['AuthorReference'];?>">
                        </div>
-                    </div>  
-
+                    </div> 
 
                     <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">                     
-                        <button type="button" class="btn btn-primary" id="BtnAddNewBlog">Save</button> 
+                        <button type="button" class="btn btn-primary" id="BtnUpdateBlog">Save</button> 
                         <button class="btn btn-default" type="button" onclick="ReturnBlog()">Cancel</button>                       
                        </div>
                     </div>                   
@@ -186,7 +202,14 @@
   <script src="../Resources/js/script.js"></script>
 
   <script type="text/javascript">
-    document.getElementById("BtnAddNewBlog").onclick = AddNewBlog; 
+  document.getElementById("BtnUpdateBlog").onclick = UpdateBlog; 
+  document.getElementById("interviewBlog").innerHTML="<?php echo $records[0]['interviewBlog'];?>";
+  document.getElementById("FirstParagraph").innerHTML="<?php echo $records[0]['FirstParagraph'];?>";
+  document.getElementById("SecondParagraph").innerHTML="<?php echo $records[0]['SecondParagraph'];?>";
+  document.getElementById("ThreeParagraph").innerHTML="<?php echo $records[0]['ThreeParagraph'];?>";
+  document.getElementById("FourParagraph").innerHTML="<?php echo $records[0]['ThreeParagraph'];?>";
+  document.getElementById("ReferenceParagraph").innerHTML="<?php echo $records[0]['ReferencePhrase'];?>";
+
   </script>
 
   <script>
