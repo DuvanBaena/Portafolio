@@ -72,6 +72,7 @@ class BaseDatos extends Conexion{
     var $blogDateCreate;
     var $blogAuthor;
     var $blogimg;
+    var $blogimgCover;
     var $bloginterview;
     var $blogFirstParagraph;
     var $blogSecondParagraph;
@@ -223,7 +224,8 @@ class BaseDatos extends Conexion{
             $this->blogTitle=$_REQUEST['TitleBlog'];            
             $this->blogDateCreate=$_REQUEST['DateCreate'];
             $this->blogAuthor=$_REQUEST['Author'];  
-            $this->blogimg=$_REQUEST['ImgBlog'];         
+            $this->blogimg=$_REQUEST['ImgBlog']; 
+            $this->blogimgCover=$_REQUEST['ImgBlogCover'];                    
             $this->bloginterview=$_REQUEST['interviewBlog'];            
             $this->blogFirstParagraph=$_REQUEST['FirstParagraph'];
             $this->blogSecondParagraph=$_REQUEST['SecondParagraph'];
@@ -1158,7 +1160,7 @@ class BaseDatos extends Conexion{
             
             public function AddBlog(){
 
-                $sql="INSERT INTO `tblblog`(`Category`,`TitleBlog`,`DateCreate`,`Author`,`img`,`interviewBlog`,
+                $sql="INSERT INTO `tblblog`(`Category`,`TitleBlog`,`DateCreate`,`Author`,`img`,`ImgBlogCover`,`interviewBlog`,
                 `FirstParagraph`,`SecondParagraph`,`ThreeParagraph`,`FourParagraph`,`ReferencePhrase`,`AuthorReference`) 
                 VALUES
                 (
@@ -1167,6 +1169,7 @@ class BaseDatos extends Conexion{
                 '".$this->blogDateCreate."',
                 '".$this->blogAuthor."',
                 '".$this->blogimg."',
+                '".$this->blogimgCover."',
                 '".$this->bloginterview."',
                 '".$this->blogFirstParagraph."',
                 '".$this->blogSecondParagraph."',
@@ -1199,6 +1202,7 @@ class BaseDatos extends Conexion{
                 `Author`='".$this->blogAuthor."',
                 `DateCreate`='".$this->blogDateCreate."',
                 `img`='".$this->blogimg."',
+                `ImgBlogCover`='".$this->blogimgCover."',
                 `DateCreate`='".$this->blogDateCreate."',
                 `interviewBlog`='".$this->bloginterview."',
                 `FirstParagraph`='".$this->blogFirstParagraph."',

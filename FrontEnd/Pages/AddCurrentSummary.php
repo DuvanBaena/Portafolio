@@ -46,7 +46,7 @@
           <div class="col-lg-12">          
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="icon_document_alt"></i>Sumary</li>
+              <li><i class="fa fa-bars"></i>Sumary</li>
               <li><i class="fa fa-files-o"></i>Add Current Summary</li>
             </ol>
           </div>

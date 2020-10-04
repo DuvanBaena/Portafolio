@@ -43,7 +43,7 @@
           <div class="col-lg-12">          
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="icon_document_alt"></i>Blog</li>
+              <li><i class="fa fa-bars"></i>Blog</li>
               <li><i class="fa fa-files-o"></i>Add Blog</li>
             </ol>
           </div>
@@ -90,9 +90,17 @@
                     </div>   
                     
                     <div class="form-group">
-                      <label class="control-label col-lg-2">Img</label>
+                      <label class="control-label col-lg-2">Img Show Blog</label>
                       <div class="col-lg-10">
                         <input type="file" class="form-control date"  id="ImgBlog" name="ImgBlog"
+                        placeholder="img">
+                       </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-lg-2">Img Blog Cover</label>
+                      <div class="col-lg-10">
+                        <input type="file" class="form-control date"  id="ImgBlogCover" name="ImgBlogCover"
                         placeholder="img">
                        </div>
                     </div>

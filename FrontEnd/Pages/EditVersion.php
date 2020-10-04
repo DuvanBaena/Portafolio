@@ -50,7 +50,7 @@ if (isset($_REQUEST['id'])){
           <div class="col-lg-12">          
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="icon_document_alt"></i>Version</li>
+              <li><i class="fa fa-bars"></i>version</li>
               <li><i class="fa fa-files-o"></i>Edit Version</li>
             </ol>
           </div>
@@ -75,7 +75,7 @@ if (isset($_REQUEST['id'])){
                       <label  class="control-label col-lg-2">Version Code</label>
                       <div class="col-lg-10">
                         <input class="form-control " id="versionCode" type="text" name="versionCode" 
-                        placeholder="1.2.15.10922" value="<?php echo $records[0]['VersionCode'];?>">
+                        placeholder="1.2.15.270920" value="<?php echo $records[0]['VersionCode'];?>">
                       </div>
                     </div>        
                     <div class="form-group ">

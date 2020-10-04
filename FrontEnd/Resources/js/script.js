@@ -1162,12 +1162,15 @@ function AddNewBlog() {
    }
 
    let img = document.getElementById("ImgBlog").value;
+   let imgBlogCover = document.getElementById("ImgBlogCover").value;
 
    img = $("#ImgBlog").val();
+   imgBlogCover = $("#ImgBlogCover").val();
 
    let data = {
-      "ImgBlog": img
-      ,
+      "ImgBlog": img,
+      "ImgBlogCover": imgBlogCover,
+     
    };
 
    let parameters = $("#AddBlog").serialize() + '&' + $.param(data);
@@ -1196,7 +1199,7 @@ function AddNewBlog() {
 
 function UpdateBlog() {
    Toastr();
-   let Max_Length = 119;
+   let Max_Length = 386;
    //let length = document.getElementById("FirstParagraph").value.length;
    let lengthFi = document.getElementById("FirstParagraph").value.length;
    let lengthSe = document.getElementById("SecondParagraph").value.length;

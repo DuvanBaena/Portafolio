@@ -37,7 +37,7 @@ sleep(5);
           <ul class="sidebar-menu">
             <li class="active">
               <a class="" href="Dashboard.php">
-                <i class="icon_house_alt"></i>
+                <i class="icofont-dashboard-web"></i>
                 <span>Dashboard</span>
               </a>
             </li>
@@ -74,7 +74,7 @@ sleep(5);
             </li>
             <li class="sub-menu">
               <a href="javascript:;" class="">
-                <i class="icon_document_alt"></i>
+                <i class="icofont-notebook"></i>
                 <span>Book's</span>
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
@@ -85,7 +85,7 @@ sleep(5);
             </li>
             <li class="sub-menu">
               <a href="javascript:;" class="">
-                <i class="icon_document_alt"></i>
+                <i class="icofont-people"></i>
                 <span>Testimonials</span>
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
@@ -96,7 +96,7 @@ sleep(5);
             </li>
             <li class="sub-menu">
               <a href="javascript:;" class="">
-                <i class="icon_document_alt"></i>
+                <i class="icofont-blogger"></i>
                 <span>Blog</span>
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
@@ -107,7 +107,7 @@ sleep(5);
             </li>
             <li class="sub-menu">
               <a href="javascript:;" class="">
-                <i class="icon_document_alt"></i>
+                <i class="icofont-web"></i>
                 <span>Version</span>
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>

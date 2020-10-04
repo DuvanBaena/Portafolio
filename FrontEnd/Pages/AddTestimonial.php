@@ -51,7 +51,7 @@
           <div class="col-lg-12">
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="icon_document_alt"></i>Testimonial</li>
+              <li><i class="fa fa-bars"></i>Testimonials</li>
               <li><i class="fa fa-files-o"></i>Add Testimonials</li>
             </ol>
           </div>

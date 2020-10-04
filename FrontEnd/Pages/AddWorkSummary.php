@@ -53,8 +53,8 @@ if (isset($_REQUEST['id'])){
           <div class="col-lg-12">          
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="icon_document_alt"></i>Sumary</li>
-              <li><i class="fa fa-files-o"></i>Edit Sumary</li>
+              <li><i class="fa fa-bars"></i>Work</li>
+              <li><i class="fa fa-files-o"></i>Edit Work</li>
             </ol>
           </div>
         </div>

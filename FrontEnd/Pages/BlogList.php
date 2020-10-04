@@ -52,11 +52,11 @@ $records=$data->ListBlogs();
           <div id="preloader"></div>
           <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a> 
           <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa fa-bars"></i> Testimonial</h3>
+          <h3 class="page-header"><i class="fa fa fa-bars"></i> Blog's</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="fa fa-bars"></i>Testimonials</li>
-              <li><i class="fa fa-square-o"></i>Testimonial Detail</li>
+              <li><i class="fa fa-bars"></i>Blog</li>
+              <li><i class="fa fa-square-o"></i>Blog Detail</li>
             </ol>
           </div>          
         </div>

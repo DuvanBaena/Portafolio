@@ -52,7 +52,7 @@ $records=$data->ListCurrentSumary();
           <div id="preloader"></div>
           <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
           <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa fa-bars"></i> Version</h3>
+          <h3 class="page-header"><i class="fa fa fa-bars"></i> Sumary</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
               <li><i class="fa fa-bars"></i>Sumary</li>

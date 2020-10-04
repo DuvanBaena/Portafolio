@@ -10,7 +10,7 @@ if (isset($_REQUEST['id'])){
         <div class="row">
           <div class="col-sm-12">
             <div class="news-img-box">
-              <img src="../Resources/img/blog/Gamificacionportada.jpg" alt="" class="img-fluid">
+              <img src="../Resources/img/blog/<?php echo $records[0]['ImgBlogCover'];?>" style="width:1110px;height:474px;" class="img-fluid">
             </div>
           </div>
           <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
@@ -32,37 +32,25 @@ if (isset($_REQUEST['id'])){
             </div>
             <div class="post-content color-text-a" >
               <p class="post-intro">
-                xxxxxxxxxxem ipsum dolor sit amet, consectetur
-                <strong>adipiscing</strong> elit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
+              <?php echo $records[0]['interviewBlog'];?>
               </p>
               <p>
-                Pellentesque in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac
-                lectus. Curabitur
-                non nulla sit amet nisl tempus convallis quis ac lectus. Proin eget tortor risus. Curabitur non
-                nulla sit amet nisl tempus convallis quis ac lectus. Donec rutrum congue leo eget malesuada.
-                Quisque velit nisi.
+              <?php echo $records[0]['FirstParagraph'];?>
               </p>
               <p>
-                Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit. Vivamus suscipit
-                tortor eget felis
-                porttitor volutpat. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+              <?php echo $records[0]['SecondParagraph'];?>
               </p>
               <p>
-                Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit. Vivamus suscipit
-                tortor eget felis
-                porttitor volutpat. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+              <?php echo $records[0]['ThreeParagraph'];?>
               </p>
               <p>
-                Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit. Vivamus suscipit
-                tortor eget felis
-                porttitor volutpat. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+              <?php echo $records[0]['FourParagraph'];?>
               </p>
 
               <blockquote class="blockquote">
-                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <p class="mb-4"><?php echo $records[0]['ReferencePhrase'];?></p>
                 <footer class="blockquote-footer">
-                  <strong>Albert Vargas</strong>                  
+                  <strong><?php echo $records[0]['AuthorReference'];?></strong>                  
                 </footer>
               </blockquote>
             </div>

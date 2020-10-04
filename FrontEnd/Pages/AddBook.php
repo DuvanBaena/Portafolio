@@ -1,10 +1,3 @@
-<!-- 
-<?php
- //include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
-//$data=new BaseDatos;
-//if (count($_FILES)>0) $mensaje=$data->UploadFile();
-?> -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +43,7 @@
           <div class="col-lg-12">
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="Dashboard.php">Home</a></li>
-              <li><i class="icon_document_alt"></i>Book</li>
+              <li><i class="fa fa-bars"></i>Book</li>
               <li><i class="fa fa-files-o"></i>Add Book's</li>
             </ol>
           </div>
