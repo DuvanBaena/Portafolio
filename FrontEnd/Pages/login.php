@@ -43,7 +43,7 @@ include __DIR__ . '../../../BackEnd/Model/Bridgedb.php';
           <span class="input-group-addon"><i class="icofont-monkey-face"></i></span>
           <input type="password" class="form-control" id="Password" placeholder="Password">
         </div>
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="btnGuardar">Guardar</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="btnGuardar">Sign in</button>
         <div id="capa2" style="display: none"></div> 
         <div class="text-right">  
         <?php 

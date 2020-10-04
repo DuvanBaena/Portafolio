@@ -13,7 +13,7 @@ sleep(5);
             <li class="dropdown">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#hello">
                 <span class="profile-ava">
-                  <img alt="" src="../Resources/img/avatar1_small.jpg">
+                  <img alt="" src="../Resources/img/avatar2_small.jpg">
                 </span>
                 <span class="username"><?php echo $_SESSION['i_nombre'];?></span>
                 <b class="caret"></b>
@@ -24,7 +24,7 @@ sleep(5);
                   <a href="Logout.php"><i class="icofont-key"></i>Log Out</a>
                 </li>
                 <li>
-                  <a href="#"><i class="icofont-law-document"></i> Documentationt</a>
+                  <a href="#"><i class="icofont-law-document"></i> Documentation</a>
                 </li>
               </ul>
             </li>         
