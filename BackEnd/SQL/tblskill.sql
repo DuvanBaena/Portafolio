@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2020 a las 21:33:57
+-- Tiempo de generación: 08-10-2020 a las 22:18:24
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.1.12
 
@@ -41,11 +41,11 @@ CREATE TABLE `tblskill` (
 
 INSERT INTO `tblskill` (`SkillId`, `SkillName`, `SkillValue`, `Category`) VALUES
 (39, 'working together', 90, 'BackEnd'),
-(40, ' Discipline', 80, 'FrontEnd'),
+(40, 'Coaching', 85, 'FrontEnd'),
 (41, 'Desire to learn', 90, 'BackEnd'),
 (42, 'Agile methodologies', 70, 'FrontEnd'),
 (43, 'Happiness', 100, 'BackEnd'),
-(44, 'Order', 75, 'FrontEnd');
+(44, 'Motivation', 80, 'FrontEnd');
 
 --
 -- Índices para tablas volcadas
