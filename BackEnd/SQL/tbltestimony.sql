@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-09-2020 a las 22:57:11
+-- Tiempo de generación: 08-10-2020 a las 21:34:35
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.1.12
 
@@ -41,10 +41,9 @@ CREATE TABLE `tbltestimony` (
 --
 
 INSERT INTO `tbltestimony` (`IdTestimony`, `Remark`, `UserName`, `RolUserName`, `ImgUser`) VALUES
-(7, 'Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster', 'Duvan Baena', 'Store Owner', 'testimonials-5.jpg'),
-(8, 'Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt', 'Matt Brandon', 'Freelancer', 'testimonials-1.jpg'),
-(9, 'Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa  labore duis sunt culpa', 'John Larson', 'Entrepreneur', 'testimonials-4.jpg'),
-(18, 'ttttttttt', 'tttttt', 'ttttttttttt', 'testimonials-4.jpg');
+(7, 'Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna suntñl veniam ipsum anim magna', 'Esteban Valencia', 'Chief Happiness Officer', 'esteban.jpg'),
+(8, 'Cuando vemos a una persona que está logrando sus sueños, no siempre podemos ver sus horas de esfuerzo, sus libros leídos, su disciplina aplicada y sus peldaños descubiertos, lo has logrado con especial actitud, y con un aprendizaje constante', 'Lina Marcela Gil', 'Ceo & Founder', 'Marcela.jpg'),
+(9, 'Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna suntñl veniam ipsum anim magna', 'Jaime Cortes', 'Chief Technology Officer', 'testimonials-1.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -64,7 +63,7 @@ ALTER TABLE `tbltestimony`
 -- AUTO_INCREMENT de la tabla `tbltestimony`
 --
 ALTER TABLE `tbltestimony`
-  MODIFY `IdTestimony` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `IdTestimony` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

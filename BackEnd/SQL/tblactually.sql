@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-09-2020 a las 20:49:45
+-- Tiempo de generación: 08-10-2020 a las 21:32:38
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.1.12
 
@@ -59,7 +59,7 @@ ALTER TABLE `tblactually`
 -- AUTO_INCREMENT de la tabla `tblactually`
 --
 ALTER TABLE `tblactually`
-  MODIFY `IdActually` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `IdActually` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

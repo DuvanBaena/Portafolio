@@ -1,5 +1,4 @@
 <?php
-
 $records=$data->ListTestimonial();
 ?>
   <section id="testimonials" class="testimonials  section-bg">

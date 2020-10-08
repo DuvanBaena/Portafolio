@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-08-2020 a las 00:45:43
+-- Tiempo de generación: 08-10-2020 a las 21:35:17
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.1.12
 
@@ -31,9 +31,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `tblversion` (
   `VersionId` int(11) NOT NULL,
   `VersionCode` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `VersionComment` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `VersionDate` date NOT NULL
+  `VersionDate` date NOT NULL,
+  `VersionComment` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tblversion`
+--
+
+INSERT INTO `tblversion` (`VersionId`, `VersionCode`, `VersionDate`, `VersionComment`) VALUES
+(15, '0.1.0.300820', '2020-08-30', 'Add Module Summary Crud'),
+(16, '0.2.0.270920', '2020-09-27', 'Add CRUDEL al modules'),
+(20, '0.3.0.04102020', '2020-10-04', 'Validate critical path and QA all Pages');
 
 --
 -- Índices para tablas volcadas
@@ -53,7 +62,7 @@ ALTER TABLE `tblversion`
 -- AUTO_INCREMENT de la tabla `tblversion`
 --
 ALTER TABLE `tblversion`
-  MODIFY `VersionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `VersionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

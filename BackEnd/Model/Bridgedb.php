@@ -81,6 +81,10 @@ class BaseDatos extends Conexion{
     var $blogReferencePhrase;
     var $blogAuthorReference;
 
+    var $interestId;
+    var $interestName;
+    var $interestImg;
+
     var $UsuLogin;
     var $ClaLogin;
     
@@ -238,6 +242,20 @@ class BaseDatos extends Conexion{
            if (isset($_REQUEST['IdBlog']) && $_REQUEST['IdBlog']<>"") {
 
             $this->blogId=$_REQUEST['IdBlog'];
+
+        }
+
+
+        if (isset($_REQUEST['TechName']) && $_REQUEST['TechName']<>"") {
+
+            $this->interestName=$_REQUEST['TechName'];
+            $this->interestImg=$_REQUEST['TechImg'];          
+               
+           }
+
+           if (isset($_REQUEST['InterestId']) && $_REQUEST['InterestId']<>"") {
+
+            $this->interestId=$_REQUEST['InterestId'];
 
         }
 
@@ -1296,11 +1314,151 @@ class BaseDatos extends Conexion{
             }
 
       
+  /* In this part you will go all the logic of the database for Interest. */
 
 
+        public function ListInterests(){
+
+            $sql="SELECT * FROM `tblinterest` ";
+            $vector=array();
+            if($this->conector->query($sql)){
+                $resultado=$this->conector->query($sql);
+                while($fila=$resultado->fetch_array()){
+                    $vector[]=$fila;
+                }
+            }else{
+
+            }
+            return $vector;  
+
+            }
+            
+            public function GetInfoInterestById($id){
+
+                $sql="SELECT * FROM `tblinterest` WHERE InterestId ='".$id."'";
+    
+                $vector=array();
+                $resultado= $this->conector->query($sql);
+                if (!empty($resultado)){
+                    while ($fila = $resultado->fetch_array()) {
+                        $vector[]=$fila;
+                    }
+                }else{
+    
+                }
+                return $vector;
+            }
+
+           
+
+            public function AddInterest(){
+
+                $sql="INSERT INTO `tblinterest`(`NameInterest`,`ImgInterest`) 
+                VALUES
+                (
+                '".$this->interestName."',
+                '".$this->interestImg."'
+                )";
+
+                if($this->conector->query($sql)){
+                    $mensaje="<strong>Attention</strong> the data was inserted correctly.";
+
+                }else{
+
+                    $mensaje="Failed data";
+                }
+
+                return $mensaje;
+                
+            }
+
+            public function  UpdateInfoInterest(){
+
+                $sql="UPDATE `tblinterest` SET `NameInterest`='".$this->interestName."',  
+                `ImgInterest`='".$this->interestImg."'           
+                WHERE InterestId = '".$this->interestId."'";
+    
+            if ($this->conector->query($sql)) {
+                $mensaje="<strong>Attention</strong> the data was update correctly.";
+            } else {
+                $mensaje="Failed data";
+            }
+            return $mensaje;
+    
+            }
+            
+        public function DeleteInterest(){
+
+            $sql=" DELETE FROM `tblinterest` where InterestId='".$_REQUEST['id']."'";
+    
+            if ($this->conector->query($sql)){
+                $mensaje=1;
+              }else{
+                 $mensaje=0;
+               }
+             return $mensaje;
+        }
 
 
-   
+        public function  ListPictureInterest(){
+          
+            $path = "../../FrontEnd/Resources/img/Interest/";            
+             $data=array();
+ 
+             if (is_dir($path)){
+               if ($directorio=opendir($path)){               
+       
+                    while($archivo=readdir($directorio)){     
+                        
+                   $nombre=$archivo;
+                   
+                   $tipo=pathinfo($archivo,
+                     PATHINFO_EXTENSION);
+                  
+                   $tamano=filesize($path.$archivo);    
+                 
+                    if($archivo<>"." && $archivo<>".."){
+       
+                      $data[]=array("nombre"=>$nombre,"tipo"=>$tipo,"tamano"=>$tamano);              
+                   }        
+       
+                 }
+               }
+                closedir($directorio);
+             }
+         
+          return $data;
+         }
+         
+         function DeletePictureInterest(){
+
+            $path = "../../FrontEnd/Resources/img/Interest/";
+             if(unlink($path."/".$_REQUEST['n'])){                 
+                 $mensaje = "Archivo".$_REQUEST['n']."borrador con exito";
+             }else{
+       
+                $mensaje = "Archivo".$_REQUEST['n']." no puedo ser borrador";
+             }
+       
+             return $mensaje;
+          }
+       
+          function UploadImgInterest(){
+            $source=$_FILES['archivo']['tmp_name']; 
+            $tarjet=date("His")."-".$_FILES['archivo']['name']; 
+            $path="../../FrontEnd/Resources/img/Interest/";
+            $extension=$_FILES['archivo']['type']; 
+
+            if(move_uploaded_file($source, $path."/".$tarjet))
+            {
+                $mensaje="Archivo cargado con Exito!.";
+              }else{
+                $mensaje="Archivo NO se puede cargar.";
+              }
+              return $mensaje;
+            }
+
+
     }
 
 ?>

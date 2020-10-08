@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-09-2020 a las 22:56:32
+-- Tiempo de generación: 08-10-2020 a las 21:33:57
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.1.12
 
@@ -40,14 +40,12 @@ CREATE TABLE `tblskill` (
 --
 
 INSERT INTO `tblskill` (`SkillId`, `SkillName`, `SkillValue`, `Category`) VALUES
-(31, 'ASP.NET', 75, 'BackEnd'),
-(32, 'JavaScript', 50, 'FrontEnd'),
-(33, 'CSS', 53, 'FrontEnd'),
-(34, 'HTML', 54, 'FrontEnd'),
-(39, 'PHP', 20, 'BackEnd'),
-(40, 'AZURE', 45, 'BackEnd'),
-(41, 'SQL Server', 60, 'BackEnd'),
-(42, 'Agile methodologies', 70, 'FrontEnd');
+(39, 'working together', 90, 'BackEnd'),
+(40, ' Discipline', 80, 'FrontEnd'),
+(41, 'Desire to learn', 90, 'BackEnd'),
+(42, 'Agile methodologies', 70, 'FrontEnd'),
+(43, 'Happiness', 100, 'BackEnd'),
+(44, 'Order', 75, 'FrontEnd');
 
 --
 -- Índices para tablas volcadas
@@ -67,7 +65,7 @@ ALTER TABLE `tblskill`
 -- AUTO_INCREMENT de la tabla `tblskill`
 --
 ALTER TABLE `tblskill`
-  MODIFY `SkillId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `SkillId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

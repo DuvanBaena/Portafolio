@@ -1,4 +1,35 @@
-<section id="services" class="services">
+<?php
+$records=$data->ListInterests();
+?>
+ <section id="clients" class="clients">
+      <div class="container">
+
+         <div class="section-title" data-aos="fade-up">
+              <span>area of ​​interest</span>
+              <h2>area of ​​interest</h2>
+              <p>These are the areas of technology that most capture my attention.</p>
+          </div> 
+
+        <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
+        <?php
+            if(count($records)>0){
+            for($i=0;$i<count($records);$i++){?>
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo aos-init aos-animate" data-aos="zoom-in">
+              <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Interest/<?php echo $records[$i]["ImgInterest"];?>" class="img-fluid" alt="">
+            </div>
+          </div>
+          <?php
+              }
+            }
+          ?>  
+
+        </div>
+      </div>
+  </section>
+ 
+
+<!-- <section id="services" class="services">
           <div class="container">    
             <div class="section-title" data-aos="fade-up">
               <span>area of ​​interest</span>
@@ -39,6 +70,9 @@
                   <p class="description">It is what a person perceives when interacting with a product or service.</p>
                 </div>
               </div>    
-            </div>    
-          </div>
-    </section>
+            </div> 
+
+         </div>
+</section>
+
+ -->

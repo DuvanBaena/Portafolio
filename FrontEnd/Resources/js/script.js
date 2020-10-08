@@ -1323,6 +1323,129 @@ function DeleteBlog(id) {
 
 }
 
+function AddInterest() {
+   Toastr();
+   vector = ["TechName", "TechImg"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
+
+   let Img = document.getElementById("TechImg").value;
+
+   Img = $("#TechImg").val(); 
+
+   let data = {
+      "TechImg": Img,  
+   };
+
+   let parameters = $("#AddInterest").serialize() + '&' + $.param(data);
+
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.Addinterest.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "InterestSummary.php";
+         }
+         setTimeout(back, 5000);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
+
+}
+
+function UpdateInterest() {
+   Toastr();
+   vector = ["TechName", "TechImg"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
+
+   let IdInterest = document.getElementById("InterestId").value;
+
+   IdInterest = $("#InterestId").val(); 
+
+   let data = {
+      "InterestId": IdInterest,  
+   };
+
+   let parameters = $("#UpdateInterest").serialize() + '&' + $.param(data);
+
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.UpdateInfoInterest.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "InterestSummary.php";
+         }
+         setTimeout(back, 5000);
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
+
+}
+
+function DeleteInterest(id) {
+   Toastr();
+   var parametros = { "id": id };
+   $.ajax({
+      data: parametros,
+      url: "../../BackEnd/Model/Validate.DeleteInterest.php",
+      type: "post",
+      beforeSend: function () {
+         $("#loader-wrapper").show();
+      },
+      success: function (reponse) {
+
+         if (reponse == 1) {
+            $("#loader").show();
+            //alert("Record removed.");
+            toastr["info"]("Record removed", "Thanks")
+            function back() {
+               $("#loader").hide();
+               location.href = "InterestSummary.php";
+            }
+            setTimeout(back, 5000);
+
+         } else {
+            toastr["error"]("There was an error?")
+         }
+      },
+
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
+
+}
+
+
 function ReturnIndexVersion() {
    location.href = "Version.php";
 }
@@ -1359,5 +1482,7 @@ function ReturnBlog() {
    location.href = "BlogList.php";
 }
 
-
+function ReturnInterest() {
+   location.href = "InterestSummary.php";
+}
 
