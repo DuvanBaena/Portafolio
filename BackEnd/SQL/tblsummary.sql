@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2020 a las 21:34:12
+-- Tiempo de generación: 17-10-2020 a las 18:13:50
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.1.12
 
@@ -42,9 +42,9 @@ CREATE TABLE `tblsummary` (
 --
 
 INSERT INTO `tblsummary` (`idSummary`, `Title`, `StartYear`, `School`, `Remark`, `FinalYear`) VALUES
-(34, 'Engineering Specialist', 2019, 'University of Medellin', 'Based on two key elements of the software engineering process, which are: requirements for engineering and architectural design', 2020),
-(35, 'Computer Software Technology/Technician', 2015, 'Technical institute CESDE', 'Ability to develop software, analysis, design and implementation of applications and maintenance of web and mobile environment', 2018),
-(36, 'Systems Engineering degree', 2011, 'University Luis Amigó', 'Creativity and ability to innovate in the design, development, implementation and administration of computer systems that integrate Hardware, Software and Telecommunications technologies', 2017);
+(34, 'Software Engineering Specialist', 2019, 'University of Medellin', 'The Software Engineering Specialization  is based on two key elements of the software engineering process:  requirements of engineering  and architectural design', 2020),
+(35, 'Computer Software Technician', 2015, 'CESDE', 'I am skilled in software development and analysis, application design  and implementation, and maintenance of web and mobile environments ', 2018),
+(36, 'Systems Engineering degree', 2011, 'Universidad Católica Luis Amigó', 'I am creative and have the ability to innovate in the design, development and implementation of computer systems that integrate hardware administration, telecommunications technologies and software', 2017);
 
 --
 -- Índices para tablas volcadas

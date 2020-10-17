@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2020 a las 21:34:35
+-- Tiempo de generación: 17-10-2020 a las 18:14:11
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.1.12
 
@@ -63,7 +63,7 @@ ALTER TABLE `tbltestimony`
 -- AUTO_INCREMENT de la tabla `tbltestimony`
 --
 ALTER TABLE `tbltestimony`
-  MODIFY `IdTestimony` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `IdTestimony` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

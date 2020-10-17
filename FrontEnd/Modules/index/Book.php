@@ -4,10 +4,10 @@ $records=$data->ListBooks();
   <section id="portfolio" class="portfolio">
       <div class="container">
         <div class="section-title">
-          <span>book's</span>
-          <h2>Book's</h2>
+          <span>books</span>
+          <h2>Books</h2>
           <p>
-           Maybe it's useful to you, I would like to recommend you,some books that have inspired me.</p>
+           I would like to suggest some books that inspired me and can be useful to you.</p>
         </div>
 
         <div class="row" data-aos="fade-up">

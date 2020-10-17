@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2020 a las 21:33:06
+-- Tiempo de generación: 17-10-2020 a las 18:12:11
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.1.12
 
@@ -70,7 +70,7 @@ ALTER TABLE `tblblog`
 -- AUTO_INCREMENT de la tabla `tblblog`
 --
 ALTER TABLE `tblblog`
-  MODIFY `IdBlog` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `IdBlog` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

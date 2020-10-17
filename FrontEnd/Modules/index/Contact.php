@@ -2,7 +2,7 @@
       <div class="container">
         <div class="section-title">          
           <h2>contact</h2>
-          <p>If I can help you with what I can, I will gladly do it</p>
+          <p>I will gladly help you with everything I can</p>
         </div>
         <div class="row contact-info">
           <div class="col-md-4">

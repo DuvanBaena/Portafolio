@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2020 a las 21:32:38
+-- Tiempo de generación: 17-10-2020 a las 18:11:54
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.1.12
 
@@ -39,7 +39,7 @@ CREATE TABLE `tblactually` (
 --
 
 INSERT INTO `tblactually` (`IdActually`, `PlaceStudy`, `Remark`) VALUES
-(1, 'American Colombo of Medellín', 'I am a student of English language and literature');
+(1, 'Centro Colombo Americano of Medellín', 'I am an English language and literature student');
 
 --
 -- Índices para tablas volcadas

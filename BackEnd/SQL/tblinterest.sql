@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2020 a las 21:33:38
+-- Tiempo de generación: 17-10-2020 a las 18:13:04
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.1.12
 
@@ -41,15 +41,13 @@ CREATE TABLE `tblinterest` (
 INSERT INTO `tblinterest` (`InterestId`, `NameInterest`, `ImgInterest`) VALUES
 (2, 'Angular', 'angular.png'),
 (4, 'Html', 'html.png'),
-(9, 'Androide', '202714-androide.png'),
-(10, 'azure', 'azure.png'),
-(11, 'C#', 'csharp.png'),
-(12, 'css', 'css.png'),
-(13, 'html', 'html.png'),
-(14, 'javaScript', 'javaScript.png'),
-(15, 'php', 'x-19-128.png'),
-(16, 'sql', 'sql.png'),
-(17, 'Xamarin', 'xamarin.png');
+(18, 'azure', 'azure.png'),
+(19, 'C#', 'csharp.png'),
+(20, 'Css', 'css.png'),
+(21, 'JavaScript', 'javaScript.png'),
+(22, 'Sql', 'sql.png'),
+(23, 'Php', 'php.png'),
+(24, 'Xamarin', 'xamarin.png');
 
 --
 -- Índices para tablas volcadas
@@ -69,7 +67,7 @@ ALTER TABLE `tblinterest`
 -- AUTO_INCREMENT de la tabla `tblinterest`
 --
 ALTER TABLE `tblinterest`
-  MODIFY `InterestId` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `InterestId` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

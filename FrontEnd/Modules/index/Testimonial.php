@@ -6,7 +6,7 @@ $records=$data->ListTestimonial();
 
         <div class="section-title">
           <h2>testimonials</h2>
-          <p>I have known some people whose advice or ways of analyzing life have contributed to my way of thinking.</p>
+          <p>I have met some people whose  advice or ways of analyzing life have contributed to improving my way of thinking.</p>
         </div>
         <div class="owl-carousel testimonials-carousel">
         <?php

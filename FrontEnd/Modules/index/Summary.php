@@ -8,17 +8,18 @@ $recordsB=$data->ListWorkSumary();
    <section id="resume" class="resume ">
       <div class="container">
         <div class="section-title">
-          <span>resumen</span>
-          <h2>resume</h2>
-          <p>I yet have a long way to go, academically and professionally, I already did the most difficult thing, was
-            to start.<strong> 🖥️ Lifelong learning 💻</strong></p>
+          <span>summary</span>
+          <h2>summary</h2>
+          <p>I still have a long way to go academically and professionally. But I already did the 
+             most difficult thing, that is, to start.
+           <strong> 🖥️ Lifelong learning 💻</strong></p>
         </div>
 
         <div class="row">
           <div class="col-lg-6" data-aos="fade-up">
             <h3 class="resume-title">Sumary</h3>
             <div class="resume-item pb-0">
-              <h4>Actually</h4>
+              <h4>Currently</h4>
               <?php
             if(count($records2)>0){
             for($i=0;$i<count($records2);$i++){?>
@@ -56,6 +57,7 @@ $recordsB=$data->ListWorkSumary();
               <h4><?php echo $recordsB[$i]["TitleWork"];?></h4>
               <h5><?php echo $Time;?></h5>
               <p><em><?php echo $recordsB[$i]["Company"];?>, Medellín, Col </em></p>
+              <p><em>Duties:</em></p>
               <ul>
                 <li><?php echo $recordsB[$i]["Remark1"];?>.</li>
                 <li><?php echo $recordsB[$i]["Remark2"];?>.</li>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2020 a las 21:35:32
+-- Tiempo de generación: 17-10-2020 a las 18:15:47
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.1.12
 
@@ -44,8 +44,8 @@ CREATE TABLE `tblwork` (
 --
 
 INSERT INTO `tblwork` (`IdWork`, `StartYear`, `FinalYear`, `TitleWork`, `Company`, `Remark1`, `Remark2`, `Remark3`) VALUES
-(1, 2018, 2020, 'DEVOPS & CLOUD ENGINEER', 'Globo Studio of Colombia S.A.S', 'Create automated deployments by using configuration management technology. Deploy new modules and updates and fix bugs within the production environment', 'Monitoring the availability Cloud PaaS/SaaS solutions, performance and production of health systems in support of meeting service level objectives', 'Administration within the Azure ecosystem complemented by the use of CI / CD technologies and management of source code repositories'),
-(33, 2008, 2018, 'IT Infrastructure Engineer', 'Colombia National Police', 'Maximizing network efficiency by monitoring performance, troubleshooting network problems and outages, scheduling upgrades, supporting PC / computers (HW, OS, drivers, interfaces, software, etc.)', 'Secure network systems by establishing and applying policies, defining and monitoring access and computer systems that are available during production hours', 'Research, advise and implement best practices to maintain the infrastructure');
+(1, 2018, 2020, 'DEVOPS & CLOUD ENGINEER', 'Globo Studio of Colombia S.A.S', 'Create automated deployments by using configuration management technology. Deploy new modules and updates and fix bugs within the production environment', 'Monitoring the availability of Cloud PaaS/SaaS solutions, performance, and production of health systems in support of meeting service level objectives', 'Administration within the Azure ecosystem, complemented using  CI/CD technologies and management of source code repositories'),
+(33, 2008, 2018, 'IT Infrastructure Engineer', 'Colombia National Police', 'Maximizing network efficiency by monitoring performance, troubleshooting network problems and outages, scheduling upgrades, supporting PC (HW, OS, drivers, interfaces, software, etc.)', 'Secure network systems by establishing and applying policies, defining and  , monitoring access so computer systems available during production hours', 'Research, advise, and implement the best practices to maintain the infrastructure');
 
 --
 -- Índices para tablas volcadas
