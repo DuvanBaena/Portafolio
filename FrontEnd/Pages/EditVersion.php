@@ -63,7 +63,7 @@ if (isset($_REQUEST['id'])){
               </header>
               <div class="panel-body">
                 <div class="form">
-                  <form class="form-horizontal">
+                  <form class="form-horizontal" id="EditFrmVersion">
                   <div class="form-group ">
                       <label  class="control-label col-lg-2">Version id</label>
                       <div class="col-lg-10">

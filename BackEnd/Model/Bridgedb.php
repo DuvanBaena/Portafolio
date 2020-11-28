@@ -263,7 +263,7 @@ class BaseDatos extends Conexion{
 
     public function validaringreso(){
 
-        $sql="SELECT * FROM tbluser ";
+        $sql="SELECT * FROM `tbluser` ";
         $sql.=" WHERE UserEmail='".$this->UsuLogin."' ";
         $sql.=" AND UserPassword=MD5('".$this->ClaLogin."') ";
 
@@ -274,7 +274,6 @@ class BaseDatos extends Conexion{
          else {
 
          }
-
          return $vector;
 
      }

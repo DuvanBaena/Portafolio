@@ -138,7 +138,10 @@ $records=$data->ListVersion();
         "info":     false,
         "searching": false
        } ); 
-    });  
+      
+    });
+    
+
 </script>
 
 <!-- <script type="text/javascript"> 

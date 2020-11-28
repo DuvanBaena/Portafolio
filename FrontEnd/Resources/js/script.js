@@ -229,10 +229,13 @@ function UpdateVersion() {
 
          },
          success: function (response) {
-
             toastr["success"](response)
+            function back() {
+               location.href = "Version.php";               
+            }
+            setTimeout(back, 5000);
+            $("#tableDetail").load('../../FrontEnd/Pages/Version.php');
          },
-
          error: function (jqXHR, textStatus, errorThrown) {
             toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
          }

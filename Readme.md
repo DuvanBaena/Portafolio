@@ -31,6 +31,8 @@ Remember that there is no good or bad technology, some are simply of great or li
 ### Installation
 keep in mind the General.php and Connectdb.php file
 
+Install PHP 7.1.1 is required 
+
 License
 ----
 MIT

@@ -111,7 +111,7 @@ $records=$data->ListPersonalInformation();
 
 
   <!-- ======= Link WhatsApp ======= -->
-  <a href="https://wa.me/573122988419?text=Me%20gustar��a%20comunicarme%20contigo." class="float" target="_blank">
+  <a href="https://wa.me/573122988419?text=Me%20gustaría%20comunicarme%20contigo." class="float" target="_blank">
     <i class="icofont-brand-whatsapp" title=""></i>
   </a>
   <!-- End  WhatsApp -->
