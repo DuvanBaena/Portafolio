@@ -75,12 +75,12 @@ sleep(5);
             <li class="sub-menu">
               <a href="javascript:;" class="">
               <i class="icofont-simple-smile"></i>
-                <span>Interest</span>
+                <span>Certification</span>
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
               <ul class="sub">
-                <li><a href="InterestSummary.php">Interest Detail</a></li> 
-                <li><a href="AdminPictureInterest.php">Administrator Img</a></li>                         
+                <li><a href="CertificationSummary.php">Certification Detail</a></li> 
+                <li><a href="AdminPictureCertification.php">Certification Img</a></li>                         
               </ul>
             </li>
             <li class="sub-menu">

@@ -1,3 +1,32 @@
+<?php
+$records=$data->ListCertification();
+?>
+  <section id="clients" class="clients">
+      <div class="container">
+          <div class="section-title" data-aos="fade-up">
+            <span>Hard Skill</span>
+            <h2>certification</h2>
+            <p>These are any certification, my golad is never stop to learnig.</p>
+          </div> 
+        <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
+        <?php
+            if(count($records)>0){
+            for($i=0;$i<count($records);$i++){?>
+          <div class="col-lg-3 col-md-4 col-6">
+            <div class="client-logo">
+              <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Certification//<?php echo $records[$i]["ImgBadge"];?>" class="img-fluid" alt=""> 
+              <!-- <img src="<?php echo UrlServer?>/FrontEnd/Resources/img/Certification/AZ-900.png" class="img-fluid" alt=""> -->
+            </div>
+          </div>
+          <?php
+              }
+            }
+          ?> 
+        </div>
+      </div>
+  </section>
+
+ 
 
 <!-- <section id="services" class="services">
           <div class="container">    
@@ -43,6 +72,6 @@
             </div> 
 
          </div>
-</section>
+</section> -->
 
- -->
+

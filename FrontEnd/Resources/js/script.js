@@ -1448,7 +1448,127 @@ function DeleteInterest(id) {
 
 }
 
+function AddCertification() {
+   Toastr();
+   vector = ["NameCertification", "ImgBadge"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
 
+   let Img = document.getElementById("ImgBadge").value;
+
+   Img = $("#ImgBadge").val(); 
+
+   let data = {
+      "ImgBadge": Img,  
+   };
+
+   let parameters = $("#FrmAddCertification").serialize() + '&' + $.param(data);
+
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.AddCertification.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "CertificationSummary.php";
+         }
+         setTimeout(back, 5000);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
+
+}
+
+function UpdateCertification() {
+   Toastr();
+   vector = ["NameCertification", "ImgBadge"];
+   total = vector.length;
+   for (i = 0; i < total; i++) {
+      if (document.getElementById(vector[i]).value == "") {
+         toastr["error"]("You must enter value " + vector[i])
+         document.getElementById(vector[i]).focus();
+         return;
+      }
+   }
+
+   let CertificationID = document.getElementById("CertificationID").value;
+
+   CertificationID = $("#CertificationID").val(); 
+
+   let data = {
+      "CertificationID": CertificationID,  
+   };
+
+   let parameters = $("#FrmUpdateCertification").serialize() + '&' + $.param(data);
+
+   $.ajax({
+      data: parameters,
+      url: "../../BackEnd/Model/Validate.UpdateInfoCertificate.php",
+      type: "post",
+      beforeSend: function () {
+      },
+      success: function (response) {
+         toastr["success"](response);
+         function back() {
+            location.href = "CertificationSummary.php";
+         }
+         setTimeout(back, 5000);
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
+
+}
+
+function DeleteCertification(id) {
+   Toastr();
+   var parametros = { "id": id };
+   $.ajax({
+      data: parametros,
+      url: "../../BackEnd/Model/Validate.DeleteCertification.php",
+      type: "post",
+      beforeSend: function () {
+         $("#loader-wrapper").show();
+      },
+      success: function (reponse) {
+
+         if (reponse == 1) {
+            $("#loader").show();
+            //alert("Record removed.");
+            toastr["info"]("Record removed", "Thanks")
+            function back() {
+               $("#loader").hide();
+               location.href = "CertificationSummary.php";
+            }
+            setTimeout(back, 5000);
+
+         } else {
+            toastr["error"]("There was an error?")
+         }
+      },
+
+      error: function (jqXHR, textStatus, errorThrown) {
+         toastr["error"]("There was a problem loading the request: " + textStatus + " - " + errorThrown);
+      }
+
+   });
+
+}
 function ReturnIndexVersion() {
    location.href = "Version.php";
 }
@@ -1485,7 +1605,10 @@ function ReturnBlog() {
    location.href = "BlogList.php";
 }
 
-function ReturnInterest() {
-   location.href = "InterestSummary.php";
-}
+// function ReturnInterest() {
+//    location.href = "InterestSummary.php";
+// }
 
+function ReturnCertification() {
+   location.href = "CertificationSummary.php";
+}

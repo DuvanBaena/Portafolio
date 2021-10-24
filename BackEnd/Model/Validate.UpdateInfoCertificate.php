@@ -2,5 +2,5 @@
 session_start();
 include __DIR__ . '/Bridgedb.php';
 $data=new BaseDatos;
-$response=$data->AddInterest();    
+$response=$data->UpdateInfoCertification();    
 echo $response;

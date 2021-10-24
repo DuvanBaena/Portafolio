@@ -81,9 +81,10 @@ class BaseDatos extends Conexion{
     var $blogReferencePhrase;
     var $blogAuthorReference;
 
-    var $interestId;
-    var $interestName;
-    var $interestImg;
+
+    var $certificationID;
+    var $nameCertification;
+    var $imgBadge;
 
     var $UsuLogin;
     var $ClaLogin;
@@ -259,6 +260,21 @@ class BaseDatos extends Conexion{
 
         }
 
+       
+
+        if (isset($_REQUEST['NameCertification']) && $_REQUEST['NameCertification']<>"") {
+
+            $this->nameCertification=$_REQUEST['NameCertification'];
+            $this->imgBadge=$_REQUEST['ImgBadge'];          
+               
+           }
+
+           if (isset($_REQUEST['CertificationID']) && $_REQUEST['CertificationID']<>"") {
+
+            $this->certificationID=$_REQUEST['CertificationID'];
+
+        }
+
     }
 
     public function validaringreso(){
@@ -277,6 +293,7 @@ class BaseDatos extends Conexion{
          return $vector;
 
      }
+
 
     /* In this part will go all the logic of the database for the version issue. */
 
@@ -1312,153 +1329,150 @@ class BaseDatos extends Conexion{
               return $mensaje;
             }
 
-      
-  /* In this part you will go all the logic of the database for Interest. */
-
-
-        public function ListInterests(){
-
-            $sql="SELECT * FROM `tblinterest` ";
-            $vector=array();
-            if($this->conector->query($sql)){
-                $resultado=$this->conector->query($sql);
-                while($fila=$resultado->fetch_array()){
-                    $vector[]=$fila;
-                }
-            }else{
-
-            }
-            return $vector;  
-
-            }
+            /* In this part you will go all the logic of the database for Certification. */
             
-            public function GetInfoInterestById($id){
+            public function ListCertification(){
 
-                $sql="SELECT * FROM `tblinterest` WHERE InterestId ='".$id."'";
-    
+                $sql= "SELECT * FROM `tblcertification` ";
                 $vector=array();
-                $resultado= $this->conector->query($sql);
-                if (!empty($resultado)){
-                    while ($fila = $resultado->fetch_array()) {
+                if($this->conector->query($sql)){
+                    $resultado=$this->conector->query($sql);
+                    while($fila=$resultado->fetch_array()){
                         $vector[]=$fila;
                     }
                 }else{
-    
+
                 }
-                return $vector;
-            }
+                return $vector;  
 
-           
+                }
 
-            public function AddInterest(){
+                public function GetCertificationById($id){
 
-                $sql="INSERT INTO `tblinterest`(`NameInterest`,`ImgInterest`) 
-                VALUES
-                (
-                '".$this->interestName."',
-                '".$this->interestImg."'
-                )";
+                    $sql="SELECT * FROM `tblcertification` WHERE CertificationID ='".$id."'";
+        
+                    $vector=array();
+                    $resultado= $this->conector->query($sql);
+                    if (!empty($resultado)){
+                        while ($fila = $resultado->fetch_array()) {
+                            $vector[]=$fila;
+                        }
+                    }else{
+        
+                    }
+                    return $vector;
+                }
+    
+                public function AddCertification(){
 
-                if($this->conector->query($sql)){
-                    $mensaje="<strong>Attention</strong> the data was inserted correctly.";
+                    $sql="INSERT INTO `tblcertification`(`NameCertification`,`ImgBadge`) 
+                    VALUES
+                    (
+                    '".$this->nameCertification."',
+                    '".$this->imgBadge."'
+                    )";
+    
+                    if($this->conector->query($sql)){
+                        $mensaje="<strong>Attention</strong> the data was inserted correctly.";
+    
+                    }else{
+    
+                        $mensaje="Failed data";
+                    }
+    
+                    return $mensaje;
+                    
+                }
 
-                }else{
+                public function  UpdateInfoCertification(){
 
+                    $sql="UPDATE `tblcertification` SET `NameCertification`='".$this->nameCertification."',  
+                    `ImgBadge`='".$this->imgBadge."'           
+                    WHERE CertificationID = '".$this->certificationID."'";
+        
+                if ($this->conector->query($sql)) {
+                    $mensaje="<strong>Attention</strong> the data was update correctly.";
+                } else {
                     $mensaje="Failed data";
                 }
-
                 return $mensaje;
-                
-            }
+        
+                }
 
-            public function  UpdateInfoInterest(){
+                public function DeleteCertification(){
 
-                $sql="UPDATE `tblinterest` SET `NameInterest`='".$this->interestName."',  
-                `ImgInterest`='".$this->interestImg."'           
-                WHERE InterestId = '".$this->interestId."'";
-    
-            if ($this->conector->query($sql)) {
-                $mensaje="<strong>Attention</strong> the data was update correctly.";
-            } else {
-                $mensaje="Failed data";
-            }
-            return $mensaje;
-    
-            }
+                    $sql=" DELETE FROM `tblcertification` where CertificationID='".$_REQUEST['id']."'";
             
-        public function DeleteInterest(){
+                    if ($this->conector->query($sql)){
+                        $mensaje=1;
+                      }else{
+                         $mensaje=0;
+                       }
+                     return $mensaje;
+                }
 
-            $sql=" DELETE FROM `tblinterest` where InterestId='".$_REQUEST['id']."'";
-    
-            if ($this->conector->query($sql)){
-                $mensaje=1;
-              }else{
-                 $mensaje=0;
-               }
-             return $mensaje;
-        }
-
-
-        public function  ListPictureInterest(){
+                public function  ListPictureCertification(){
           
-            $path = "../../FrontEnd/Resources/img/Interest/";            
-             $data=array();
- 
-             if (is_dir($path)){
-               if ($directorio=opendir($path)){               
-       
-                    while($archivo=readdir($directorio)){     
-                        
-                   $nombre=$archivo;
-                   
-                   $tipo=pathinfo($archivo,
-                     PATHINFO_EXTENSION);
-                  
-                   $tamano=filesize($path.$archivo);    
+                    $path = "../../FrontEnd/Resources/img/Certification/";            
+                     $data=array();
+         
+                     if (is_dir($path)){
+                       if ($directorio=opendir($path)){               
+               
+                            while($archivo=readdir($directorio)){     
+                                
+                           $nombre=$archivo;
+                           
+                           $tipo=pathinfo($archivo,
+                             PATHINFO_EXTENSION);
+                          
+                           $tamano=filesize($path.$archivo);    
+                         
+                            if($archivo<>"." && $archivo<>".."){
+               
+                              $data[]=array("nombre"=>$nombre,"tipo"=>$tipo,"tamano"=>$tamano);              
+                           }        
+               
+                         }
+                       }
+                        closedir($directorio);
+                     }
                  
-                    if($archivo<>"." && $archivo<>".."){
-       
-                      $data[]=array("nombre"=>$nombre,"tipo"=>$tipo,"tamano"=>$tamano);              
-                   }        
-       
+                  return $data;
                  }
-               }
-                closedir($directorio);
-             }
-         
-          return $data;
-         }
-         
-         function DeletePictureInterest(){
+                 
+                 function DeletePictureCertification(){
 
-            $path = "../../FrontEnd/Resources/img/Interest/";
-             if(unlink($path."/".$_REQUEST['n'])){                 
-                 $mensaje = "Archivo".$_REQUEST['n']."borrador con exito";
-             }else{
-       
-                $mensaje = "Archivo".$_REQUEST['n']." no puedo ser borrador";
-             }
-       
-             return $mensaje;
-          }
-       
-          function UploadImgInterest(){
-            $source=$_FILES['archivo']['tmp_name']; 
-            $tarjet=date("His")."-".$_FILES['archivo']['name']; 
-            $path="../../FrontEnd/Resources/img/Interest/";
-            $extension=$_FILES['archivo']['type']; 
-
-            if(move_uploaded_file($source, $path."/".$tarjet))
-            {
-                $mensaje="Archivo cargado con Exito!.";
-              }else{
-                $mensaje="Archivo NO se puede cargar.";
-              }
-              return $mensaje;
-            }
-
+                    $path = "../../FrontEnd/Resources/img/Certification/";
+                     if(unlink($path."/".$_REQUEST['n'])){                 
+                         $mensaje = "Archivo".$_REQUEST['n']." borrado con exito";
+                     }else{
+               
+                        $mensaje = "Archivo".$_REQUEST['n']." no pudo ser borrado";
+                     }
+               
+                     return $mensaje;
+                  }
+               
+                  function UploadImgCertification(){
+                    $source=$_FILES['archivo']['tmp_name']; 
+                    $tarjet=date("His")."-".$_FILES['archivo']['name']; 
+                    $path="../../FrontEnd/Resources/img/Certification/";
+                    $extension=$_FILES['archivo']['type']; 
+        
+                    if(move_uploaded_file($source, $path."/".$tarjet))
+                    {
+                        $mensaje="Archivo cargado con Exito.";
+                      }else{
+                        $mensaje="Archivo NO se puede cargar.";
+                      }
+                      return $mensaje;
+                    }
+                /*todas la funciones debe estar dentro de esta llave*/
 
     }
+
+
 
 ?>
 
