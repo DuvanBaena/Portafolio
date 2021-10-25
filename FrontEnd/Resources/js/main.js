@@ -223,29 +223,29 @@ function MessageToastr() {
   }
 }
 
-$('#GetFileCV').on('click', function () {
-  $.ajax({
-      url: 'Resources/vendor/Documents/Duvan.pdf',
-      method: 'GET',
-      xhrFields: {
-          responseType: 'blob'
-      },
-      success: function (data) {         
+// $('#GetFileCV').on('click', function () {
+//   $.ajax({
+//       url: 'Resources/vendor/Documents/v1Duvan_CV.pdf',
+//       method: 'GET',
+//       xhrFields: {
+//           responseType: 'blob'
+//       },
+//       success: function (data) {         
           
-          MessageToastr();
+//           MessageToastr();
                   
-          var a = document.createElement('a');
-          var url = window.URL.createObjectURL(data);
-          a.href = url;
-          a.download = 'CV_Duvan.pdf';
-          document.body.append(a);
-          a.click();
-          a.remove();
-          window.URL.revokeObjectURL(url);
-          Command: toastr["success"]("Let me introduce myself", "Thanks")
-      }
-  });
-});
+//           var a = document.createElement('a');
+//           var url = window.URL.createObjectURL(data);
+//           a.href = url;
+//           a.download = 'CV_Duvan.pdf';
+//           document.body.append(a);
+//           a.click();
+//           a.remove();
+//           window.URL.revokeObjectURL(url);
+//           Command: toastr["success"]("Let me introduce myself", "Thanks")
+//       }
+//   });
+// });
 
 
 
