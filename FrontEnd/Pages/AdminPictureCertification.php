@@ -108,7 +108,7 @@ $records=$data->ListPictureCertification();
                                        
                     <td>
                       <div class="btn-group">                         
-                        <a class="btn btn-primary" href="../../BackEnd/Model/DownLoadFileImdTech.php?n=<?php echo $records[$i]["nombre"];?>" title="DownLoad"><i class="icofont-download"></i></a>
+                        <a class="btn btn-primary" href="../../BackEnd/Model/DownLoadFileCertification.php?n=<?php echo $records[$i]["nombre"];?>" title="DownLoad"><i class="icofont-download"></i></a>
                         <a class="btn btn-danger" href="AdminPictureCertification.php?n=<?php echo $records[$i]["nombre"];?>" title="Delete"  id="BtnDelete"><i class="icofont-garbage"></i></a>
                       </div>
                     </td>
