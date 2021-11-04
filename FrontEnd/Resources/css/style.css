@@ -1969,3 +1969,46 @@ background-size: cover;
 #header2 .logo img {
   max-height: 40px;
 }
+
+
+
+/*--------------------------------------------------------------
+# newsletter
+--------------------------------------------------------------*/
+
+ .home-newsletter {
+  padding: 10px 0;
+  margin: 10px 0
+  /* background: #2487ce; */
+  }
+  
+  .home-newsletter .single {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2; 
+}
+  .home-newsletter .single h2 {
+  font-size: 22px;
+  color: rgb(245, 235, 235);
+  text-transform: lowercase;
+  margin-bottom: 40px;
+ }
+  .home-newsletter .single .form-control {
+  height: 50px;
+  background: rgba(255, 255, 255, 0.6);
+  border-color: transparent;
+  border-radius: 20px 0 0 20px;
+  border: 1px solid #ccc;
+ }
+  .home-newsletter .single .form-control:focus {
+  box-shadow: none;
+  border-color: #243c4f; 
+}
+  .home-newsletter .single .btn {
+  min-height: 50px; 
+  border-radius: 0 20px 20px 0;
+  background: #2487ce;
+  color: #fff;
+  }

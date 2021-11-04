@@ -94,6 +94,12 @@ $records=$data->ListPersonalInformation();
 
     <!-- End Services Section -->
 
+    <!-- ======= Newsletter Section ======= -->
+
+    <?php include __DIR__ . '/Modules/index/Newsletter.php'; ?>
+
+    <!-- End Newsletter Section -->
+
 
     <!-- ======= Contact Section ======= -->
 
