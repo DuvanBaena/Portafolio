@@ -93,6 +93,7 @@ $records=$data->ListPersonalInformation();
     <?php include __DIR__ . '/Modules/index/Certification.php'; ?>
 
     <!-- End Services Section -->
+    
 
     <!-- ======= Newsletter Section ======= -->
 

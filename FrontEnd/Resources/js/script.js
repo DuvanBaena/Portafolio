@@ -1634,7 +1634,17 @@ function ReturnCertification() {
 //   });
 // }
 
+      function NewsLettersFunction() {
 
-      function DeleInputNewsLettersFunction() {
-            document.getElementById("revue-form").reset();
+         Toastr();                  
+         let member_email = document.getElementById('member_email').value;  
+         if( member_email == "" ) {               
+            toastr["error"]("You must enter email ");            
+            document.getElementById("member_email").focus();             
+            return false;
+         }
+         
+
         }
+
+        

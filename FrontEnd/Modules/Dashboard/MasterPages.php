@@ -107,17 +107,6 @@ sleep(5);
             </li>
             <li class="sub-menu">
               <a href="javascript:;" class="">
-                <i class="icofont-blogger"></i>
-                <span>Blog</span>
-                <span class="menu-arrow arrow_carrot-right"></span>
-              </a>
-              <ul class="sub">
-                <li><a href="BlogList.php">Blog General</a></li> 
-                <li><a href="AdminPictureBlog.php">Administrator Img</a></li> 
-              </ul>
-            </li>
-            <li class="sub-menu">
-              <a href="javascript:;" class="">
                 <i class="icofont-web"></i>
                 <span>Version</span>
                 <span class="menu-arrow arrow_carrot-right"></span>
@@ -129,10 +118,3 @@ sleep(5);
           </ul>       
         </div>
   </aside>
-
-
-   <!-- ======= Footer ======= -->
-
-  
-
-   <!-- End  Footer -->
