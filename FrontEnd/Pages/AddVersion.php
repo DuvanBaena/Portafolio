@@ -11,7 +11,7 @@
    <!-- Favicons -->
    <link href="../Resources/img/favicon.ico" rel="icon">
 
-  <title>Form Abouth me</title>
+  <title>Detail new version</title>
 
   <!-- All CSS -->
   <link href="../Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
