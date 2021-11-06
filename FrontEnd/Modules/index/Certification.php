@@ -6,7 +6,7 @@ $records=$data->ListCertification();
           <div class="section-title" data-aos="fade-up">
             <span>Hard Skill</span>
             <h2>certification</h2>
-            <p>These are any certification, my golad is never stop to learnig.</p>
+            <p>These are any certification, my gold is never stop to learnig.</p>
           </div> 
         <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
         <?php
