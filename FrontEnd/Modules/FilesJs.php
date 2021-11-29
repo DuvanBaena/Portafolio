@@ -16,6 +16,4 @@
   <script src="<?php echo UrlServer ?>/FrontEnd/Resources/js/main.js"></script>
   <script src="<?php echo UrlServer ?>/FrontEnd/Resources/js/script.js"></script>
 
-  <script type="text/javascript">
-    document.getElementById("member_submit").onclick = NewsLettersFunction;
-  </script>
+

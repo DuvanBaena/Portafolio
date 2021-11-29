@@ -129,6 +129,9 @@ $records=$data->ListPersonalInformation();
  <!-- All Files  JAvaScripts -->
 
     <?php include __DIR__ . '/Modules/FilesJs.php'; ?>
+  <script type="text/javascript">
+    document.getElementById("member_submit").onclick = NewsLettersFunction;
+  </script>
 
   <!-- End  JAvaScripts -->
 
