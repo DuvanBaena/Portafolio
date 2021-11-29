@@ -25,6 +25,7 @@ function login() {
 
    if (UserName == null || UserName.length == 0 || /^\s+$/.test(UserName)) {
       toastr["info"]("Debes ingresar un usuario", "Error")
+      $("#Username").focus();
       return false;
    }
 
@@ -65,9 +66,12 @@ function login() {
                setTimeout(back, 2000);
 
             } else {
-               $("#capa").show();
+               $("#capa").show();             
                txtmensaje = "<strong>Invalid Username or Password</strong>";
                $("#capa").html(txtmensaje).css("text-align", "center").fadeOut(1500);
+               $('#Username').val('');
+               $('#Password').val('');
+               $('#Username').focus();
             }
 
          },
