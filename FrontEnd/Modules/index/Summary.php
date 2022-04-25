@@ -69,8 +69,6 @@ $recordsB=$data->ListWorkSumary();
             }
           ?>
 
-
-
           </div>
         </div>
       </div>
