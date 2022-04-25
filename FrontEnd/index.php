@@ -26,6 +26,14 @@ $records=$data->ListPersonalInformation();
 
   <?php include __DIR__ . '/Modules/StylesAll.php'; ?>
 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YW1YKY58T9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YW1YKY58T9');
+</script>
 
 </head>
 
