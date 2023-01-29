@@ -105,7 +105,7 @@ $records=$data->ListPersonalInformation();
 
     <!-- ======= Newsletter Section ======= -->
 
-    <?php include __DIR__ . '/Modules/index/Newsletter.php'; ?>
+    <!-- <?php include __DIR__ . '/Modules/index/Newsletter.php'; ?> -->
 
     <!-- End Newsletter Section -->
 
